@@ -44,7 +44,7 @@ unzip SQANTI3_v5.3.6.zip -d tools/sqanti3
 Once it is downloaded and unzipped, you can either add it to your PATH or call the programs using the full path. 
 
 <details>
-<summary><strong>Adding SQANTI3 to your PATH</strong></summary><br>
+<summary><strong> 📃  Adding SQANTI3 to your PATH</strong></summary><br>
 
 In the terminal, you have to find the file `.bashrc` or `.bash_profile` in your home directory. Use your favorite text editor to open it and add the following line
 
