@@ -94,10 +94,10 @@ Frirtly, to get familiar with SQANTI3 QC, we will run it with the most basic par
 3. `--refFasta`: Reference genome in fasta format.
 
 <details>
-<summary><strong>:warning: Special considerations</strong></summary>
+<summary><strong> ⚠️ Special considerations</strong></summary>
 
 SQANTI3 was developed to work with PacBio long-reads transcriptomes. Thus, when parsing transcriptomes it will parse pacbio like transccitpt and gene IDs. If your data does not come from a PacBio experiment, you will need to add the `--force_id_ignore` flag to allow the usage of transcript IDs that do not follow the PacBio format (PB.X.Y)
-</details>
+</details><br>
 
 ```bash
 sqanti3_qc.py \
@@ -109,9 +109,64 @@ sqanti3_qc.py \
 
 In this run, SQANTI3 will be carried out in its most basic functions. First, it will parse all inputs and load them. Then, it will predict the Open Reading Frames within the contigs, to determine if the isoforms are coding or not. It will also look at the Retrotranscriptase Switching and the percentage of A content after the TTS. Finally, it will produce the classification of the isoforms in the SQANTI3 categories. Now, lets, dive into the output files.
 
-Firstly, you will see the corrected version of the isoforms, in both gtf and fasta format (``)
+<details>
+<summary><strong> 📤 Output files</strong></summary>
+The output files are stored in the directory `results/basic_sqanti3/course`. In this directory, you will find a few files and directories. The most important ones are:
+
+- `course_corrected.gtf`: The corrected GTF file. This file contains the parsed input isofomrs, eliminating malformed lines from the GTF and correcting possible errors from the isoforms if they were given as a fasta files. This files will be the ones used by other SQANTI3 modules, rather than the original input files.
+
+- `course_corrected.fasta`: The corrected fasta file. This file contains the parsed input isofomrs, eliminating malformed lines from the GTF and correcting possible errors from the isoforms if they were given as a fasta files. This files will be the ones used by other SQANTI3 modules, rather than the original input files.
+
+- `course_corrected.genePred`: The corrected trasnscriptome in genePred format, since some steps  of SQANTI3 require this format for compabilitty with the orthogonal data.
+
+- `course_corrected.gtf.cds.gff`: This file is a version of the corrected gtf that includes the preficted CDS regions. This file will be only produced if the option `--skipORF` is not included.
+
+- `course_classification.txt`: The classification file. This file contains the classification of the isoforms in the SQANTI3 categories. This file is the most important output of SQANTI3 QC, as it contains the information about the quality of the transcriptome and the classification of the isoforms.
+
+- `course_junctions.txt`: A tab-separated file with information at the junction level for all transcriptomes included in the classification file. Each row represents a specific junction and includes details such as genomic coordinates, whether it is a canonical junction (e.g., GT-AG, GC-AG, AT-AC) or non-canonical, and whether it is known (present in the reference annotation) or novel.
+
+- `course_SQANTI3_report.html`: The SQANTI3 report. This file contains a summary of the results and the classification of the isoforms. It is an HTML file that can be opened in any web browser. The report contains a summary of the results, including the number of isoforms, the number of genes, the number of junctions, and the classification of the isoforms. It also contains plots and figures that help to visualize the results.
+
+- `course.qc_params.txt`: The QC parameters file. This file contains the parameters used in the run, including the input files, the reference genome and annotation, and the options used in the run. This file is useful to keep track of the parameters used in the run and to reproduce the results.
+
+</details><br>
+
+<details>
+<summary><strong> 📊 SQANTI3 concepts</strong></summary>
+
+### **Canonical and Non-Canonical Junctions**
+
+* **Canonical junctions** are the dinucleotide pairs most commonly found at the ends of introns and are efficiently recognized by the splicing machinery. The most common pairs considered canonical are **GT-AG**, **GC-AG**, and **AT-AC**. The GT-AG combination is the most abundant in the human genome, representing around 98.9% of introns. Together, these three canonical combinations are found in over 99.9% of human introns. By default, SQANTI considers these three pairs as canonical but allows users to define their own set of canonical junctions using the `--sites` parameter.
+
+* **Non-canonical junctions** include all other dinucleotide combinations at intron boundaries that are not considered canonical. These junctions are much less frequent and are often associated with splicing errors or artifacts.
+
+* **Detection by SQANTI:** SQANTI analyzes transcript sequences and compares the dinucleotides present at the ends of each intron (defined by donor and acceptor splice sites) with the set of canonical junctions.
+    * In the classification file (`classification.txt`), the `all_canonical` column indicates whether all junctions in an isoform have canonical splice sites.
+    * In the junctions file (`junctions.txt`), the `splice_site` column shows the specific splicing motif of each junction. The `start_site_category` and `end_site_category` columns indicate whether the start and end sites of the junction are annotated as "known" in the reference annotation file. The `junction_category` column shows whether the donor-acceptor combination is "known" or "novel".
+    * SQANTI calculates and reports the proportion of canonical and non-canonical junctions across different transcript categories to help identify possible artifacts. For instance, a high proportion of non-canonical junctions in certain novel transcript categories (such as NNC) may suggest a higher likelihood of being artifacts.
+
+### **RT Switching (Reverse Transcriptase Template Switching)**
+
+* **RT switching** is a phenomenon that occurs during reverse transcription, where the reverse transcriptase (RT) may prematurely switch RNA templates during cDNA synthesis. This can happen due to secondary structures in the messenger RNA or the presence of direct repeats in the RNA sequences. RT switching can generate spurious cDNA that is misinterpreted as splicing events, often resulting in non-canonical junctions. RT switching events have been observed to be enriched in low-abundance transcripts from highly expressed genes.
+
+* **Detection by SQANTI:** SQANTI implements an algorithm to predict potential RT switching artifacts. The algorithm scans all junctions (both canonical and non-canonical) for direct repeat patterns at defined sequence locations characteristic of RT switching.
+    * In the classification file (`classification.txt`), the `RTS_stage` column is set to TRUE if one of the isoform's junctions may be an RT switching artifact.
+    * In the junctions file (`junctions.txt`), the `RTS_junction` column is set to TRUE if the junction is predicted to be a template-switching artifact.
+    * SQANTI analyzes the frequency of RT switching predictions across different transcript categories and junction types to help users identify potential artifacts introduced during cDNA library preparation. For example, a higher proportion of RT switching predictions in NNC transcripts may indicate that these are more likely to be artifacts.
+
+By identifying and characterizing canonical and non-canonical junctions, as well as potential RT switching artifacts, SQANTI supports quality control and curation of long-read transcriptomes, enabling more accurate identification of real isoforms.
+</details><br>
+
+For now, we will focus on the main output from SQANTI,the classification file (you can get more information about the other output on the tab above). This file contains 48 columns with information about the isoforms and the results from the run. Two important columns are the `structural_category`, which indicates the structural category that each isoform belongs to, and `associated_gene`, which indicates the reference gene that a certain isoform is associated with (if any). 
+
+**:question: Trivia:** Check the `classification_worksheet.md` try to answer as many questions as you can. You can use any programming language or tool to answer the questions. The questions are designed to help you understand the output of SQANTI3 QC and the classification file. 
+
+With this, you have completed a basic run of SQANTI3 QC, and you have learned how to run it and what are the main output files. In the next sections, we will explore the additional inputs that SQANTI3 QC is able to integrate, and how to use them to improve the results of the classification.
 
 ## 1.2 Run with additional inputs
+
+The most common extra information that you will use in combination with lr RNA-seq is short reads RNA data. While long-reads are fabulous for detmining the structure of an isoforme, since they are able to capture full transcirpts without the need of ana ssembly, they tend to be quite noisy and with high error rates, especially if they come from 'old' chesmitries. That is why, combining them with short reads is such a good idea. There reads will map to the transciptome and can be used for multiple purposes, such as identifying isoform expression, fixing indels or giving support to junctions. 
+
 
 
 # 2. SQANTI3 filter
