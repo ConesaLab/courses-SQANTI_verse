@@ -44,7 +44,7 @@ unzip SQANTI3_v5.3.6.zip -d tools/sqanti3
 Once it is downloaded and unzipped, you can either add it to your PATH or call the programs using the full path. 
 
 <details>
-<summary><strong>Adding SQANTI3 to your PATH</strong></summary>
+<summary><strong>Adding SQANTI3 to your PATH</strong></summary><br>
 
 In the terminal, you have to find the file `.bashrc` or `.bash_profile` in your home directory. Use your favorite text editor to open it and add the following line
 
@@ -53,6 +53,8 @@ export PATH=$PATH:/path/to/SQANTI3_v5.3.6
 ```
 
 Then, save the file and SQANTI3 will be in your path for the next terminal you open. As well, you can make this changes instantaneous by running `source ~/.bashrc` or `source ~/.bash_profile` in the terminal.
+
+---
 </details><br>
 
 The final step to have a functional sqanti3 installation is to install the dependencies. SQANTI3 has a few dependencies that need to be installed before running the program, but that is all handled by anaconda or mamba, depending on which one you prefer (mamba is highly recommended for better environment solving and consistency).
@@ -69,7 +71,7 @@ mamba env create -f tools/sqanti3/SQANTI3.conda.env.yml
 The first step of the suite, and where the *SQANTI verse* begins in the Quality Control (QC) module. This module is designed to assess the quality of a transcriptome, and integrate multiple kinds of orthonogal data that might help to understand and determine what are the true isoforms. As an end result, SQANTI3 QC will take as input the target transcriptome and the reference genome and annotation. The user can optionally add other data sources, such as short-reads RNA-seq data or CAGE peaks, to include more parameters that will be used in downstream analysis. The QC module will parse all of this information and produce a report and a classification on the given isoforms based on the structural categories defined in the sqanti paper.
 
 <details>
-<summary><strong>SQANTI3 structural categories</strong></summary>
+<summary><strong> 🏗️ SQANTI3 structural categories</strong></summary><br>
 
 1. <strong>Full-Splice-Match (FSM):</strong> Transcript models where all splice junctions perfectly match a known reference transcript.  
 2. <strong>Incomplete-Splice-Match (ISM):</strong> Transcript models that match a consecutive subset of splice junctions of a known reference transcript.  
@@ -80,6 +82,7 @@ The first step of the suite, and where the *SQANTI verse* begins in the Quality 
 7. <strong>Genic genomic:</strong> Transcript models composed of exons that align within a gene locus but do not reconstruct any known or novel splicing pattern.  
 8. <strong>Intergenic:</strong> Transcript models whose exons align to genomic regions outside of any annotated gene.  
 
+---
 </details><br>
 
 As well, SQANTI3 QC is able to determine CDS regions, using GeneMarkST as predictor for these parts of the transcriptome, or even recieve 
@@ -94,9 +97,11 @@ Frirtly, to get familiar with SQANTI3 QC, we will run it with the most basic par
 3. `--refFasta`: Reference genome in fasta format.
 
 <details>
-<summary><strong> ⚠️ Special considerations</strong></summary>
+<summary><strong> ⚠️ Special considerations</strong></summary><br>
 
 SQANTI3 was developed to work with PacBio long-reads transcriptomes. Thus, when parsing transcriptomes it will parse pacbio like transccitpt and gene IDs. If your data does not come from a PacBio experiment, you will need to add the `--force_id_ignore` flag to allow the usage of transcript IDs that do not follow the PacBio format (PB.X.Y)
+
+---
 </details><br>
 
 ```bash
@@ -110,7 +115,8 @@ sqanti3_qc.py \
 In this run, SQANTI3 will be carried out in its most basic functions. First, it will parse all inputs and load them. Then, it will predict the Open Reading Frames within the contigs, to determine if the isoforms are coding or not. It will also look at the Retrotranscriptase Switching and the percentage of A content after the TTS. Finally, it will produce the classification of the isoforms in the SQANTI3 categories. Now, lets, dive into the output files.
 
 <details>
-<summary><strong> 📤 Output files</strong></summary>
+<summary><strong> 📤 Output files</strong></summary><br>
+
 The output files are stored in the directory `results/basic_sqanti3/course`. In this directory, you will find a few files and directories. The most important ones are:
 
 - `course_corrected.gtf`: The corrected GTF file. This file contains the parsed input isofomrs, eliminating malformed lines from the GTF and correcting possible errors from the isoforms if they were given as a fasta files. This files will be the ones used by other SQANTI3 modules, rather than the original input files.
@@ -129,10 +135,11 @@ The output files are stored in the directory `results/basic_sqanti3/course`. In 
 
 - `course.qc_params.txt`: The QC parameters file. This file contains the parameters used in the run, including the input files, the reference genome and annotation, and the options used in the run. This file is useful to keep track of the parameters used in the run and to reproduce the results.
 
+---
 </details><br>
 
 <details>
-<summary><strong> 📊 SQANTI3 concepts</strong></summary>
+<summary><strong> 📊 SQANTI3 concepts</strong></summary><br>
 
 ### **Canonical and Non-Canonical Junctions**
 
@@ -155,6 +162,8 @@ The output files are stored in the directory `results/basic_sqanti3/course`. In 
     * SQANTI analyzes the frequency of RT switching predictions across different transcript categories and junction types to help users identify potential artifacts introduced during cDNA library preparation. For example, a higher proportion of RT switching predictions in NNC transcripts may indicate that these are more likely to be artifacts.
 
 By identifying and characterizing canonical and non-canonical junctions, as well as potential RT switching artifacts, SQANTI supports quality control and curation of long-read transcriptomes, enabling more accurate identification of real isoforms.
+
+---
 </details><br>
 
 For now, we will focus on the main output from SQANTI,the classification file (you can get more information about the other output on the tab above). This file contains 48 columns with information about the isoforms and the results from the run. Two important columns are the `structural_category`, which indicates the structural category that each isoform belongs to, and `associated_gene`, which indicates the reference gene that a certain isoform is associated with (if any). 
