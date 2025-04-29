@@ -11,7 +11,28 @@
             "perc_A_downstream_TTS":[0,59]
         }
     ],
-    "rest"[
+    "incomplete-splice_match":[
+        {
+            "diff_to_gene_TSS": [0,50],
+            "RTS_stage": false,
+            "perc_A_downstream_TTS":[0,59]
+        },
+        {
+            "within_CAGE_peak": true,
+            "subcategory": ["3prime_fragment","internal_fragment","intron_retention"],
+            "RTS_stage": false,
+            "perc_A_downstream_TTS":[0,59]
+        }
+    ],
+    "novel_in_catalog":[
+        {
+            "all_canonical": "canonical"
+        },
+        {
+            "min_cov": 10
+        }
+    ],
+    "rest":[
         {
             "RTS_stage":"FALSE",
             "all_canonical":"canonical",

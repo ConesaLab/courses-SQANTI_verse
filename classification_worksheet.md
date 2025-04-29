@@ -8,7 +8,6 @@ This worksheet is designed to help you explore and interpret the output of the S
 ## 🔍 **Basic Exploration**
 
 1. **How many total transcript isoforms are present in the file?**  
-   *(Hint: Count the number of unique values in the `isoform` column.)*  
    <details><summary>Answer</summary>3925</details><br>
 
 2. **How many unique genes are represented?**  
@@ -17,7 +16,16 @@ This worksheet is designed to help you explore and interpret the output of the S
 
 3. **What are the different `structural_category` values present, and how many isoforms fall into each?**  
    *(Expected categories: `full-splice_match`, `incomplete-splice_match`, `novel_in_catalog`, `novel_not_in_catalog`, `fusion`)*  
-   <details><summary>Answer</summary>{'novel_not_in_catalog': 1139, 'incomplete-splice_match': 1138, 'novel_in_catalog': 744, 'full-splice_match': 539, 'genic_intron': 147, 'genic': 113, 'intergenic': 41, 'fusion': 38, 'antisense': 26}</details><br>
+   <details><summary>Answer</summary>
+- full-splice_match: 1139
+- incomplete-splice_match: 1138
+- novel_in_catalog: 744
+- full-splice_match: 539
+- genic_intron: 147
+- genic: 113
+- intergenic: 41
+- fusion: 38
+- antisense: 26</details><br>
 
 ---
 
