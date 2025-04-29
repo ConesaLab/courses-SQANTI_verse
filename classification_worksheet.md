@@ -40,16 +40,17 @@ This worksheet is designed to help you explore and interpret the output of the S
 
 6. **Find the longest and shortest transcripts based on the `length` column. What are their structural categories?**  
    <details><summary>Answer</summary>Shortest: PB.118877.1 (83 nt, genic), Longest: PB.3823.1 (10774 nt, full-splice_match)</details><br>
-
+<!-- TODO: Fix this to add the other isoforms -->
 ---
 
 ## 🧪 **Novelty and Annotations**
 
-7. **How many transcripts are classified as `novel_not_in_catalog`? How many unique genes do they represent?**  
-   <details><summary>Answer</summary>1139 transcripts, 273 unique genes</details><br>
+7. **From the `novel_not_in_catalog` isoforms, how many have all of their junctions canonical?**
+    *(Use the `all_canonical` column.)*  
+   <details><summary>Answer</summary>There are 851 isoforms with all the junctions canonical and 288 with at least one non-canonical junction</details><br>
 
-8. **How many transcripts are labeled as `fusion`? What gene pairs are involved in these fusions?**  
-   <details><summary>Answer</summary>38 fusion transcripts. Example gene pairs: ENSG00000100181.22_ENSG00000283633.1, ENSG00000100029.18_ENSG00000128242.13, and 15 more</details><br>
+8. **From the isoforms classified as fusion, which one has the highest number of genes and what genes are they?**  
+   <details><summary>Answer</summary> All 38 fusion transcripts are formed by 2 genes. Example gene pairs: ENSG00000100181.22_ENSG00000283633.1, ENSG00000100029.18_ENSG00000128242.13, and 15 more</details><br>
 
 9. **Filter transcripts where `associated_transcript` is `novel`. What percentage of the total do they represent?**  
    <details><summary>Answer</summary>57.27%</details><br>
@@ -67,28 +68,50 @@ This worksheet is designed to help you explore and interpret the output of the S
 12. **Which transcript has the longest predicted ORF, and what is its structural category?**  
     <details><summary>Answer</summary>PB.3857.1, ORF length: 2414, Category: full-splice_match</details><br>
 
-13. **How many transcripts are predicted to be subject to nonsense-mediated decay (`predicted_NMD = TRUE`)?**  
-    <details><summary>Answer</summary>475</details><br>
+13. **How many transcripts are predicted to be subject to nonsense-mediated decay? What does it mean?**  
+    <details><summary>Answer</summary>475.
+    Nonsense-mediated decay (NMD) is a cellular mechanism that degrades mRNA transcripts containing premature stop codons, preventing the production of truncated proteins that could be harmful to the cell. SQANTI3 is able to flag transcripts like this if during the ORF prediction, a STOP codon is found before the TTS
+    <!-- TODO: Complete this with additional details on NMD and its implications for transcript analysis. -->
+    </details><br>
 
 ---
 
 ## 🧠 **Advanced / Comparative**
 
-14. **Compare the number of `full-splice_match` transcripts to `incomplete-splice_match` ones. What does this suggest about transcriptome completeness?**  
-    <details><summary>Answer</summary>full-splice_match: 539, incomplete-splice_match: 1138. Suggests many partial isoforms</details><br>
+Now, lets compare the classification file that used all of the orthogonal data, to see what extra information SQANTI3 is able to integrate.
 
-15. **How many transcripts have a known reference transcript (`associated_transcript` != `novel`)?**  
-    <details><summary>Answer</summary>1677</details><br>
+14. **How many columns have been filled with information in the new classification? Name some of them.**  
+    <details><summary>Answer</summary>
+    There are 13 new columns that have been filled with information now, such as:
+    
+    - min_cov --> Minimum coverage of a splice junction
+    - within_CAGE_peak
+    - polyA_motif_found
+    </details><br>
 
-16. **Group transcripts by gene and determine which gene has the highest number of isoforms.**  
-    <details><summary>Answer</summary>ENSG00000099917.17 with 53 isoforms</details><br>
+15. **From the FSM isoforms, how many have both support from a CAGE peak and a polyA motif? And the ISM?**  
+    <details><summary>Answer</summary>
+    - FSM: 336 isoforms
+    - ISM: 107
+    </details><br>
+
+<!-- TODO: Find a good quesiton here -->
+
+16. **Can you find any NNC isoforms 
 
 ---
 
 ## 📁 **Integration / Bonus**
 
-17. **Using the `CDS_start` and `CDS_end`, compute the CDS length. Is it consistent with the value in the `CDS_length` column?**  
-    <details><summary>Answer</summary>Yes, all 3180 checked entries matched</details><br>
+17. **From the ISM isoforms found before, what are their subcategories? How would you explain this?.**  
+    <details><summary>Answer</summary>
+
+    - 3prime_fragment: 33  
+    - 5prime_fragment: 34  
+    - internal_fragment: 1  
+    - intron_retention: 31  
+    - mono-exon: 8
+</details><br>
 
 18. **How many transcripts have canonical splice junctions (`all_canonical = TRUE`) vs. non-canonical ones?**  
     <details><summary>Answer</summary>Canonical: 3028, Non-canonical: 310</details><br>
