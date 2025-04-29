@@ -134,3 +134,21 @@ ggsave("results/complete_sqanti3/ratio_TSS_density.png")
 
 basic.df <- read_tsv("results/basic_filter/course_RulesFilter_result_classification.txt")
 complete.df <- read_tsv("results/complete_filter/course_RulesFilter_result_classification.txt")
+
+# Questions 4-5
+
+basic.df %>% mutate(type="basic") %>%
+    select(filter_result,type) %>%
+    rbind(complete.df %>% mutate(type="complete") %>%
+                          select(filter_result,type)) %>%
+    table() 
+
+
+# Question 6
+pass_basic <- basic.df %>% filter(filter_result == "Isoform") %>%
+    pull(isoform) 
+
+complete.df %>%
+    filter(filter_result == "Isoform" & !isoform %in% pass_basic) %>%
+    select(structural_category) %>%
+    table() 

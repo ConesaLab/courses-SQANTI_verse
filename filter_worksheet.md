@@ -14,3 +14,40 @@ This worksheet is designed to guide you through the analysis of SQANTI3 Quality 
     
 
     </details><br>
+
+2. **Which rules do you expect that will make a difference between the complete and the basic run?** 
+    <details><summary>Answer</summary>
+
+    </details><br>
+
+3. **Can you put an example of an ISM that would be considered an artifact in the basic run but not in the complete run?**
+    <details><summary>Answer</summary>
+    For this case, an ISM that has intron retention (the subcategory of `intron_retention` is considered an artifact here) would be eliminated in the basic run. However, this isoform would not be an artifact in the complete run if there are no FSMs for its associated gene (`FSM_class` B) and has 50% of the reads that mapped to the isoforms of the gene (`ratio_exp` > 0.5). As well, all of its junctions will have to be canonical. 
+    </details><br>
+
+## 🧠 Filter comparison
+
+4. **How many isoforms are artifacts in the basic dataset?**  
+    <details><summary>Answer</summary>
+    2624 isoforms are considered artifacts in the basic dataset. 
+    </details><br>
+5. **How many isoforms are artifacts in the complete dataset?**
+    <details><summary>Answer</summary>
+    2544 isoforms are considered artifacts in the complete dataset. 
+    </details><br>
+
+6. **What is the distribution of the structural categories for the isoforms that passed the filter in the complete dataset but not in the basic dataset?**
+    <details><summary>Answer</summary>
+
+    | Structural Category       | count |
+    |---------------------------|--------|
+    | full-splice_match         | 70     |
+    | incomplete-splice_match   | 8      |
+    | novel_in_catalog          | 2      |
+    </details><br>
+
+7. **Why did those isoforms pass the filter in the complete dataset but not in the basic dataset?** *Pick one of each structural category.*
+    
+    <details><summary>Answer</summary>
+
+    </details><br>

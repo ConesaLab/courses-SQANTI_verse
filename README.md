@@ -397,3 +397,4 @@ The output in this case will be the same as before, but most likely, more transc
 
 As of release v5.4, a new wrapper script and configuration file for SQANTI3 have been added. This wrapper is designed to simplify the process of running SQANTI3 and its associated modules. The wrapper script allows users to specify the input files, output directories, and all the parameters in a single configuration file, making it easier to manage and run multiple analyses. The wrapper also includes options for running SQANTI3 QC, filter, and rescue in a single command, streamlining the workflow for users.
 
+<!-- TODO: Fill wrapper part -->
