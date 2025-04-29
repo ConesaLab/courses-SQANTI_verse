@@ -320,7 +320,11 @@ The conditions includes must have the same name name as the columns in the class
 ```
 </details><br>
 
+<<<<<<< HEAD
 Now, that you know the basics of the rules filter, lets dive into running it. The rules module comes with two different subparsers, one for the rules strategy and another for the machine learning strategy. Most of the inputs given are common, and in our case, the only special input will be the JSON file with the actual rules. For the sake of this tutorial, we will use one rule file for the two classifications we did, the one without the orthogonal data and the one with it. 
+=======
+Now, that you know the basics of the rules filter, lets dive into running it. The rules module comes with two different subparsers, one for the rules strategy and another for the machine learning strategy. Most of the inputs given are common, and in our case, the only special input willbe the JSON file with the actual rules. For the sake of this tutorial, we will use one rule file for the two classifications we did, the one without the orthogonal data and the one with it. 
+>>>>>>> a45e271 (up to sqanti filter)
 
 ```bash
 sqanti3_filter.py rules \
@@ -330,7 +334,11 @@ sqanti3_filter.py rules \
     --dir results/rules_filter --output course 
 ```
 
+<<<<<<< HEAD
 You will have to run this command twice, once for each classification file. Remember to also change the output directory, so one run won't overwrite the other. Once both runs are finished, move to the questionnaire `filter_worksheet.md` and try to answer the questions. You can use any programming language or tool to answer the questions. The questions are designed to help you understand the output of SQANTI3 filter and the classification file.
+=======
+You will have to run this command twice, once for each classification file. Remember to also change the output directory, so one run won't overwrite the other.
+>>>>>>> a45e271 (up to sqanti filter)
 
 # 3. SQANTI3 rescue
 
