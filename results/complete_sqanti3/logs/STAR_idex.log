@@ -1,0 +1,16 @@
+INFO:
+	/home/pabloati/miniforge3/envs/sqanti3/bin/STAR-avx2 --runThreadN 8 --runMode genomeGenerate --genomeDir results/complete_sqanti3/STAR_index/ --genomeFastaFiles data/chr22_hg38.fasta --outTmpDir results/complete_sqanti3/STAR_index//_STARtmp/
+	STAR version: 2.7.11b   compiled: 2024-11-25T09:14:51+0000 :/opt/conda/conda-bld/star_1732525954305/work/source
+Apr 28 11:24:15 ..... started STAR run
+Apr 28 11:24:15 ... starting to generate Genome files
+Apr 28 11:24:16 ... starting to sort Suffix Array. This may take a long time...
+Apr 28 11:24:16 ... sorting Suffix Array chunks and saving them to disk...
+Apr 28 11:24:49 ... loading chunks from disk, packing SA...
+Apr 28 11:24:50 ... finished generating suffix array
+Apr 28 11:24:50 ... generating Suffix Array index
+Apr 28 11:25:04 ... completed Suffix Array index
+Apr 28 11:25:04 ... writing Genome to disk ...
+Apr 28 11:25:04 ... writing Suffix Array to disk ...
+Apr 28 11:25:04 ... writing SAindex to disk
+Apr 28 11:25:05 ..... finished successfully
+

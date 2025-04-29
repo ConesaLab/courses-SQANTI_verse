@@ -1,0 +1,31 @@
+{
+    "full-splice_match":[
+        {
+            "diff_to_gene_TSS": [0,50],
+            "RTS_stage": false,
+            "perc_A_downstream_TTS":[0,59]
+        },
+        {
+            "within_CAGE_peak": true,
+            "RTS_stage": false,
+            "perc_A_downstream_TTS":[0,59]
+        }
+    ],
+    "rest"[
+        {
+            "RTS_stage":"FALSE",
+            "all_canonical":"canonical",
+            "coding": "coding",
+            "perc_A_downstream_TTS":[0,59],
+            "exons": 2
+        },
+        {
+            "RTS_stage":"FALSE",
+            "all_canonical":"canonical",
+            "coding": "coding",
+            "perc_A_downstream_TTS":[0,59],
+            "exons": 2,
+            "min_cov": 10
+        }
+    ]
+}

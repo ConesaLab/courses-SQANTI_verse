@@ -1,0 +1,370 @@
+
+
+
+-------------------------------------------------
+start time            : Mon Apr 28 11:24:11 2025
+working directory     : /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/GMST
+command line          : -faa --strand direct --fnn --output /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/GMST/GMST_tmp /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/course_corrected.fasta
+output file with predictions : /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/GMST/GMST_tmp
+input sequence        : /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/course_corrected.fasta
+number of bins        : 0
+filter                : 1
+strand                : direct
+markov chain order    : cod = 4, non = 2
+genetic code          : 1
+search for motif      : 1
+motif width           : 12
+prestart length       : 6
+fixed motif position  : 1
+off overlap           : 1
+identity threshold    : 0.99
+maximum iteration     : 10
+gene overlap off      : 1
+strand to predict on  : direct
+GeneMarkS parameters  : /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default
+initial hmm model     : 
+output format         : LST
+output nucleotides    : 1
+output proteins       : 1
+gibbs_version         : 3
+
+         run starts here:
+prepare sequence
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --clean_join sequence --seq /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/course_corrected.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 3925 3389
+All letters - 8978231   8821348
+Unambiguous letters - 8978231 8651948
+A - 2005755 1929041
+C - 2512354 2425605
+G - 2509305 2420260
+T - 1950817 1877042
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --stat_fasta --seq /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/course_corrected.fasta > initial.meta.lst.feature 
+system call done
+min_GC=25  max_GC=76 total_seq_length=8978231
+(54)->(3273260)
+(57)->(4824717)
+(60)->(6549204)
+bin number = 3
+GC range = 25,54,60,76
+prepare sequence
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --clean_join sequence --seq seq_bin_1 --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1516 1219
+All letters - 3273260   3165935
+Unambiguous letters - 3273260 3105035
+A - 839849 794968
+C - 781436 742860
+G - 821035 779269
+T - 830940 787938
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+run initial prediction
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m /home/pabloati/Programs/sqanti3/src/utilities/gmst/MetaGeneMark_v1.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.211 0.261 0.321 0.206
+2 0.215 0.218 0.321 0.245
+3 0.226 0.320 0.309 0.146
+4 0.343 0.187 0.284 0.187
+5 0.339 0.371 0.178 0.112
+6 0.224 0.345 0.265 0.167
+
+7 0.751 0.002 0.206 0.041
+8 0.002 0.002 0.002 0.995
+9 0.002 0.002 0.995 0.002
+
+10 0.233 0.110 0.508 0.149
+11 0.297 0.361 0.174 0.169
+12 0.213 0.293 0.282 0.211
+
+system call done
+prediction, iteration: 1
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.4760
+build model: itr_2.mod for iteration: 2
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.183 0.243 0.438 0.137
+2 0.232 0.253 0.272 0.243
+3 0.268 0.316 0.318 0.097
+4 0.415 0.181 0.291 0.113
+5 0.388 0.379 0.113 0.120
+6 0.226 0.371 0.316 0.087
+
+7 0.995 0.002 0.002 0.002
+8 0.002 0.002 0.002 0.995
+9 0.002 0.002 0.995 0.002
+
+10 0.214 0.109 0.515 0.162
+11 0.285 0.410 0.152 0.152
+12 0.246 0.217 0.285 0.251
+
+system call done
+prediction, iteration: 2
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9637
+build model: itr_3.mod for iteration: 3
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.178 0.237 0.444 0.140
+2 0.241 0.246 0.274 0.239
+3 0.261 0.320 0.330 0.089
+4 0.431 0.178 0.286 0.104
+5 0.392 0.370 0.111 0.126
+6 0.231 0.369 0.320 0.081
+
+7 0.995 0.002 0.002 0.002
+8 0.002 0.002 0.002 0.995
+9 0.002 0.002 0.995 0.002
+
+10 0.212 0.108 0.515 0.165
+11 0.286 0.428 0.138 0.148
+12 0.239 0.214 0.295 0.253
+
+system call done
+prediction, iteration: 3
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 0.9958
+Stopped iterations on identity: 0.9958
+create: seq_bin_1.mod
+cp itr_3.mod seq_bin_1.mod
+system call done
+prepare sequence
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --clean_join sequence --seq seq_bin_2 --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1317 1190
+All letters - 3275944   3253109
+Unambiguous letters - 3275944 3193659
+A - 705792 687715
+C - 944936 921500
+G - 942643 919003
+T - 682573 665441
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+run initial prediction
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m /home/pabloati/Programs/sqanti3/src/utilities/gmst/MetaGeneMark_v1.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.205 0.263 0.371 0.160
+2 0.166 0.242 0.407 0.185
+3 0.182 0.441 0.251 0.126
+4 0.397 0.152 0.329 0.122
+5 0.284 0.359 0.214 0.144
+6 0.189 0.396 0.321 0.095
+
+7 0.805 0.001 0.155 0.038
+8 0.001 0.001 0.001 0.996
+9 0.001 0.001 0.996 0.001
+
+10 0.255 0.129 0.455 0.162
+11 0.304 0.300 0.177 0.219
+12 0.126 0.367 0.395 0.112
+
+system call done
+prediction, iteration: 1
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.5230
+build model: itr_2.mod for iteration: 2
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.190 0.268 0.408 0.134
+2 0.163 0.286 0.393 0.158
+3 0.205 0.401 0.246 0.147
+4 0.385 0.140 0.360 0.115
+5 0.278 0.321 0.239 0.162
+6 0.182 0.438 0.318 0.062
+
+7 0.996 0.001 0.001 0.001
+8 0.001 0.001 0.001 0.996
+9 0.001 0.001 0.996 0.001
+
+10 0.232 0.138 0.440 0.191
+11 0.302 0.361 0.187 0.150
+12 0.135 0.306 0.396 0.163
+
+system call done
+prediction, iteration: 2
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9380
+build model: itr_3.mod for iteration: 3
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.181 0.269 0.416 0.134
+2 0.169 0.286 0.383 0.163
+3 0.203 0.398 0.251 0.147
+4 0.373 0.142 0.366 0.118
+5 0.278 0.329 0.237 0.157
+6 0.178 0.445 0.319 0.057
+
+7 0.996 0.001 0.001 0.001
+8 0.001 0.001 0.001 0.996
+9 0.001 0.001 0.996 0.001
+
+10 0.231 0.132 0.441 0.196
+11 0.298 0.365 0.195 0.142
+12 0.136 0.303 0.397 0.164
+
+system call done
+prediction, iteration: 3
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 0.9939
+Stopped iterations on identity: 0.9939
+create: seq_bin_2.mod
+cp itr_3.mod seq_bin_2.mod
+system call done
+prepare sequence
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --clean_join sequence --seq seq_bin_3 --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1092 980
+All letters - 2429027   2402204
+Unambiguous letters - 2429027 2353254
+A - 460114 446358
+C - 785982 761245
+G - 745627 721988
+T - 437304 423663
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+run initial prediction
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m /home/pabloati/Programs/sqanti3/src/utilities/gmst/MetaGeneMark_v1.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.175 0.290 0.366 0.169
+2 0.209 0.311 0.287 0.193
+3 0.175 0.337 0.386 0.102
+4 0.229 0.256 0.423 0.092
+5 0.163 0.435 0.237 0.165
+6 0.057 0.536 0.305 0.102
+
+7 0.714 0.001 0.209 0.075
+8 0.001 0.001 0.001 0.996
+9 0.001 0.001 0.996 0.001
+
+10 0.266 0.121 0.474 0.139
+11 0.301 0.374 0.183 0.142
+12 0.085 0.375 0.349 0.190
+
+system call done
+prediction, iteration: 1
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.4721
+build model: itr_2.mod for iteration: 2
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.211 0.279 0.409 0.101
+2 0.127 0.364 0.364 0.144
+3 0.196 0.345 0.349 0.111
+4 0.235 0.188 0.511 0.066
+5 0.199 0.494 0.172 0.134
+6 0.083 0.590 0.303 0.025
+
+7 0.996 0.001 0.001 0.001
+8 0.001 0.001 0.001 0.996
+9 0.001 0.001 0.996 0.001
+
+10 0.262 0.134 0.461 0.143
+11 0.307 0.398 0.188 0.108
+12 0.118 0.276 0.471 0.136
+
+system call done
+prediction, iteration: 2
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9429
+build model: itr_3.mod for iteration: 3
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.214 0.288 0.395 0.103
+2 0.118 0.399 0.358 0.125
+3 0.215 0.337 0.333 0.114
+4 0.218 0.181 0.537 0.064
+5 0.200 0.499 0.170 0.131
+6 0.083 0.596 0.303 0.018
+
+7 0.996 0.001 0.001 0.001
+8 0.001 0.001 0.001 0.996
+9 0.001 0.001 0.996 0.001
+
+10 0.268 0.131 0.464 0.137
+11 0.295 0.396 0.203 0.106
+12 0.120 0.286 0.464 0.131
+
+system call done
+prediction, iteration: 3
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/probuild --par /home/pabloati/Programs/sqanti3/src/utilities/gmst/par_1.default --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 0.9955
+Stopped iterations on identity: 0.9955
+create: seq_bin_3.mod
+cp itr_3.mod seq_bin_3.mod
+system call done
+output: GeneMark_hmm.mod
+cp final_model GeneMark_hmm.mod
+system call done
+predict genes using native model with motif
+/home/pabloati/Programs/sqanti3/src/utilities/gmst/gmhmmp -p 0 -s d  -b  -A /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/GMST/GMST_tmp.faa  -D /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/GMST/GMST_tmp.fnn  -r -m GeneMark_hmm.mod -o /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/GMST/GMST_tmp  /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/course_corrected.fasta
+system call done
+rm -f sequence initial.meta.lst initial.meta.lst.fna initial.meta.lst.feature sequence itr_0.lst itr_1.mod itr_1.lst itr_2.mod itr_2.lst itr_3.mod itr_3.lst sequence itr_0.lst itr_1.mod itr_1.lst itr_2.mod itr_2.lst itr_3.mod itr_3.lst sequence itr_0.lst itr_1.mod itr_1.lst itr_2.mod itr_2.lst itr_3.mod itr_3.lst final_model with_seq.out
+system call done
+End: Mon Apr 28 11:24:14 2025
+
