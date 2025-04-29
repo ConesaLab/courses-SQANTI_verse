@@ -92,18 +92,31 @@ Now, lets compare the classification file that used all of the orthogonal data, 
 15. **From the FSM isoforms, how many have both support from a CAGE peak and a polyA motif? And the ISM?**  
     <details><summary>Answer</summary>
     - FSM: 336 isoforms
-    - ISM: 107
+    - ISM: 107 isoforms
     </details><br>
 
-<!-- TODO: Find a good quesiton here -->
+16. **What is the average minimum coverage of a junction for each structural category?**
+    <details><summary>Answer</summary>
 
-16. **Can you find any NNC isoforms 
+    | Structural Category        | coverage mean | coverage sd |
+    |---------------------------|----------|--------|
+    | antisense                 | 0.000    | 0.000  |
+    | full-splice_match         | 9.880    | 42.700 |
+    | fusion                    | 0.289    | 0.867  |
+    | genic                     | 0.000    | 0.000  |
+    | genic_intron              | 0.000    | 0.000  |
+    | incomplete-splice_match   | 20.100   | 53.500 |
+    | intergenic                | 0.000    | 0.000  |
+    | novel_in_catalog          | 14.600   | 66.200 |
+    | novel_not_in_catalog      | 0.512    | 2.750  |
+
+    </details><br>
 
 ---
 
-## 📁 **Integration / Bonus**
+## 📁 **Integration**
 
-17. **From the ISM isoforms found before, what are their subcategories? How would you explain this?.**  
+17. **From the ISM isoforms that have support from a CAGE peak and a polyA motif, what are their subcategories? How would you explain this?.**  
     <details><summary>Answer</summary>
 
     - 3prime_fragment: 33  
@@ -113,11 +126,12 @@ Now, lets compare the classification file that used all of the orthogonal data, 
     - mono-exon: 8
 </details><br>
 
-18. **How many transcripts have canonical splice junctions (`all_canonical = TRUE`) vs. non-canonical ones?**  
-    <details><summary>Answer</summary>Canonical: 3028, Non-canonical: 310</details><br>
+18. **There is a hypothesis made in the SQANTI3 paper that states that the TSS ratio is higher on isoforms supported by a CAGE peak. Would you say that assumption is true based on the results you obtained?** Briefly explain why it would make sense or not. 
 
-19. **How many transcripts contain polyA motifs (`polyA_motif_found = TRUE`)?**  
-    <details><summary>Answer</summary>0</details><br>
+<!-- TODO: make this figure pretty -->
 
-20. **Are there any transcripts within a polyA site (`within_polyA_site = TRUE`) that do *not* have a polyA motif? How many?**  
-    <details><summary>Answer</summary>0</details><br>
+<details><summary>Answer</summary>
+As we can see in the plot, there is a higher TSS ratio for the isoforms supported by a CAGE peak, which is consistent with the hypothesis. This is because CAGE peaks are indicative of real transcription start sites (and not artifacts of degradation), and isoforms with higher TSS ratios are more likely to be associated with such peaks.
+
+<image src="results/complete_sqanti3/ratio_TSS_density.png" alt="TSS ratio plot" width="600"/>
+</details><br>

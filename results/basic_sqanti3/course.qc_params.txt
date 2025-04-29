@@ -1,7 +1,7 @@
 Version	5.4
-Input	/home/pabloati/courses/courses-SQANTI_verse/data/raw_transcriptome.gtf
-Annotation	/home/pabloati/courses/courses-SQANTI_verse/data/chr22_hg38.gtf
-Genome	/home/pabloati/courses/courses-SQANTI_verse/data/chr22_hg38.fasta
+Input	/home/pabloati/Documents/oscars/course/courses-SQANTI_verse/data/raw_transcriptome.gtf
+Annotation	/home/pabloati/Documents/oscars/course/courses-SQANTI_verse/data/chr22_hg38.gtf
+Genome	/home/pabloati/Documents/oscars/course/courses-SQANTI_verse/data/chr22_hg38.fasta
 MinRefLength	0
 ForceIdIgnore	False
 Aligner	minimap2
@@ -19,7 +19,7 @@ FASTAused	False
 Expression	NA
 GMAPindex	NA
 OutputPrefix	course
-OutputDirectory	/home/pabloati/courses/courses-SQANTI_verse/results/basic_sqanti3
+OutputDirectory	/home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/basic_sqanti3
 Coverage	NA
 CanonicalSites	ATAC,GCAG,GTAG
 PostTTSWindow	20

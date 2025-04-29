@@ -1,0 +1,50 @@
+[WARNING:2025-04-29 18:29:11,008] Output directory results/basic_sqanti3 already exists. Overwriting!
+[INFO:2025-04-29 18:29:11,008] Write arguments to /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/basic_sqanti3/course.qc_params.txt...
+[INFO:2025-04-29 18:29:11,008] Initialising QC pipeline.
+[INFO:2025-04-29 18:29:11,008] Parsing provided files
+[INFO:2025-04-29 18:29:11,008] Reading genome fasta data/chr22_hg38.fasta
+[INFO:2025-04-29 18:29:11,288] **** Correcting sequences
+[INFO:2025-04-29 18:29:11,288] Error corrected FASTA /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/basic_sqanti3/course_corrected.fasta already exists. Using it...
+[INFO:2025-04-29 18:29:11,288] **** Predicting ORF sequences...
+[INFO:2025-04-29 18:29:11,288] ORF file /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/basic_sqanti3/course_corrected.faa already exists. Using it.
+[INFO:2025-04-29 18:29:11,307] **** Parsing Reference Transcriptome....
+[INFO:2025-04-29 18:29:11,307] results/basic_sqanti3/refAnnotation_course.genePred already exists. Using it.
+[INFO:2025-04-29 18:29:11,379] /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/basic_sqanti3/course_corrected.genePred already exists. Using it.
+[INFO:2025-04-29 18:29:11,379] **** Parsing Isoforms.
+[INFO:2025-04-29 18:29:11,462] No short-reads or coverage provided. Skipping short-read coverage calculation.
+[INFO:2025-04-29 18:29:11,462] TSS ratio will not be calculated since SR information was not provided
+[INFO:2025-04-29 18:29:11,462] **** Performing Classification of Isoforms
+[INFO:2025-04-29 18:29:18,812] Number of classified isoforms: 3925
+[INFO:2025-04-29 18:29:18,820] After classify fsm: 3925
+[INFO:2025-04-29 18:29:18,821] Full-length read abundance files not provided.
+[INFO:2025-04-29 18:29:18,821] RT-switching computation
+[INFO:2025-04-29 18:29:18,986] After RTS classificaion: 3925
+[INFO:2025-04-29 18:29:18,986] Isoforms expression files not provided.
+[INFO:2025-04-29 18:29:19,082] Writing output files
+[INFO:2025-04-29 18:29:19,859] **** Generating SQANTI3 report.
+[WARNING:2025-04-29 18:29:31,616] Output directory results/basic_sqanti3 already exists. Overwriting!
+[INFO:2025-04-29 18:29:31,616] Write arguments to /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/basic_sqanti3/course.qc_params.txt...
+[INFO:2025-04-29 18:29:31,617] Initialising QC pipeline.
+[INFO:2025-04-29 18:29:31,617] Parsing provided files
+[INFO:2025-04-29 18:29:31,617] Reading genome fasta data/chr22_hg38.fasta
+[INFO:2025-04-29 18:29:31,794] **** Correcting sequences
+[INFO:2025-04-29 18:29:31,795] Error corrected FASTA /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/basic_sqanti3/course_corrected.fasta already exists. Using it...
+[INFO:2025-04-29 18:29:31,795] **** Predicting ORF sequences...
+[INFO:2025-04-29 18:29:31,795] ORF file /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/basic_sqanti3/course_corrected.faa already exists. Using it.
+[INFO:2025-04-29 18:29:31,813] **** Parsing Reference Transcriptome....
+[INFO:2025-04-29 18:29:31,813] results/basic_sqanti3/refAnnotation_course.genePred already exists. Using it.
+[INFO:2025-04-29 18:29:31,885] /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/basic_sqanti3/course_corrected.genePred already exists. Using it.
+[INFO:2025-04-29 18:29:31,885] **** Parsing Isoforms.
+[INFO:2025-04-29 18:29:31,963] No short-reads or coverage provided. Skipping short-read coverage calculation.
+[INFO:2025-04-29 18:29:31,963] TSS ratio will not be calculated since SR information was not provided
+[INFO:2025-04-29 18:29:31,964] **** Performing Classification of Isoforms
+[INFO:2025-04-29 18:29:39,308] Number of classified isoforms: 3925
+[INFO:2025-04-29 18:29:39,316] After classify fsm: 3925
+[INFO:2025-04-29 18:29:39,317] Full-length read abundance files not provided.
+[INFO:2025-04-29 18:29:39,317] RT-switching computation
+[INFO:2025-04-29 18:29:39,482] After RTS classificaion: 3925
+[INFO:2025-04-29 18:29:39,482] Isoforms expression files not provided.
+[INFO:2025-04-29 18:29:39,576] Writing output files
+[INFO:2025-04-29 18:29:40,346] **** Generating SQANTI3 report.
+[INFO:2025-04-29 18:29:53,774] Removing temporary files.
+[INFO:2025-04-29 18:29:53,775] SQANTI3 complete in 22.157827203001943 sec.

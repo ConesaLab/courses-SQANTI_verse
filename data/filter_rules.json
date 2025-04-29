@@ -6,43 +6,52 @@
             "perc_A_downstream_TTS":[0,59]
         },
         {
-            "within_CAGE_peak": true,
+            "dist_to_CAGE_peak": [-50,0],
             "RTS_stage": false,
             "perc_A_downstream_TTS":[0,59]
         }
     ],
     "incomplete-splice_match":[
-        {
-            "diff_to_gene_TSS": [0,50],
+        { 
+            "all_canonical": "canonical",
             "RTS_stage": false,
-            "perc_A_downstream_TTS":[0,59]
+            "FSM_class": "B",
+            "ratio_exp": 0.5
         },
         {
-            "within_CAGE_peak": true,
-            "subcategory": ["3prime_fragment","internal_fragment","intron_retention"],
-            "RTS_stage": false,
-            "perc_A_downstream_TTS":[0,59]
+            "length":[2001,14999],
+            "subcategory": ["3prime_fragment", "5prime_fragment", "internal_fragment"],
+            "RTS_stage": false
         }
     ],
     "novel_in_catalog":[
         {
-            "all_canonical": "canonical"
+            "all_canonical": "canonical",
+            "diff_to_gene_TSS":[-50,50],
+            "diff_to_gene_TTS": [-50,50]            
         },
         {
-            "min_cov": 10
+            "min_cov": 10,
+            "diff_to_gene_TSS":[-50,50],
+            "diff_to_gene_TTS": [-50,50] 
+        },
+        {
+            "min_cov":10,
+            "within_CAGE_peak": true,
+            "polyA_motif_found": true
         }
+
     ],
     "rest":[
         {
             "RTS_stage":"FALSE",
-            "all_canonical":"canonical",
             "coding": "coding",
             "perc_A_downstream_TTS":[0,59],
-            "exons": 2
+            "exons": 2,
+            "all_canonical":"canonical"
         },
         {
             "RTS_stage":"FALSE",
-            "all_canonical":"canonical",
             "coding": "coding",
             "perc_A_downstream_TTS":[0,59],
             "exons": 2,

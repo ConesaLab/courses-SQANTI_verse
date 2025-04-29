@@ -1,11 +1,11 @@
 library(tidyverse)
 
+## Classification worksheet
 
 # Load the datasets
 basic.df <- read_tsv("results/basic_sqanti3/course_classification.txt")
 
 complete.df <- read_tsv("results/complete_sqanti3/course_classification.txt")
-
 
 # Question 1
 nrow(basic.df)
@@ -99,10 +99,38 @@ complete.df %>%
     select(structural_category) %>%
     table()
 
-# Question 15
+# Question 16
+complete.df %>%
+    group_by(structural_category) %>%
+    summarise(cov_mean = mean(min_cov,na.rm=TRUE),
+              cov_sd = sd(min_cov,na.rm=TRUE)) 
+
+
+# Question 17
 
 complete.df %>%
     filter(structural_category == "incomplete-splice_match" &
           within_CAGE_peak & polyA_motif_found) %>%
     select(subcategory) %>%
     table()
+
+# Question 18
+complete.df %>%
+    mutate(TSS_ratio = ifelse(ratio_TSS > 1,TRUE,FALSE)) %>%
+    filter(!is.na(ratio_TSS)) %>%
+    select(TSS_ratio) %>%
+    table() 
+
+library(ggplot2)
+complete.df %>% 
+    filter(!is.na(ratio_TSS)) %>%
+    ggplot(aes(x=ratio_TSS,fill=within_CAGE_peak)) +
+    geom_density(alpha=0.5) +
+    scale_x_log10() 
+ggsave("results/complete_sqanti3/ratio_TSS_density.png") 
+
+
+## Filter worksheet
+
+basic.df <- read_tsv("results/basic_filter/course_RulesFilter_result_classification.txt")
+complete.df <- read_tsv("results/complete_filter/course_RulesFilter_result_classification.txt")

@@ -44,3 +44,46 @@ results/complete_sqanti3/STAR_mapping/UHR_Rep1_chr22SJ.out.tab
 [INFO:2025-04-28 11:28:00,744] **** Generating SQANTI3 report.
 [INFO:2025-04-28 11:28:27,625] Removing temporary files.
 [INFO:2025-04-28 11:28:27,626] SQANTI3 complete in 256.935268338013 sec.
+[WARNING:2025-04-29 18:30:19,354] Output directory results/complete_sqanti3 already exists. Overwriting!
+[INFO:2025-04-29 18:30:19,354] Write arguments to /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/course.qc_params.txt...
+[INFO:2025-04-29 18:30:19,355] Initialising QC pipeline.
+[INFO:2025-04-29 18:30:19,355] Parsing provided files
+[INFO:2025-04-29 18:30:19,355] Reading genome fasta data/chr22_hg38.fasta
+[INFO:2025-04-29 18:30:19,535] **** Correcting sequences
+[INFO:2025-04-29 18:30:19,535] Error corrected FASTA /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/course_corrected.fasta already exists. Using it...
+[INFO:2025-04-29 18:30:19,535] **** Predicting ORF sequences...
+[INFO:2025-04-29 18:30:19,535] ORF file /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/course_corrected.faa already exists. Using it.
+[INFO:2025-04-29 18:30:19,552] **** Parsing Reference Transcriptome....
+[INFO:2025-04-29 18:30:19,553] results/complete_sqanti3/refAnnotation_course.genePred already exists. Using it.
+[INFO:2025-04-29 18:30:19,624] /home/pabloati/Documents/oscars/course/courses-SQANTI_verse/results/complete_sqanti3/course_corrected.genePred already exists. Using it.
+[INFO:2025-04-29 18:30:19,624] **** Parsing Isoforms.
+[INFO:2025-04-29 18:30:19,702] **** Running STAR for calculating Short-Read Coverage.
+[INFO:2025-04-29 18:30:19,702] Index identified.
+[INFO:2025-04-29 18:30:19,702] ** Running mapping.
+[INFO:2025-04-29 18:30:19,703] Mapping for UHR_Rep1_chr22: already completed.
+[INFO:2025-04-29 18:30:19,703] Mapping for UHR_Rep2_chr22: already completed.
+[INFO:2025-04-29 18:30:19,703] Input pattern: results/complete_sqanti3/STAR_mapping/.
+The following files found and to be read as junctions:
+results/complete_sqanti3/STAR_mapping/UHR_Rep2_chr22SJ.out.tab
+results/complete_sqanti3/STAR_mapping/UHR_Rep1_chr22SJ.out.tab
+[INFO:2025-04-29 18:30:19,723] 6762 junctions read. 2 junctions added to both strands because no strand information from STAR.
+[INFO:2025-04-29 18:30:19,723] **** Running calculation of TSS ratio
+[INFO:2025-04-29 18:30:19,943] BAM files identified: ['results/complete_sqanti3/STAR_mapping/UHR_Rep2_chr22Aligned.sortedByCoord.out.bam', 'results/complete_sqanti3/STAR_mapping/UHR_Rep1_chr22Aligned.sortedByCoord.out.bam']
+[INFO:2025-04-29 18:30:21,718] **** Reading CAGE Peak data.
+[INFO:2025-04-29 18:30:22,268] **** Reading PolyA motif list.
+[INFO:2025-04-29 18:30:22,269] **** Performing Classification of Isoforms
+[INFO:2025-04-29 18:30:29,785] Number of classified isoforms: 3925
+[INFO:2025-04-29 18:30:29,792] After classify fsm: 3925
+[INFO:2025-04-29 18:30:29,792] Full-length read abundance files not provided.
+[INFO:2025-04-29 18:30:29,792] RT-switching computation
+[INFO:2025-04-29 18:30:30,090] After RTS classificaion: 3925
+[INFO:2025-04-29 18:30:30,090] **** Adding TSS ratio data.
+[INFO:2025-04-29 18:30:30,094] **** Running Kallisto to calculate isoform expressions. 
+[INFO:2025-04-29 18:30:30,094] Kallisto quantification output results/complete_sqanti3/kallisto_output/UHR_Rep1_chr22/abundance.tsv found. Using it.
+[INFO:2025-04-29 18:30:30,094] Kallisto quantification output results/complete_sqanti3/kallisto_output/UHR_Rep2_chr22/abundance.tsv found. Using it.
+[INFO:2025-04-29 18:30:30,094] Detected Kallisto expression format. Using 'target_id' and 'tpm' field.
+[INFO:2025-04-29 18:30:30,100] Detected Kallisto expression format. Using 'target_id' and 'tpm' field.
+[INFO:2025-04-29 18:30:30,266] Writing output files
+[INFO:2025-04-29 18:30:31,077] **** Generating SQANTI3 report.
+[INFO:2025-04-29 18:30:56,691] Removing temporary files.
+[INFO:2025-04-29 18:30:56,691] SQANTI3 complete in 37.33674109999993 sec.

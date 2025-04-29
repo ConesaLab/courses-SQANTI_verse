@@ -321,7 +321,6 @@ The conditions includes must have the same name name as the columns in the class
 </details><br>
 
 Now, that you know the basics of the rules filter, lets dive into running it. The rules module comes with two different subparsers, one for the rules strategy and another for the machine learning strategy. Most of the inputs given are common, and in our case, the only special input will be the JSON file with the actual rules. For the sake of this tutorial, we will use one rule file for the two classifications we did, the one without the orthogonal data and the one with it. 
-Now, that you know the basics of the rules filter, lets dive into running it. The rules module comes with two different subparsers, one for the rules strategy and another for the machine learning strategy. Most of the inputs given are common, and in our case, the only special input will be the JSON file with the actual rules. For the sake of this tutorial, we will use one rule file for the two classifications we did, the one without the orthogonal data and the one with it. 
 
 ```bash
 sqanti3_filter.py rules \
@@ -394,10 +393,6 @@ This pipeline is a bit more complex. It follows four main steps to rescue the is
  
 The output in this case will be the same as before, but most likely, more transcripts will be rescued. To finish with the SQANTI3 tutorial, lets go and complete the last worksheet `rescue_worksheet.md`. The questions are designed to help you understand the output of SQANTI3 rescue and why some isoforms were rescued and others not.
 
-# SQANTI filter questions
-The idea of this worksheet is first to see individually the basic and complete filter classifications, to understand why the isoforms have been classified as they are.The second part of the analysis resides in understanding the differences between both classificaitons, as a way to show the imporatnce of SQANTI3 QC integration of thatw: For exapme. if we focus on the FSM isoforms, we can see that in the basic classification we are loosing isoforms that are "far" from the reference TSS and could be deemed as arfiacts fdue to degratation. However, in the complete classification, thanks to the CAGE peak data, we can see that some of these isoforms could actually be valid isoforms with alternative TSS, sicne they fall within a CAGE peak.
-
-The idea is to play around with this data
 # 5. SQANTI3 wrapper
 
 As of release v5.4, a new wrapper script and configuration file for SQANTI3 have been added. This wrapper is designed to simplify the process of running SQANTI3 and its associated modules. The wrapper script allows users to specify the input files, output directories, and all the parameters in a single configuration file, making it easier to manage and run multiple analyses. The wrapper also includes options for running SQANTI3 QC, filter, and rescue in a single command, streamlining the workflow for users.
