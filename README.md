@@ -2,6 +2,10 @@
 
 ## Introduction
 
+SQANTI3 is a tool desinged to perform quality control and curation of long-read defined transciptomes. In order to achieve this goal, it integrates multiple data sources to increase the accuracy of its measurement. Among the different technologies and data types that it is able to integrate, you can use short-reads data, CAGE peak sequencing information, expression matrices derived from Kallisto or fl-counts from PacBio data (as of today). SQANTI3 offers a modular solution to the most common analysis perfomed in transciptomics, and it is part of an ever expanding ecosystem of tools focused on transcirptomics across all domains. 
+
+The main feature of SQANTI3 is its QC module, which classifies all the isoforms from a lr-transcriptome into the well-known structural caterogies as defined in the original SQANTI paper. 
+
 <details>
 <summary><strong>SQANTI3 structural categories</strong></summary>
 
@@ -16,6 +20,9 @@
 
 </details><br>
 
+Through this course, you will become familiar with the three main modules of SQANTI3: qc, filter and rescue. You will learn how the modules work and the  different options and integrations that take place in each of them. 
+
+The course is designed to be run in a local environment, but it can be easily adapted to run in a cluster or cloud environment. This course has been done using the latest release of of SQANTI3 (v5.4).
 
 # 0. Pre-requisites
 
@@ -65,6 +72,7 @@ mamba env create -f tools/sqanti3/SQANTI3.conda.env.yml
 
 ### Data downloading
 
+All the data needed for the tutorial can be found in the data directory of this repository. It contains the long-read defined transcriptome, the reference genome, annotation and the orthogonal data used in the tutorial. For the sake of simplicity and time, only the isoforms that are part of the chromosome 22 of humans will be used, which are more than enought to go through all of the SQANTI3 functionalities. If you wish to learn more about the data origin, you can check it out in the SQANTI3 paper. 
 
 # 1. SQANTI3 QC
 
@@ -183,19 +191,17 @@ sqanti3_qc.py \
     --isoforms data/isoforms.fasta \
     --refGTF data/genome.fa \
     --refFasta data/annotation.gtf \
-    --dir results/basic_sqanti3 --output course \
-    --shortReads data/short_reads.bam
-    --CAGEpeaks data/CAGE_peaks.bed
+    --short_reads data/short_reads.fofn \
+    --CAGEpeaks data/ref_TSS_annotation/human.refTSS_v3.1.hg38.bed \
+    --polyA_motif_list data/polyA_motifs/mouse_and_human.polyA_motif.txt \
+    --dir results/complete_sqanti3 --output course
 ```
 
-When it comes to the ouptut files, they won't change much form a SQANTI3 run without the extra information. The main difference will be within the report, where some of the columns that were NAs before, now will be filled with the information from the short-reads, CAGE peaks and polyA motifs. **:question: Trivia: Which columns have now information that before didn't?**
+When it comes to the ouptut files, they won't change much form a SQANTI3 run without the extra information. The main difference will be within the report, where some of the columns that were NAs before, now will be filled with the information from the short-reads, CAGE peaks and polyA motifs.
 
-<details>
-<summary><strong> 🤔 Solution </strong></summary>
-<!-- TODO: Complete -->
-</details><br>
+With this, you have completed a run of SQANTI3 QC, the first and central module of the SQANTI-verse. You have learned how to run it, what are the main output files and how to use additional information to improve the classification of the isoforms. Now, it is your time to show all you have learnt about SQANTI3 QC. Try to complete the [qc worksheet](classification_worksheet.md) using your knowledge, the data you just generated and a little help from the SQANTI3 wiki 😉.
 
-With this, you have completed a run of SQANTI3 QC, the first and central module of the SQANTI-verse. You have learned how to run it, what are the main output files and how to use additional information to improve the classification of the isoforms. In the next sections, we will explore the other modules of SQANTI3, which are designed to curate and filter the transcriptome based on the results from SQANTI3 QC.
+ In the next sections, we will explore the other modules of SQANTI3, which are designed to curate and filter the transcriptome based on the results from SQANTI3 QC.
 
 # 2. SQANTI3 filter
 
@@ -395,6 +401,33 @@ The output in this case will be the same as before, but most likely, more transc
 
 # 5. SQANTI3 wrapper
 
-As of release v5.4, a new wrapper script and configuration file for SQANTI3 have been added. This wrapper is designed to simplify the process of running SQANTI3 and its associated modules. The wrapper script allows users to specify the input files, output directories, and all the parameters in a single configuration file, making it easier to manage and run multiple analyses. The wrapper also includes options for running SQANTI3 QC, filter, and rescue in a single command, streamlining the workflow for users.
+As of release v5.4, a new wrapper script and configuration file for SQANTI3 have been added. This wrapper is designed to simplify the process of running SQANTI3 and its associated modules. The wrapper script allows users to run all of SQANTI3 modules (qc, filter and rescue), specifying the input files, output directories, and all the parameters in a single configuration file, making it easier to manage and run multiple analyses.
 
-<!-- TODO: Fill wrapper part -->
+There are 5 possible ways to run the wrapper:
+
+1. `init`**creates the configuration file**
+2. `all` **runs all the selected modules of SQANTI**
+3. `qc` **runs the SQANTI3 QC module**
+4. `filter` **runs the SQANTI3 filter module**
+5. `rescue` **runs the SQANTI3 rescue module**
+
+In order to facilitate the creation of the configuration file, to include all of the needed parameters, the wrapper has a init module that creates the configuration with SQANTI3 default values:
+
+```bash
+sqanti3 init -c <config_file>
+```
+
+If the user desires to set some predefined parameters at this step, it can be done by including them via the option `-a`, followed of as many combinations of `param=value` as needed. This option can also be used to overwrite the parameters in the config files between runs.
+
+> Ex: Imagine you want to rerun SQANTI3 QC changing only one parameter (the isoforms input) but keeping the rest of files the same. This can be done by running the following command:
+
+```bash
+sqanti3 qc -c <config_file> -a isoforms=<path_to_isoforms> dir=run_2
+```
+
+In the configuration file, each module options are preceeded by the `enabled` tag. Setting it to true or false will activate or deactivate each module respectively when running the wrapper in `all` mode. 
+
+Finally, there are two new options: 
+
+1. `--dry-run`: This option will run the wrapper in dry-run mode, meaning that it will not execute any of the modules, but will print the commands that would be executed
+2. `--log_level`: Determines the amount of log that SQANTI3 will produce. By default it is set to INFO, showing the main information. If it is too much, it can be reduced by changing it to ERROR or WARNING as desired. 
