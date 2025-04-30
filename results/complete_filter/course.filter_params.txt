@@ -1,0 +1,13 @@
+Version	5.4
+Mode	rules
+ClassificationFile	results/complete_sqanti3/course_classification.txt
+Isoforms	NA
+GTF	NA
+SAM	NA
+FAA	NA
+isoAnnotGFF3	NA
+OutputPrefix	course
+OutputDirectory	/home/pabloati/courses/courses-SQANTI_verse/results/complete_filter
+FilterMonoexonic	False
+SkipReport	False
+JSON	data/filter_rules.json

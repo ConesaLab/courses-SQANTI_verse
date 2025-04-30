@@ -1,0 +1,47 @@
+[WARNING:2025-04-30 15:48:00,972] Output directory results/complete_rescue already exists. Overwriting!
+[INFO:2025-04-30 15:48:01,012] Running SQANTI3 rescue pipeline version 5.4
+[INFO:2025-04-30 15:48:01,012] -----------------------------------------------------
+[INFO:2025-04-30 15:48:01,012]   Initializing SQANTI3 rescue pipeline in full mode  
+[INFO:2025-04-30 15:48:01,012] -----------------------------------------------------
+[INFO:2025-04-30 15:48:01,012] --------------------------------------------------
+[INFO:2025-04-30 15:48:01,012]         Reading filter classification file        
+[INFO:2025-04-30 15:48:01,012] --------------------------------------------------
+[INFO:2025-04-30 15:48:01,034] --------------------------------------------------
+[INFO:2025-04-30 15:48:01,034]            Performing automatic rescue            
+[INFO:2025-04-30 15:48:01,034] --------------------------------------------------
+[INFO:2025-04-30 15:48:01,077] --------------------------------------------------
+[INFO:2025-04-30 15:48:01,077]             Automatic rescue completed            
+[INFO:2025-04-30 15:48:01,077] --------------------------------------------------
+[INFO:2025-04-30 15:48:01,627] --------------------------------------------------
+[INFO:2025-04-30 15:48:01,627]     Preparation of files for artifact mapping:    
+[INFO:2025-04-30 15:48:01,627] --------------------------------------------------
+[INFO:2025-04-30 15:48:01,627] Creating reference transcriptome FASTA from provided GTF (--refGTF).
+[INFO:2025-04-30 15:48:01,783] Reference transcriptome FASTA was saved to results/complete_rescue/gencode.v38.basic_chr22.fasta
+[INFO:2025-04-30 15:48:01,783] gffread command used:
+[INFO:2025-04-30 15:48:01,783] gffread -w results/complete_rescue/gencode.v38.basic_chr22.fasta -g data/reference/GRCh38.p13_chr22.fasta data/reference/gencode.v38.basic_chr22.gtf
+[INFO:2025-04-30 15:48:01,783] Filtering reference transcriptome FASTA to only rescue targets.
+[INFO:2025-04-30 15:48:01,826] Filtering supplied long read transcriptome FASTA (--isoforms) to only include rescue targets...
+[INFO:2025-04-30 15:48:01,896] Creating rescue candidate FASTA from supplied long read transcriptome fasta (--isoforms)...
+[INFO:2025-04-30 15:48:01,972] --------------------------------------------------
+[INFO:2025-04-30 15:48:01,972]      Artifact mapping (candidates vs targets)     
+[INFO:2025-04-30 15:48:01,972] --------------------------------------------------
+[INFO:2025-04-30 15:48:01,972] Mapping rescue candidates to rescue targets with minimap2...
+[INFO:2025-04-30 15:48:03,298] Minimap2 results were saved to results/complete_rescue/course_mapped_rescue.sam
+[INFO:2025-04-30 15:48:03,298] Building candidate-target table of mapping hits...
+[INFO:2025-04-30 15:48:03,321] Mapping hit table was saved to results/complete_rescue/course_rescue_mapping_hits.tsv
+[INFO:2025-04-30 15:48:03,323] **** RESCUE-BY-MAPPING FOR RULES FILTER
+[INFO:2025-04-30 15:48:03,323] --------------------------------------------------
+[INFO:2025-04-30 15:48:03,323]               Rules rescue selected               
+[INFO:2025-04-30 15:48:03,323] --------------------------------------------------
+[INFO:2025-04-30 15:48:03,323] Applying provided rules (--json_filter) to reference transcriptome classification file.
+[INFO:2025-04-30 15:48:04,254] Running rescue-by-mapping for rules filter.
+[INFO:2025-04-30 15:48:05,509] --------------------------------------------------
+[INFO:2025-04-30 15:48:05,509]        Rescue rules finished successfully!        
+[INFO:2025-04-30 15:48:05,509] --------------------------------------------------
+[INFO:2025-04-30 15:48:05,509] Final rescued transcript list written to file: results/complete_rescue/course_rescue_inclusion-list.tsv
+[INFO:2025-04-30 15:48:05,509] Adding rescued transcripts to provided SQ3 filtered GTF.
+[INFO:2025-04-30 15:48:05,611] Added rescued reference transcripts to provided GTF (results/complete_sqanti3/course_corrected.gtf )
+[INFO:2025-04-30 15:48:05,611] Final output GTF written to file:  results/complete_rescue/course_rescued.gtf 
+[INFO:2025-04-30 15:48:05,611] --------------------------------------------------
+[INFO:2025-04-30 15:48:05,611]           Rescue finished successfully!           
+[INFO:2025-04-30 15:48:05,611] --------------------------------------------------
