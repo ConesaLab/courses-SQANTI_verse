@@ -8,5 +8,5 @@ sqanti3_rescue.py rules \
     --mode full \
     --json_filter data/filter_rules.json \
     --rescue_isoform results/complete_sqanti3/course_corrected.fasta \
-    --rescue_gtf results/complete_sqanti3/course_corrected.gtf \
+    --rescue_gtf results/complete_filter/course.filtered.gtf \
     --dir results/complete_rescue --output course

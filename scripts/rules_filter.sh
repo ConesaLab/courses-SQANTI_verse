@@ -7,6 +7,7 @@ rules_file="data/filter_rules.json"
 
 sqanti3_filter.py rules \
     --sqanti_class "results/basic_sqanti3/course_classification.txt" \
+    --filter_gtf results/basic_sqanti3/course_corrected.gtf \
     --json_filter $rules_file \
     --dir results/basic_filter --output course 
 
@@ -14,5 +15,6 @@ sqanti3_filter.py rules \
 
 sqanti3_filter.py rules \
     --sqanti_class "results/complete_sqanti3/course_classification.txt" \
+    --filter_gtf results/basic_sqanti3/course_corrected.gtf \
     --json_filter $rules_file \
     --dir results/complete_filter --output course

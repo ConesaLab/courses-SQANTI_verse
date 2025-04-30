@@ -174,3 +174,60 @@ complete.df %>%
             structural_category == "novel_in_catalog") %>%
     select(isoform, all_canonical, min_cov,diff_to_gene_TTS, polyA_motif_found)
 
+## Rescue_questionaire
+
+automatic_rescued <- read_tsv("results/complete_rescue/course_automatic_rescued_list.tsv", 
+col_names="transcript")
+
+# Question 1
+nrow(automatic_rescued)
+
+# Question 2
+complete.df %>% 
+    filter(associated_transcript %in% automatic_rescued$transcript) %>%
+    nrow()
+
+# Question 3
+
+complete.df %>% 
+    filter(filter_result == "Artifact" & ! associated_transcript %in% automatic_rescued$transcript) %>%
+    filter(!str_detect(associated_gene,"novel")) %>%
+    pull(associated_gene) %>% 
+    unique() %>% length()
+
+complete.df %>% 
+    filter(filter_result == "Artifact" & ! associated_transcript %in% automatic_rescued$transcript) %>%
+    pull(associated_transcript) %>% 
+    unique() %>% length()
+
+complete.df %>% 
+    filter(filter_result == "Artifact" & ! associated_transcript %in% automatic_rescued$transcript) %>%
+    filter(associated_transcript == "novel")
+
+
+#Question 4
+candidate.df <- read_tsv("results/complete_rescue/course_rescue_candidates.tsv")
+target.df <- read_tsv("results/complete_rescue/course_rescue_targets.tsv")
+
+nrow(candidate.df)
+nrow(target.df)
+
+# Question 5
+# Can also be done with "grep "PB" -c course_rescue_targets.tsv"
+str_detect()
+
+# Question 6
+mapping_hits.df <- read_tsv("results/complete_rescue/course_rescue_mapping_hits.tsv",col_names = c("candidate","target","cigar"))
+
+mapping_hits.df %>% group_by(candidate) %>%
+ summarise(n=n()) %>% 
+ mutate(avg = mean(n),
+        max = max(n))
+
+
+# Question 7
+final_inclusion.df <- read_tsv("results/complete_rescue/course_rescue_inclusion-list.tsv",col_names="transcript")
+
+final_inclusion.df %>% 
+    filter(!transcript %in% automatic_rescued$transcript) %>% 
+    nrow()
