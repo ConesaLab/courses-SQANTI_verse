@@ -47,7 +47,11 @@ This worksheet is designed to guide you through the analysis of SQANTI3 Quality 
     </details><br>
 
 7. **Why did those isoforms pass the filter in the complete dataset but not in the basic dataset?** *Pick one of each structural category.*
-    
+
     <details><summary>Answer</summary>
 
     </details><br>
+
+8. **Can you explain any biological reason why we might want to include one of those isoforms even thought they failed the basic filtering?**
+
+<!-- Complete -->
