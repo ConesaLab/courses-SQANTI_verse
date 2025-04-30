@@ -1,4 +1,49 @@
+ERROR:
+Details: Command '/home/pabloati/miniforge3/envs/sqanti3/bin/Rscript /home/pabloati/Programs/sqanti3/src/utilities/report_filter/SQANTI3_filter_report.R -d results/basic_filter -o course -u /home/pabloati/Programs/sqanti3/src/utilities -f rules' returned non-zero exit status 1.
 INFO:
-null device 
-          1 
+
+ERROR:
+
+-------------------------------------------------
+
+ 	 SQANTI3 Rules filter report
+
+--------------------------------------------------
+Loading required package: magrittr
+
+Reading Rules result classification table...
+Warning message:
+One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat) 
+Loading required package: ggplot2
+Warning: unable to access index for repository https://cran.rstudio.com/src/contrib:
+  cannot open URL 'https://cran.rstudio.com/src/contrib/PACKAGES'
+Warning message:
+package ‘RColorConesa’ is not available for this version of R
+
+A version of this package for your version of R might be available elsewhere,
+see the ideas at
+https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages 
+
+Generating common filter plots...
+
+`summarise()` has grouped output by 'structural_category'. You can override
+using the `.groups` argument.
+`summarise()` has grouped output by 'filter'. You can override using the
+`.groups` argument.
+`summarise()` has grouped output by 'filter'. You can override using the
+`.groups` argument.
+Warning message:
+There were 2 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `fsm_type = `%>%`(...)`.
+ℹ In group 1: `filter = Before`.
+Caused by warning:
+! 1 unknown level in `f`: Multiple
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning. 
+Error in loadNamespace(x) : there is no package called ‘RColorConesa’
+Calls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
+Execution halted
 

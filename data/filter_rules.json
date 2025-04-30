@@ -1,7 +1,7 @@
 {
     "full-splice_match":[
         {
-            "diff_to_gene_TSS": [0,50],
+            "diff_to_gene_TSS": [-50,50],
             "RTS_stage": false,
             "perc_A_downstream_TTS":[0,59]
         },
@@ -44,14 +44,14 @@
     ],
     "rest":[
         {
-            "RTS_stage":"FALSE",
+            "RTS_stage": false,
             "coding": "coding",
             "perc_A_downstream_TTS":[0,59],
             "exons": 2,
             "all_canonical":"canonical"
         },
         {
-            "RTS_stage":"FALSE",
+            "RTS_stage":false,
             "coding": "coding",
             "perc_A_downstream_TTS":[0,59],
             "exons": 2,

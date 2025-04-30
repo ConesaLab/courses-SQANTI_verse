@@ -1,4 +1,5 @@
-library(tidyverse)
+library(readr)
+library(dplyr)
 
 ## Classification worksheet
 
@@ -126,7 +127,11 @@ complete.df %>%
     filter(!is.na(ratio_TSS)) %>%
     ggplot(aes(x=ratio_TSS,fill=within_CAGE_peak)) +
     geom_density(alpha=0.5) +
-    scale_x_log10() 
+    scale_x_log10()  +
+    theme_bw() +
+    labs(x = "TSS ratio",
+         y= "Density",
+         fill = "Within a \nCAGE peak")
 ggsave("results/complete_sqanti3/ratio_TSS_density.png") 
 
 
@@ -152,3 +157,20 @@ complete.df %>%
     filter(filter_result == "Isoform" & !isoform %in% pass_basic) %>%
     select(structural_category) %>%
     table() 
+
+complete.df %>% 
+    filter(filter_result == "Isoform" & !isoform %in% pass_basic &
+            structural_category == "full-splice_match") %>%
+    select(isoform, structural_category, diff_to_gene_TSS,within_CAGE_peak)
+
+complete.df %>% 
+    filter(filter_result == "Isoform" & !isoform %in% pass_basic &
+            structural_category == "incomplete-splice_match") %>%
+    select(isoform, structural_category, length, subcategory,FSM_class,ratio_exp)
+
+
+complete.df %>% 
+    filter(filter_result == "Isoform" & !isoform %in% pass_basic &
+            structural_category == "novel_in_catalog") %>%
+    select(isoform, all_canonical, min_cov,diff_to_gene_TTS, polyA_motif_found)
+
