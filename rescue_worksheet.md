@@ -1,6 +1,6 @@
 # SQANTI3 rescue worksheet
 
-In this final worksheet, we will go throught the results obtained in the rescuce module of SQANTI3. For this example, we have only run the full rescue using rules, which also contains the automatic fist. We will compare both outputs and see which isoforms were rescued, and why.
+In this final worksheet, we will go throught the results obtained in the rescuce module of SQANTI3. For this example, we have only run the full rescue using rules, since the automatic rescue is always run first. We will compare both outputs and see which isoforms were rescued, and why.
 
 ---
 

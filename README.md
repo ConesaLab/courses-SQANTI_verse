@@ -1,28 +1,52 @@
 # SQANTI verse tutorial
 
-## Introduction
+# Introduction to SQANTI3
 
-SQANTI3 is a tool desinged to perform quality control and curation of long-read defined transciptomes. In order to achieve this goal, it integrates multiple data sources to increase the accuracy of its measurement. Among the different technologies and data types that it is able to integrate, you can use short-reads data, CAGE peak sequencing information, expression matrices derived from Kallisto or fl-counts from PacBio data (as of today). SQANTI3 offers a modular solution to the most common analysis perfomed in transciptomics, and it is part of an ever expanding ecosystem of tools focused on transcirptomics across all domains. 
+**SQANTI3** is a comprehensive bioinformatics tool designed for the quality control, curation, and annotation of long-read transcriptomes. It integrates multiple data sources to enhance the accuracy of transcriptome characterization, making it an essential component of the Functional IsoTranscriptomics (FIT) framework, alongside tools like IsoAnnot and tappAS. ([GitHub Repository](https://github.com/ConesaLab/SQANTI3))
 
-The main feature of SQANTI3 is its QC module, which classifies all the isoforms from a lr-transcriptome into the well-known structural caterogies as defined in the original SQANTI paper. 
+## Key Features
 
-<details>
-<summary><strong>SQANTI3 structural categories</strong></summary>
+* **Integration of Diverse Data Types**: SQANTI3 supports the incorporation of various data types, including:
 
-1. <strong>Full-Splice-Match (FSM):</strong> Transcript models where all splice junctions perfectly match a known reference transcript.  
-2. <strong>Incomplete-Splice-Match (ISM):</strong> Transcript models that match a consecutive subset of splice junctions of a known reference transcript.  
-3. <strong>Novel-In-Catalog (NIC):</strong> Transcript models with at least one splice junction not present in the reference annotation, but formed by known splice sites.  
-4. <strong>Novel-Not-In-Catalog (NNC):</strong> Transcript models with at least one splice junction that utilizes a novel splice site not present in the reference annotation.  
-5. <strong>Antisense:</strong> Transcript models that align to a gene locus but on the opposite strand to all annotated transcripts of that gene.  
-6. <strong>Fusion:</strong> Transcript models whose exons align to two or more distinct gene loci.  
-7. <strong>Genic genomic:</strong> Transcript models composed of exons that align within a gene locus but do not reconstruct any known or novel splicing pattern.  
-8. <strong>Intergenic:</strong> Transcript models whose exons align to genomic regions outside of any annotated gene.  
+  * Short-read sequencing data
+  * CAGE (Cap Analysis Gene Expression) peak sequencing information
+  * Expression matrices derived from tools like Kallisto
+  * Full-length counts from PacBio data
 
-</details><br>
+* **Modular Architecture**: The tool is structured into three main modules:
 
-Through this course, you will become familiar with the three main modules of SQANTI3: qc, filter and rescue. You will learn how the modules work and the  different options and integrations that take place in each of them. 
+  1. **QC (Quality Control)**: Classifies isoforms based on structural categories.
+  2. **Filter**: Applies user-defined criteria to remove potential artifacts.
+  3. **Rescue**: Recovers isoforms that may have been erroneously filtered out but have supporting evidence.
 
-The course is designed to be run in a local environment, but it can be easily adapted to run in a cluster or cloud environment. This course has been done using the latest release of of SQANTI3 (v5.4).
+## Structural Categories in QC Module
+
+The QC module categorizes isoforms into well-defined structural categories, facilitating a nuanced understanding of transcriptome composition:
+
+<details><summary><strong>🏗️ SQANTI3 Structural Categories</strong></summary>
+
+1. **Full-Splice Match (FSM)**: Isoforms with splice junctions that perfectly match a reference transcript.
+2. **Incomplete-Splice Match (ISM)**: Isoforms matching a consecutive subset of splice junctions from a reference transcript.
+3. **Novel In Catalog (NIC)**: Isoforms with novel combinations of known splice sites.
+4. **Novel Not In Catalog (NNC)**: Isoforms containing at least one novel splice site not present in the reference annotation.
+5. **Antisense**: Isoforms aligning to a gene locus but transcribed from the opposite strand.
+6. **Fusion**: Isoforms comprising exons from two or more distinct gene loci.
+7. **Genic Genomic**: Isoforms located within a gene locus but not reconstructing any known or novel splicing pattern.
+8. **Intergenic**: Isoforms aligning to genomic regions outside of any annotated gene.
+
+</details>
+
+## Course Objectives
+
+Throughout this course, you will gain hands-on experience with SQANTI3's three main modules:
+
+* **QC**: Learn how to classify isoforms and interpret quality descriptors.
+* **Filter**: Understand how to apply filtering criteria to refine your transcriptome data.
+* **Rescue**: Explore methods to recover valid isoforms that may have been inadvertently excluded.
+
+By the end of the course, you will be equipped to effectively utilize SQANTI3 for comprehensive transcriptome analysis, integrating various data types to achieve accurate and reliable results.
+
+⚠️ This course has been done using the latest release of SQANTI3 (v5.4).
 
 # 0. Pre-requisites
 
@@ -72,11 +96,11 @@ mamba env create -f tools/sqanti3/SQANTI3.conda.env.yml
 
 ### Data downloading
 
-All the data needed for the tutorial can be found in the data directory of this repository. It contains the long-read defined transcriptome, the reference genome, annotation and the orthogonal data used in the tutorial. For the sake of simplicity and time, only the isoforms that are part of the chromosome 22 of humans will be used, which are more than enought to go through all of the SQANTI3 functionalities. If you wish to learn more about the data origin, you can check it out in the SQANTI3 paper. 
+All the data needed for the tutorial can be found in the data directory of this repository. It contains the long-read defined transcriptome, the reference genome, annotation and the orthogonal data used in the tutorial. For the sake of simplicity and time, only the isoforms that are part of the chromosome 22 of humans will be used, which are more than enough to go through all the SQANTI3 functionalities. If you wish to learn more about the data origin, you can check it out in the SQANTI3 paper. 
 
 # 1. SQANTI3 QC
 
-The first step of the suite, and where the *SQANTI verse* begins in the Quality Control (QC) module. This module is designed to assess the quality of a transcriptome, and integrate multiple kinds of orthogonal data that might help to understand and determine what are the true isoforms. As an end result, SQANTI3 QC will take as input the target transcriptome and the reference genome and annotation. The user can optionally add other data sources, such as short-reads RNA-seq data or CAGE peaks, to include more parameters that will be used in downstream analysis. The QC module will parse all of this information and produce a report and a classification on the given isoforms based on the structural categories defined in the sqanti paper.
+The first step of the suite, and where the *SQANTI verse* begins in the Quality Control (QC) module. This module is designed to assess the quality of a transcriptome, and integrate multiple kinds of orthogonal data that might help to understand and determine what are the true isoforms. As an end result, SQANTI3 QC will take as input the target transcriptome and the reference genome and annotation. The user can optionally add other data sources, such as short-reads RNA-seq data or CAGE peaks, to include more parameters that will be used in downstream analysis. The QC module will parse all of this information and produce a report and a classification on the given isoforms based on the structural categories defined in the SQANTI3 paper.
 
 <details>
 <summary><strong> 🏗️ SQANTI3 structural categories</strong></summary><br>
@@ -93,13 +117,13 @@ The first step of the suite, and where the *SQANTI verse* begins in the Quality 
 ---
 </details><br>
 
-As well, SQANTI3 QC is able to determine CDS regions, using GeneMarkST as predictor for these parts of the transcriptome, or even recieve the isoforms in fasta format. SQANTI will map them against the reference genome and produce a gtf file to run with. 
+As well, SQANTI3 QC is able to determine CDS regions, using GeneMarkST as predictor for these parts of the transcriptome, or even receive the isoforms in fasta format. SQANTI will map them against the reference genome and produce a gtf file to run with. 
 
 ## 1.1. Basic run
 
 Firstly, to get familiar with SQANTI3 QC, we will run it with the most basic parameters. The only required parameters are the input transcriptome, the reference genome and the reference annotation. The rest of the parameters are optional, but they will be explained in the next sections. The way the inputs have to be given is as follows:
 
-1. `--isoforms`: The input transcriptome. This can be a fasta file or a gtf/gff3 file. If you are using a fata file, the `--fasta` flag has to be included. This will allow SQANTI3 to parse the input file correctly and map the reads against the genome to produce the gtf.
+1. `--isoforms`: The input transcriptome. This can be a fasta file or a gtf/gff3 file. If you are using a fasta file, the `--fasta` flag has to be included. This will allow SQANTI3 to parse the input file correctly and map the reads against the genome to produce the gtf.
 
 2. `--refGTF`: Reference annotation in gtf format.
 3. `--refFasta`: Reference genome in fasta format.
@@ -127,11 +151,11 @@ In this run, SQANTI3 will be carried out in its most basic functions. First, it 
 
 The output files are stored in the directory `results/basic_sqanti3/course`. In this directory, you will find a few files and directories. The most important ones are:
 
-- `course_corrected.gtf`: The corrected GTF file. This file contains the parsed input isoforms, eliminating malformed lines from the GTF and correcting possible errors from the isoforms if they were given as a fasta files. This files will be the ones used by other SQANTI3 modules, rather than the original input files.
+- `course_corrected.gtf`: The corrected GTF file. This file contains the parsed input isoforms, eliminating malformed lines from the GTF and correcting possible errors from the isoforms if they were given as a fasta files.
 
-- `course_corrected.fasta`: The corrected fasta file. This file contains the parsed input isoforms, eliminating malformed lines from the GTF and correcting possible errors from the isoforms if they were given as a fasta files. This files will be the ones used by other SQANTI3 modules, rather than the original input files.
+- `course_corrected.fasta`: The corrected fasta file. This file contains the parsed input isoforms, eliminating malformed lines from the GTF and correcting possible errors from the isoforms if they were given as a fasta files. The sequence for the isoforms is directly taken from the reference genome (thus eliminating possible SNPs). These files will be the ones used by other SQANTI3 modules, rather than the original input files. 
 
-- `course_corrected.genePred`: The corrected transcriptome in genePred format, since some steps  of SQANTI3 require this format for compatibility with the orthogonal data.
+- `course_corrected.genePred`: The corrected transcriptome in genePred format, since some steps of SQANTI3 require this format for compatibility with the orthogonal data.
 
 - `course_corrected.gtf.cds.gff`: This file is a version of the corrected gtf that includes the predicted CDS regions. This file will be only produced if the option `--skipORF` is not included.
 
@@ -151,40 +175,42 @@ The output files are stored in the directory `results/basic_sqanti3/course`. In 
 
 ### **Canonical and Non-Canonical Junctions**
 
-* **Canonical junctions** are the dinucleotide pairs most commonly found at the ends of introns and are efficiently recognized by the splicing machinery. The most common pairs considered canonical are **GT-AG**, **GC-AG**, and **AT-AC**. The GT-AG combination is the most abundant in the human genome, representing around 98.9% of introns. Together, these three canonical combinations are found in over 99.9% of human introns. By default, SQANTI considers these three pairs as canonical but allows users to define their own set of canonical junctions using the `--sites` parameter.
+* **Canonical junctions** are the dinucleotide pairs most commonly found at the ends of introns and are efficiently recognized by the splicing machinery. The most common pairs considered canonical are **GT-AG**, **GC-AG**, and **AT-AC**. The GT-AG combination is the most abundant in the human genome, representing around 98.9% of introns. Together, these three canonical combinations are found in over 99.9% of human introns. By default, SQANTI3 considers these three pairs as canonical but allows users to define their own set of canonical junctions using the `--sites` parameter.
 
 * **Non-canonical junctions** include all other dinucleotide combinations at intron boundaries that are not considered canonical. These junctions are much less frequent and are often associated with splicing errors or artifacts.
 
-* **Detection by SQANTI:** SQANTI analyzes transcript sequences and compares the dinucleotides present at the ends of each intron (defined by donor and acceptor splice sites) with the set of canonical junctions.
+* **Detection by SQANTI:** SQANTI3 analyzes transcript sequences and compares the dinucleotides present at the ends of each intron (defined by donor and acceptor splice sites) with the set of canonical junctions.
     * In the classification file (`classification.txt`), the `all_canonical` column indicates whether all junctions in an isoform have canonical splice sites.
     * In the junctions file (`junctions.txt`), the `splice_site` column shows the specific splicing motif of each junction. The `start_site_category` and `end_site_category` columns indicate whether the start and end sites of the junction are annotated as "known" in the reference annotation file. The `junction_category` column shows whether the donor-acceptor combination is "known" or "novel".
-    * SQANTI calculates and reports the proportion of canonical and non-canonical junctions across different transcript categories to help identify possible artifacts. For instance, a high proportion of non-canonical junctions in certain novel transcript categories (such as NNC) may suggest a higher likelihood of being artifacts.
+    * SQANTI3 calculates and reports the proportion of canonical and non-canonical junctions across different transcript categories to help identify possible artifacts. For instance, a high proportion of non-canonical junctions in certain novel transcript categories (such as NNC) may suggest a higher likelihood of being artifacts.
 
 ### **RT Switching (Reverse Transcriptase Template Switching)**
 
 * **RT switching** is a phenomenon that occurs during reverse transcription, where the reverse transcriptase (RT) may prematurely switch RNA templates during cDNA synthesis. This can happen due to secondary structures in the messenger RNA or the presence of direct repeats in the RNA sequences. RT switching can generate spurious cDNA that is misinterpreted as splicing events, often resulting in non-canonical junctions. RT switching events have been observed to be enriched in low-abundance transcripts from highly expressed genes.
 
-* **Detection by SQANTI:** SQANTI implements an algorithm to predict potential RT switching artifacts. The algorithm scans all junctions (both canonical and non-canonical) for direct repeat patterns at defined sequence locations characteristic of RT switching.
+* **Detection by SQANTI3:** SQANTI3 implements an algorithm to predict potential RT switching artifacts. The algorithm scans all junctions (both canonical and non-canonical) for direct repeat patterns at defined sequence locations characteristic of RT switching.
     * In the classification file (`classification.txt`), the `RTS_stage` column is set to TRUE if one of the isoform's junctions may be an RT switching artifact.
     * In the junctions file (`junctions.txt`), the `RTS_junction` column is set to TRUE if the junction is predicted to be a template-switching artifact.
-    * SQANTI analyzes the frequency of RT switching predictions across different transcript categories and junction types to help users identify potential artifacts introduced during cDNA library preparation. For example, a higher proportion of RT switching predictions in NNC transcripts may indicate that these are more likely to be artifacts.
+    * SQANTI3 analyzes the frequency of RT switching predictions across different transcript categories and junction types to help users identify potential artifacts introduced during cDNA library preparation. For example, a higher proportion of RT switching predictions in NNC transcripts may indicate that these are more likely to be artifacts.
 
-By identifying and characterizing canonical and non-canonical junctions, as well as potential RT switching artifacts, SQANTI supports quality control and curation of long-read transcriptomes, enabling more accurate identification of real isoforms.
+
+
+By identifying and characterizing canonical and non-canonical junctions, as well as potential RT switching artifacts, SQANTI3 supports quality control and curation of long-read transcriptomes, enabling more accurate identification of real isoforms.
 
 ---
 </details><br>
 
-For now, we will focus on the main output from SQANTI,the classification file (you can get more information about the other output on the tab above). This file contains 48 columns with information about the isoforms and the results from the run. Two important columns are the `structural_category`, which indicates the structural category that each isoform belongs to, and `associated_gene`, which indicates the reference gene that a certain isoform is associated with (if any). 
+For now, we will focus on the main output from SQANTI, the classification file (you can get more information about the other output on the tab above). This file contains 48 columns with information about the isoforms and the results from the run. Two important columns are the `structural_category`, which indicates the structural category that each isoform belongs to, and `associated_gene`, which indicates the reference gene that a certain isoform is associated with (if any). 
 
-**:question: Trivia:** Check the `classification_worksheet.md` try to answer as many questions as you can. You can use any programming language or tool to answer the questions. The questions are designed to help you understand the output of SQANTI3 QC and the classification file. 
+❓**Trivia:** Take a look at SQANTI3 report (open it in Google Chrome or Firefox). How many isoforms are classified as FSM? How many are NNC?
 
-With this, you have completed a basic run of SQANTI3 QC, and you have learned how to run it and what are the main output files. In the next sections, we will explore the additional inputs that SQANTI3 QC is able to integrate, and how to use them to improve the results of the classification.
+🥳 You have completed a basic run of SQANTI3 QC, and you have learned how to run it and what are the main output files. In the next sections, we will explore the additional inputs that SQANTI3 QC is able to integrate, and how to use them to improve the results of the classification.
 
 ## 1.2 Run with additional inputs
 
-The most common extra information that you will use in combination with lr RNA-seq is short reads RNA data. While long-reads are fabulous for determining the structure of an isoform, since they are able to capture full transcirpts without the need of an assembly, they tend to be quite noisy and with high error rates, especially if they come from 'old' chemistries. That is why, combining them with short reads is such a good idea. There reads will map to the transciptome and can be used for multiple purposes, such as identifying isoform expression, fixing indels or giving support to junctions. 
+The most common extra information that you will use in combination with lr RNA-seq is short reads RNA data. While long-reads are fabulous for determining the structure of an isoform, since they are able to capture full transcripts without the need of an assembly, they tend to be quite noisy and with high error rates, especially if they come from 'old' chemistries. That is why, combining them with short reads is such a good idea. There reads will map to the transcriptome and can be used for multiple purposes, such as identifying isoform expression, fixing indels or giving support to junctions. 
 
-The other two main types of orthogonal data that SQANTI3 QC can use are CAGE peaks and polyA sites. CAGE peaks are used to identify the transcription start sites (TSS) of the isoforms, while polyA sites are used to identify the transcription termination sites (TTS) of the isoforms. These two types of data can be used to improve the classification of the isoforms, and to distinguis between true isoforms and artifacts caused by degradation of the RNA, for instance.
+The other two main types of orthogonal data that SQANTI3 QC can use are CAGE peaks and polyA sites. CAGE peaks are used to identify the transcription start sites (TSS) of the isoforms, while polyA sites are used to identify the transcription termination sites (TTS) of the isoforms. These two types of data can be used to improve the classification of the isoforms, and to distinguish between true isoforms and artifacts caused by degradation of the RNA, for instance.
 
 ```bash
 sqanti3_qc.py \
@@ -197,9 +223,9 @@ sqanti3_qc.py \
     --dir results/complete_sqanti3 --output course
 ```
 
-When it comes to the ouptut files, they won't change much form a SQANTI3 run without the extra information. The main difference will be within the report, where some of the columns that were NAs before, now will be filled with the information from the short-reads, CAGE peaks and polyA motifs.
+When it comes to the output files, they won't change much form a SQANTI3 run without the extra information. The main difference will be within the report, where some of the columns that were NAs before, now will be filled with the information from the short-reads, CAGE peaks and polyA motifs.
 
-With this, you have completed a run of SQANTI3 QC, the first and central module of the SQANTI-verse. You have learned how to run it, what are the main output files and how to use additional information to improve the classification of the isoforms. Now, it is your time to show all you have learnt about SQANTI3 QC. Try to complete the [qc worksheet](classification_worksheet.md) using your knowledge, the data you just generated and a little help from the SQANTI3 wiki 😉.
+🥳 You have completed a full run of SQANTI3 QC, the first and central module of the SQANTI-verse. You have learned how to run it, what are the main output files and how to use additional information to improve the classification of the isoforms. Now, it is your time to show all you have learned about SQANTI3 QC. Try to complete the [qc worksheet](classification_worksheet.md) using your knowledge, the data you just generated and a little help from the SQANTI3 wiki and report 😉.
 
  In the next sections, we will explore the other modules of SQANTI3, which are designed to curate and filter the transcriptome based on the results from SQANTI3 QC.
 
@@ -217,7 +243,7 @@ The rules filter is based on a set of rules (surprise!) that are defined in a JS
 2. The rules are treated as OR conditions, meaning that if an isoform passes any of the rules, it will be kept. 
 3. Within a rule, the user can set multiple conditions, which are based on the attributes of the SQANTI3 QC classification file. These conditions are treated as AND conditions, meaning that all conditions within a rule have to be met for the isoform to be kept.
 
-The conditions includes must have the same name name as the columns in the classification file, and you can use 3 possible value types:  
+The conditions included must have the same name as the columns in the classification file, and you can use 3 possible value types:  
 
 1. A single integer to denote the minimum value
 2. A range of integers, using the format `[min,max]` to denote the range of values.
@@ -231,7 +257,7 @@ The conditions includes must have the same name name as the columns in the class
     * It is larger than 2kb **AND** has more than 1 exon
 * **ISM**: Keep if:
     * It is larger than 2kb and shorter than 15kb **AND**
-    * It is catalogued within the "3prime_fragment", "5prime_fragment" or "internal_fragment" subcategories.
+    * It is cataloged within the "3prime_fragment", "5prime_fragment" or "internal_fragment" subcategories.
 
 ```json
 {
@@ -330,19 +356,19 @@ Now, that you know the basics of the rules filter, lets dive into running it. Th
 
 ```bash
 sqanti3_filter.py rules \
-    --sqanti3_class <classification_file> \
+    --sqanti3_class <path_to_sqanti3_dir>/course_classification.tsv \
     --filter_gtf <path_to_sqanti3_dir>/course_corrected.gtf \
     --json_filter data/rules.json \
     --dir results/rules_filter --output course 
 ```
 
-You will have to run this command twice, once for each classification file. Remember to also change the output directory, so one run won't overwrite the other. Once both runs are finished, move to the questionnaire `filter_worksheet.md` and try to answer the questions. You can use any programming language or tool to answer the questions. The questions are designed to help you understand the output of SQANTI3 filter and the classification file.
+You will have to run this command twice, once for each classification file. Remember to also change the output directory, so one run won't overwrite the other. Once both runs are finished, move to the questionnaire [filter_worksheet.md](filter_worksheet.md) and try to answer the questions. You can use any programming language or tool to answer the questions. The questions are designed to help you understand the output of SQANTI3 filter and the classification file.
 
-
+🥳 You successfully completed your first runs of SQANTI3 filter. Congrats! You are now one step closer to become an SQANTI3 expert!
 
 # 3. SQANTI3 rescue
 
-The final module of the SQANTI3 pipeline is rescue. The aim of this module is to prevent the loss of transcripts from long-read data that might be biologically relevant but could be discarded due to not being accurately processed. In the end, because of degradation form an isoforms or issues during sequencing, we might not fully capture and during filtering consider the transcript to be an artifact. SQANTI3 rescue offers two different approaches towards the isoform recovery:
+The final module of the main SQANTI3 pipeline is rescue. The aim of this module is to prevent the loss of transcripts from long-read data that might be biologically relevant but could be discarded due to not being accurately processed. In the end, because of degradation form an isoforms or issues during sequencing, we might not fully capture and during filtering consider the transcript to be an artifact. SQANTI3 rescue offers two different approaches towards the isoform recovery:
 
 1. **Automatic rescue:** This first approach is run always, and by default. It focuses on recovering high-confidence reference isoforms by identifying reference transcripts for which all corresponding Full Splice Match (FSM) isoforms were removed during the filtering stage. 
 
@@ -368,7 +394,7 @@ sqanti_qc.py \
 ```
 </details><br>
 
-In this tutorial, we will run the both the automatic and full rescue, to see the differences in the results in both methods. First, the automatic rescue is straightforward script. Even though it 
+In this tutorial, we will run the both the automatic and full rescue, to see the differences in the results in both methods. First, the automatic rescue is straightforward script. Even though it does not have to filter the reference transcriptome, we still need to indicate the strategy used in the filtering step. The command is as follows:
 
 ```bash 
 sqanti3_rescue.py rules \
@@ -379,10 +405,19 @@ sqanti3_rescue.py rules \
 The automatic rescue will produce a new transcriptome with the rescued transcripts from the reference, and a list of which were included. Now, we will run the full rescue. This approach continues from the automatic rescue. We need to specify the same strategy as was used in the filtering of our trasnscriptome, so the reference transcriptome is processed in the same way. The command is as follows:
 
 ```bash
-sqanti_rescue.py rules \
-    --sqanti3_class <> \
-    --mode full 
+sqanti3_rescue.py rules \
+    --filter_class results/complete_filter/course_RulesFilter_result_classification.txt \
+    --refGTF data/reference/gencode.v38.basic_chr22.gtf \
+    --refFasta data/reference/GRCh38.p13_chr22.fasta \
+    --refClassif data/reference/gencode.v38.basic_chr22_classification.txt \
+    --mode full \
+    --json_filter data/filter_rules.json \
+    --rescue_isoform results/complete_sqanti3/course_corrected.fasta \
+    --rescue_gtf results/complete_filter/course.filtered.gtf \
+    --dir results/complete_rescue --output course
 ```
+
+⚠️ In `--rescue_gtf` you have to specify the filtered gtf file, not the corrected one, otherwise the artifact isoforms will be kept after rescue. However, in `rescue_isoforms` you **do** need to use the non-filtered fasta file with all the isoforms. That way, the mapping step can be done correctly.
 
 This pipeline is a bit more complex. It follows four main steps to rescue the isoforms:
 
@@ -397,7 +432,7 @@ This pipeline is a bit more complex. It follows four main steps to rescue the is
     - Long read transcripts will be discarded if there is another mapping hit for the same candidate isoform to a target that is from the reference transcriptome.
     - If the candidate isoform is already present in the transcriptome as a FSM or has already been rescued in the automatic part, it will be discarded to avoid redundancy.
  
-The output in this case will be the same as before, but most likely, more transcripts will be rescued. To finish with the SQANTI3 tutorial, lets go and complete the last worksheet `rescue_worksheet.md`. The questions are designed to help you understand the output of SQANTI3 rescue and why some isoforms were rescued and others not.
+The output in this case will be the same as before, but most likely, more transcripts will be rescued. To finish with the SQANTI3 tutorial, lets go and complete the last worksheet [rescue_worksheet.md](rescue_worksheet.md). The questions are designed to help you understand the output of SQANTI3 rescue and why some isoforms were rescued and others not.
 
 # 5. SQANTI3 wrapper
 
