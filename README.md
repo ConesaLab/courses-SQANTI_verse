@@ -365,7 +365,7 @@ The final module of the main SQANTI3 pipeline is rescue. The aim of this module 
 
 The rescued transcriptome will include the rescued isoforms, ensuring that no redundancy is introduced. Meaning that if a reference transcript is going to be reintroduced, SQANTI3 rescue will always check first if it is already present in the transcriptome. 
 
-> Note: The full rescue pipeline will slightly change based on the filter stategy applied, since the reference transcriptome has to be processed following the same strategy as the long-reads transcriptome
+> Note: The full rescue pipeline will slightly change based on the filter strategy applied, since the reference transcriptome has to be processed following the same strategy as the long-reads transcriptome
 
 In order to run SQANTI3 rescue in full mode, you need to have run SQANTI3 QC on the reference annotation against itself, using the same orthogonal data as in your dataset. This step has already been done for you, but if you want to test yourself, go ahead and try to run it 😉. 
 
@@ -383,15 +383,9 @@ sqanti_qc.py \
 ```
 </details><br>
 
-In this tutorial, we will run the both the automatic and full rescue, to see the differences in the results in both methods. First, the automatic rescue is straightforward script. Even though it does not have to filter the reference transcriptome, we still need to indicate the strategy used in the filtering step. The command is as follows:
+In this tutorial we will run the full rescue using the results from filtering the long-read transcriptome that had the orthogonal data integrated. Since we are working with a small dataset, we will run the full rescue, and compare the results from the automatic rescue, which is always run first, with those of the full rescue.
 
-```bash 
-sqanti3_rescue.py rules \
-    --sqanti3_class 
-
-```
-
-The automatic rescue will produce a new transcriptome with the rescued transcripts from the reference, and a list of which were included. Now, we will run the full rescue. This approach continues from the automatic rescue. We need to specify the same strategy as was used in the filtering of our trasnscriptome, so the reference transcriptome is processed in the same way. The command is as follows:
+The command is as follows:
 
 ```bash
 sqanti3_rescue.py rules \
@@ -454,4 +448,10 @@ In the configuration file, each module options are preceeded by the `enabled` ta
 Finally, there are two new options: 
 
 1. `--dry-run`: This option will run the wrapper in dry-run mode, meaning that it will not execute any of the modules, but will print the commands that would be executed
-2. `--log_level`: Determines the amount of log that SQANTI3 will produce. By default it is set to INFO, showing the main information. If it is too much, it can be reduced by changing it to ERROR or WARNING as desired. 
+2. `--log_level`: Determines the amount of log that SQANTI3 will produce. By default it is set to INFO, showing the main information. If it is too much, it can be reduced by changing it to ERROR or WARNING as desired.
+
+
+
+# BONUS
+
+Lets see who wins the [SQANTI3 challenge](https://www.studyfetch.com/share/feature/arcade_game/u9gtw3xvvc13u44xi0aalz54xil7d4pw)!
