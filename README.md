@@ -2,7 +2,7 @@
 
 # Introduction to SQANTI3
 
-**SQANTI3** is a comprehensive bioinformatics tool designed for the quality control, curation, and annotation of long-read transcriptomes. It integrates multiple data sources to enhance the accuracy of transcriptome characterization, making it an essential component of the Functional IsoTranscriptomics (FIT) framework, alongside tools like IsoAnnot and tappAS. ([GitHub Repository](https://github.com/ConesaLab/SQANTI3))
+**SQANTI3** is a comprehensive bioinformatics tool designed for the quality control, curation, and annotation of long-read transcriptomes. It integrates multiple data sources to enhance the accuracy of transcriptome characterization, making it an essential component of the Functional IsoTranscriptomics framework, alongside tools like IsoAnnot and tappAS. ([GitHub Repository](https://github.com/ConesaLab/SQANTI3))
 
 ## Key Features
 
@@ -10,6 +10,7 @@
 
   * Short-read sequencing data
   * CAGE (Cap Analysis Gene Expression) peak sequencing information
+  * PolyA motifs and 
   * Expression matrices derived from tools like Kallisto
   * Full-length counts from PacBio data
 
@@ -102,21 +103,6 @@ All the data needed for the tutorial can be found in the data directory of this 
 
 The first step of the suite, and where the *SQANTI verse* begins in the Quality Control (QC) module. This module is designed to assess the quality of a transcriptome, and integrate multiple kinds of orthogonal data that might help to understand and determine what are the true isoforms. As an end result, SQANTI3 QC will take as input the target transcriptome and the reference genome and annotation. The user can optionally add other data sources, such as short-reads RNA-seq data or CAGE peaks, to include more parameters that will be used in downstream analysis. The QC module will parse all of this information and produce a report and a classification on the given isoforms based on the structural categories defined in the SQANTI3 paper.
 
-<details>
-<summary><strong> 🏗️ SQANTI3 structural categories</strong></summary><br>
-
-1. <strong>Full-Splice-Match (FSM):</strong> Transcript models where all splice junctions perfectly match a known reference transcript.  
-2. <strong>Incomplete-Splice-Match (ISM):</strong> Transcript models that match a consecutive subset of splice junctions of a known reference transcript.  
-3. <strong>Novel-In-Catalog (NIC):</strong> Transcript models with at least one splice junction not present in the reference annotation, but formed by known splice sites.  
-4. <strong>Novel-Not-In-Catalog (NNC):</strong> Transcript models with at least one splice junction that utilizes a novel splice site not present in the reference annotation.  
-5. <strong>Antisense:</strong> Transcript models that align to a gene locus but on the opposite strand to all annotated transcripts of that gene.  
-6. <strong>Fusion:</strong> Transcript models whose exons align to two or more distinct gene loci.  
-7. <strong>Genic genomic:</strong> Transcript models composed of exons that align within a gene locus but do not reconstruct any known or novel splicing pattern.  
-8. <strong>Intergenic:</strong> Transcript models whose exons align to genomic regions outside of any annotated gene.  
-
----
-</details><br>
-
 As well, SQANTI3 QC is able to determine CDS regions, using GeneMarkST as predictor for these parts of the transcriptome, or even receive the isoforms in fasta format. SQANTI will map them against the reference genome and produce a gtf file to run with. 
 
 ## 1.1. Basic run
@@ -193,9 +179,12 @@ The output files are stored in the directory `results/basic_sqanti3/course`. In 
     * In the junctions file (`junctions.txt`), the `RTS_junction` column is set to TRUE if the junction is predicted to be a template-switching artifact.
     * SQANTI3 analyzes the frequency of RT switching predictions across different transcript categories and junction types to help users identify potential artifacts introduced during cDNA library preparation. For example, a higher proportion of RT switching predictions in NNC transcripts may indicate that these are more likely to be artifacts.
 
+### Nonsense-Mediated Decay (NMD)
 
+* **NMD** is a cellular surveillance mechanism that degrades mRNA transcripts containing premature stop codons (nonsense mutations) to prevent the production of truncated and potentially harmful proteins. NMD can also target long 3' UTRs or aberrant splicing events.
+* **Detection by SQANTI3:** SQANTI3 does not directly predict NMD events but provides information on the potential for NMD in the classification file. The 'predicted_NMD' column will be flagged as TRUE if the isoform has a predicted end of the CDS at least 50bp before the last junction. 
 
-By identifying and characterizing canonical and non-canonical junctions, as well as potential RT switching artifacts, SQANTI3 supports quality control and curation of long-read transcriptomes, enabling more accurate identification of real isoforms.
+By identifying and characterizing canonical and non-canonical junctions, as well as potential RT switching artifacts or possible Nonsense-mediated decay, SQANTI3 supports quality control and curation of long-read transcriptomes, enabling more accurate identification of real isoforms.
 
 ---
 </details><br>
@@ -231,7 +220,7 @@ When it comes to the output files, they won't change much form a SQANTI3 run wit
 
 # 2. SQANTI3 filter
 
-The SQANTI3 filter module provides **two primary technical approaches for curating long-read transcriptomes by removing potential artifacts**: a **rules-based filter** and a **machine learning-based filter**. The rules filter operates by applying user-defined criteria, expressed in a **JSON format**, to the **SQANTI3 QC classification file** (`*_classification.txt`). These rules specify characteristics that reliable isoforms should possess, considering various QC attributes. The machine learning filter, on the other hand, employs a **random forest classifier** trained on **true positive (TP) and true negative (TN) isoform sets**, leveraging **SQANTI3 QC attributes** to predict the probability of a transcript being a genuine isoform or an artifact. Both filtering methods can generate a filtered classification file and optionally filter associated **FASTA/FASTQ, GTF, SAM, and FAA files** based on the identified high-quality isoforms.
+The **SQANTI3 filter** module provides two primary technical approaches for curating long-read transcriptomes by removing potential artifacts: a rules-based filter and a machine learning-based filter. The rules filter operates by applying user-defined criteria, expressed in a JSON format, to the SQANTI3 QC classification file (`*_classification.txt`). These rules specify characteristics that reliable isoforms should possess, considering various QC attributes. The machine learning filter, on the other hand, employs a random forest classifier trained on true positive (TP) and true negative (TN) isoform sets, leveraging SQANTI3 QC attributes to predict the probability of a transcript being a genuine isoform or an artifact. Both filtering methods can generate a filtered classification file and optionally filter associated FASTA/FASTQ, GTF, SAM, and FAA files based on the identified high-quality isoforms.
 
 For the sake of this tutorial, we will focus on the rules-based filter, which allows for more flexibility and customization from the user. The first step here is to understand how the filter works.
 
