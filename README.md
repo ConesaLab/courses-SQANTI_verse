@@ -1,5 +1,9 @@
 # SQANTI verse tutorial
 
+```bash
+git clone https://github.com/ConesaLab/courses-SQANTI_verse.git
+```
+
 # Introduction to SQANTI3
 
 **SQANTI3** is a comprehensive bioinformatics tool designed for the quality control, curation, and annotation of long-read transcriptomes. It integrates multiple data sources to enhance the accuracy of transcriptome characterization, making it an essential component of the Functional IsoTranscriptomics framework, alongside tools like IsoAnnot and tappAS. ([GitHub Repository](https://github.com/ConesaLab/SQANTI3))
