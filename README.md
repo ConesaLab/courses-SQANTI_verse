@@ -216,7 +216,9 @@ When it comes to the output files, they won't change much form a SQANTI3 run wit
 
 🥳 You have completed a full run of SQANTI3 QC, the first and central module of the SQANTI-verse. You have learned how to run it, what are the main output files and how to use additional information to improve the classification of the isoforms. Now, it is your time to show all you have learned about SQANTI3 QC. Try to complete the [qc worksheet](classification_worksheet.md) using your knowledge, the data you just generated and a little help from the SQANTI3 wiki and report 😉.
 
- In the next sections, we will explore the other modules of SQANTI3, which are designed to curate and filter the transcriptome based on the results from SQANTI3 QC.
+In the next sections, we will explore the other modules of SQANTI3, which are designed to curate and filter the transcriptome based on the results from SQANTI3 QC.
+
+ ![alt text](https://github.com/ConesaLab/courses-SQANTI_verse/blob/main/data/ConesaColors_happy.jpg "Conesa Color")
 
 # 2. SQANTI3 filter
 
@@ -416,6 +418,8 @@ This pipeline is a bit more complex. It follows four main steps to rescue the is
     - If the candidate isoform is already present in the transcriptome as a FSM or has already been rescued in the automatic part, it will be discarded to avoid redundancy.
  
 The output in this case will be the same as before, but most likely, more transcripts will be rescued. To finish with the SQANTI3 tutorial, lets go and complete the last worksheet [rescue_worksheet.md](rescue_worksheet.md). The questions are designed to help you understand the output of SQANTI3 rescue and why some isoforms were rescued and others not.
+
+![alt_text](https://github.com/ConesaLab/courses-SQANTI_verse/blob/main/data/ConesaColors_mad.jpg "ConesaMad")
 
 # 5. SQANTI3 wrapper
 
