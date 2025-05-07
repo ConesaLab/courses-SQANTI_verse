@@ -10,7 +10,7 @@
 
   * Short-read sequencing data
   * CAGE (Cap Analysis Gene Expression) peak sequencing information
-  * PolyA motifs and 
+  * PolyA motifs and Quant-seq
   * Expression matrices derived from tools like Kallisto
   * Full-length counts from PacBio data
 
