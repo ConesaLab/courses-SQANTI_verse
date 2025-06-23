@@ -107,7 +107,7 @@ All the data needed for the tutorial can be found in the data directory of this 
 
 The first step of the suite, and where the *SQANTI verse* begins in the Quality Control (QC) module. This module is designed to assess the quality of a transcriptome, and integrate multiple kinds of orthogonal data that might help to understand and determine what are the true isoforms. As an end result, SQANTI3 QC will take as input the target transcriptome and the reference genome and annotation. The user can optionally add other data sources, such as short-reads RNA-seq data or CAGE peaks, to include more parameters that will be used in downstream analysis. The QC module will parse all of this information and produce a report and a classification on the given isoforms based on the structural categories defined in the SQANTI3 paper.
 
-As well, SQANTI3 QC is able to determine CDS regions, using GeneMarkST as predictor for these parts of the transcriptome, or even receive the isoforms in fasta format. SQANTI will map them against the reference genome and produce a gtf file to run with. 
+As well, SQANTI3 QC is able to determine CDS regions, using [TransDecoder2](https://github.com/Markusjsommer/TD2) as predictor for these parts of the transcriptome, or even receive the isoforms in fasta format. SQANTI will map them against the reference genome and produce a gtf file to run with. 
 
 ## 1.1. Basic run
 
@@ -147,7 +147,7 @@ The output files are stored in the directory `results/basic_sqanti3/course`. In 
 
 - `course_corrected.genePred`: The corrected transcriptome in genePred format, since some steps of SQANTI3 require this format for compatibility with the orthogonal data.
 
-- `course_corrected.gtf.cds.gff`: This file is a version of the corrected gtf that includes the predicted CDS regions. This file will be only produced if the option `--skipORF` is not included.
+- `course_corrected.cds.gff3`: This file is a version of the corrected gtf that includes the predicted CDS regions. This file will be created if the option `--skipORF` is not included.
 
 - `course_classification.txt`: The classification file. This file contains the classification of the isoforms in the SQANTI3 categories. This file is the most important output of SQANTI3 QC, as it contains the information about the quality of the transcriptome and the classification of the isoforms.
 
