@@ -211,7 +211,7 @@ sqanti3_qc.py \
     --refGTF data/chr22_hg38.gtf \
     --refFasta data/chr22_hg38.fasta \
     --short_reads data/short_reads.fofn \
-    --CAGEpeaks data/ref_TSS_annotation/human.refTSS_v3.1.hg38.bed \
+    --CAGE_peak data/ref_TSS_annotation/human.refTSS_v3.1.hg38.bed \
     --polyA_motif_list data/polyA_motifs/mouse_and_human.polyA_motif.txt \
     --dir results/complete_sqanti3 --output course
 ```
