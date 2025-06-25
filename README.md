@@ -129,8 +129,8 @@ SQANTI3 was developed to work with PacBio long-reads transcriptomes. Thus, when 
 ```bash
 sqanti3_qc.py \
     --isoforms data/raw_transcriptome.gtf \
-    --refGTF data/chr22_hg38.fasta \
-    --refFasta data/chr22_hg38.gtf \
+    --refGTF data/chr22_hg38.gtf \
+    --refFasta data/chr22_hg38.fasta \
     --dir results/basic_sqanti3 --output course 
 ```
 
@@ -208,8 +208,8 @@ The other two main types of orthogonal data that SQANTI3 QC can use are CAGE pea
 ```bash
 sqanti3_qc.py \
     --isoforms data/raw_transcriptome.gtf \
-    --refGTF data/chr22_hg38.fasta \
-    --refFasta data/chr22_hg38.gtf \
+    --refGTF data/chr22_hg38.gtf \
+    --refFasta data/chr22_hg38.fasta \
     --short_reads data/short_reads.fofn \
     --CAGEpeaks data/ref_TSS_annotation/human.refTSS_v3.1.hg38.bed \
     --polyA_motif_list data/polyA_motifs/mouse_and_human.polyA_motif.txt \
