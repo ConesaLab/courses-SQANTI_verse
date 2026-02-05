@@ -4,7 +4,7 @@ library(dplyr)
 ## Classification worksheet
 
 # Load the datasets
-basic.df <- read_tsv("results/basic_sqanti3/course_classification.txt")
+basic.df <- read_tsv("results/02_QC_module/mouse_classification.txt")
 
 complete.df <- read_tsv("results/complete_sqanti3/course_classification.txt")
 
@@ -44,13 +44,13 @@ basic.df %>%
 basic.df %>% 
     filter(structural_category == "fusion") %>% 
     rowwise() %>%
-    mutate(fusion_genes= length(str_split(associated_gene,"_")[[1]])) %>%
+    mutate(fusion_genes= length(stringr::str_split(associated_gene,"_")[[1]])) %>%
     filter(fusion_genes == max(fusion_genes)) %>%
     select(isoform, fusion_genes, associated_gene)
 
 # Question 9
 basic.df %>%
-    mutate(novel = ifelse(str_detect(associated_transcript,"novel"),TRUE,FALSE)) %>%
+    mutate(novel = ifelse(stringr::str_detect(associated_transcript,"novel"),TRUE,FALSE)) %>%
     select(novel) %>%
     table()/nrow(basic.df)*100 
 
@@ -62,14 +62,14 @@ basic.df %>%
 # Question 11
 basic.df %>%
     filter(coding == "coding") %>%
-    pull(ORF_length) %>%
+    pull(CDS_length) %>%
     mean()
 
 # Question 12
 basic.df %>%
     filter(coding == "coding") %>%
-    filter(ORF_length == max(ORF_length)) %>%
-    select(isoform,ORF_length,structural_category)
+    filter(CDS_length == max(CDS_length)) %>%
+    select(isoform,CDS_length,structural_category)
 
 # Question 13
 basic.df %>%
