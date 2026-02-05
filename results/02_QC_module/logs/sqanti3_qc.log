@@ -1,0 +1,26 @@
+[INFO:2026-02-05 12:54:54,636] Write arguments to /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/02_QC_module/mouse.qc_params.txt
+[INFO:2026-02-05 12:54:54,636] Initialising QC pipeline.
+[INFO:2026-02-05 12:54:54,636] Parsing provided files
+[INFO:2026-02-05 12:54:54,636] Reading genome fasta data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta
+[INFO:2026-02-05 12:54:54,991] **** Correcting sequences
+[INFO:2026-02-05 12:54:54,992] Correcting fasta
+[INFO:2026-02-05 12:54:54,992] Skipping aligning of sequences because GTF file was provided.
+[INFO:2026-02-05 12:54:54,996] Indels will be not calculated since you ran SQANTI3 without alignment step (SQANTI3 with gtf format as transcriptome input).
+[INFO:2026-02-05 12:54:55,113] **** Predicting ORF sequences...
+[INFO:2026-02-05 12:54:55,113] Running TD2 ORF search on /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/02_QC_module/mouse_corrected.fasta...
+[INFO:2026-02-05 12:54:55,565] Running TD2 ORF prediction on /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/02_QC_module/mouse_corrected.fasta...
+[INFO:2026-02-05 12:55:06,472] **** Parsing Reference Transcriptome....
+[INFO:2026-02-05 12:55:07,169] **** Parsing Isoforms.
+[INFO:2026-02-05 12:55:07,176] No short-reads or coverage provided. Skipping short-read coverage calculation.
+[INFO:2026-02-05 12:55:07,176] TSS ratio will not be calculated since SR information was not provided
+[INFO:2026-02-05 12:55:07,176] **** Performing Classification of Isoforms
+[INFO:2026-02-05 12:55:08,964] Number of classified isoforms: 468
+[INFO:2026-02-05 12:55:08,965] After classify fsm: 468
+[INFO:2026-02-05 12:55:08,965] Full-length read abundance files not provided.
+[INFO:2026-02-05 12:55:08,965] RT-switching computation
+[INFO:2026-02-05 12:55:09,036] After RTS classification: 468
+[INFO:2026-02-05 12:55:09,037] Isoforms expression files not provided.
+[INFO:2026-02-05 12:55:09,059] Writing output files
+[INFO:2026-02-05 12:55:09,223] **** Generating SQANTI3 report.
+[INFO:2026-02-05 12:55:27,685] Removing temporary files.
+[INFO:2026-02-05 12:55:27,686] SQANTI3 complete in 33.05 sec.

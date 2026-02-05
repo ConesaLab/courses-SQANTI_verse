@@ -1,0 +1,14 @@
+INFO:
+Python 3.11.0 | packaged by conda-forge | (main, Jan 14 2023, 12:27:40) [GCC 11.3.0] 
+
+Step 1: Initializing args and loading inputs...
+Loading transcripts at /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/02_QC_module/mouse_corrected.fasta
+Loaded 468 sequences.
+Done. 0.006 seconds
+Step 2: Finding ORFs...
+Done. 0.186 seconds
+Step 3: Writing results to file...
+Done. 0.014 seconds
+Citation: A. Mao, H. J. Ji, B. Haas, S. Salzberg, M. J. Sommer, TD2: finding protein coding regions in transcripts, bioRxiv (2025)p. 2025.04.13.648579.
+Thank you for using TD2!
+
