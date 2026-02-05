@@ -1,1 +1,5 @@
 results/complete_sqanti3/STAR_index
+tools
+
+# Reference genomes
+results/01_isoquant_transcriptome/Mus_musculus.GRCm39.dna.chr19_k15_idx

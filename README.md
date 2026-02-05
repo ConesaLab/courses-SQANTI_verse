@@ -72,9 +72,9 @@ mkdir data
 SQANTI3 can be directly downloaded from GitHub using the following command:
 
 ```bash
-wget https://github.com/ConesaLab/SQANTI3/releases/download/v5.4/SQANTI3_v5.4.zip
+wget https://github.com/ConesaLab/SQANTI3/releases/download/v6.0/SQANTI3_v6.0.zip
 mkdir -p tools/sqanti3
-unzip SQANTI3_v5.4.zip -d tools/sqanti3
+unzip SQANTI3_v6.0.zip -d tools/sqanti3
 ```
 
 Once it is downloaded and unzipped, you can either add it to your PATH or call the programs using the full path. 
@@ -85,7 +85,7 @@ Once it is downloaded and unzipped, you can either add it to your PATH or call t
 In the terminal, you have to find the file `.bashrc` or `.bash_profile` in your home directory. Use your favorite text editor to open it and add the following line
 
 ```bash
-export PATH=$PATH:/path/to/SQANTI3_v5.4
+export PATH=$PATH:/path/to/SQANTI3_v6.0
 ```
 
 Then, save the file and SQANTI3 will be in your path for the next terminal you open. As well, you can make this changes instantaneous by running `source ~/.bashrc` or `source ~/.bash_profile` in the terminal.
@@ -99,9 +99,25 @@ The final step to have a functional sqanti3 installation is to install the depen
 mamba env create -f tools/sqanti3/SQANTI3.conda.env.yml
 ```
 
+:warning: **Important note**: Due to the installation of some packages (TransDecoder2 mainly), the installation time of the conda environment can take a while. Please be patient while the environment is being created (usually 5-10 minutes).
+
 ### Data downloading
 
 All the data needed for the tutorial can be found in the data directory of this repository. It contains the long-read defined transcriptome, the reference genome, annotation and the orthogonal data used in the tutorial. For the sake of simplicity and time, only the isoforms that are part of the chromosome 22 of humans will be used, which are more than enough to go through all the SQANTI3 functionalities. If you wish to learn more about the data origin, you can check it out in the SQANTI3 paper. 
+
+# 1. Transcriptome Reconstruction
+
+The first step on a transcriptomics experiment is to reconstruct the transcriptome from the raw reads. This step is not part of SQANTI3, but it is a necessary step before running SQANTI3 QC. There are multiple tools that can be used for this purpose, such as IsoSeq3, FLAIR, IsoQuant, Bamboo or TALON. Each one of them performs different and has a different approach towards the reconstruction. EWhen faces with thsi step, you must ask yourselve what are you lloking for in a transcirptome (novelty vs accuracy for example) and choose the tool that best fits your needs. If you want more information about the different tools available, you can check the results from the [LRGASP challenge](https://lrgasp.github.io/). 
+
+In this tutorial, we will use [IsoQuant](https://github.com/ablab/IsoQuant), since it suports multiple sequencing platforms (PacBio and ONT) and has a good balance between novelty and accuracy. The command to run IsoQuant is as follows:
+
+```bash
+./isoquant.py --reference tests/toy_data/MAPT.Mouse.reference.fasta \
+--genedb tests/toy_data/MAPT.Mouse.genedb.gtf \
+--fastq tests/toy_data/MAPT.Mouse.ONT.simulated.fastq \
+--data_type nanopore -o toy_data_out
+```
+
 
 # 1. SQANTI3 QC
 
