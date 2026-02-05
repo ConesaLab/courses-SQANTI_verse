@@ -1,24 +1,16 @@
-[M::mm_idx_gen::2.381*0.99] collected minimizers
-[M::mm_idx_gen::2.715*1.75] sorted minimizers
-[M::main::3.505*1.58] loaded/built the index for 1 target sequence(s)
+[M::mm_idx_gen::2.249*1.00] collected minimizers
+[M::mm_idx_gen::2.600*1.78] sorted minimizers
+[M::main::3.354*1.60] loaded/built the index for 1 target sequence(s)
 [M::mm_idx_stat] kmer size: 15; skip: 5; is_hpc: 0; #seq: 1
-[M::mm_idx_stat::3.694*1.55] distinct minimizers: 15038487 (87.60% are singletons); average occurrences: 1.324; average spacing: 3.085; total length: 61420004
+[M::mm_idx_stat::3.538*1.57] distinct minimizers: 15038487 (87.60% are singletons); average occurrences: 1.324; average spacing: 3.085; total length: 61420004
 [M::main] Version: 2.30-r1287
 [M::main] CMD: /home/pabloati/miniforge3/envs/isoquant/bin/minimap2 -t 16 -k 15 -w 5 -d /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/01_isoquant_transcriptome/Mus_musculus.GRCm39.dna.chr19_k15_idx /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta
-[M::main] Real time: 3.744 sec; CPU: 5.772 sec; Peak RSS: 1.084 GB
-[M::main::1.083*1.00] loaded/built the index for 1 target sequence(s)
-[M::mm_mapopt_update::1.376*1.00] mid_occ = 132
+[M::main] Real time: 3.593 sec; CPU: 5.619 sec; Peak RSS: 1.048 GB
+[M::main::1.053*0.99] loaded/built the index for 1 target sequence(s)
+[M::mm_mapopt_update::1.324*0.99] mid_occ = 132
 [M::mm_idx_stat] kmer size: 15; skip: 5; is_hpc: 0; #seq: 1
-[M::mm_idx_stat::1.563*1.00] distinct minimizers: 15038487 (87.60% are singletons); average occurrences: 1.324; average spacing: 3.085; total length: 61420004
-[M::worker_pipeline::16.636*6.50] mapped 15000 sequences
+[M::mm_idx_stat::1.492*0.99] distinct minimizers: 15038487 (87.60% are singletons); average occurrences: 1.324; average spacing: 3.085; total length: 61420004
+[M::worker_pipeline::44.040*6.71] mapped 16320 sequences
 [M::main] Version: 2.30-r1287
 [M::main] CMD: /home/pabloati/miniforge3/envs/isoquant/bin/minimap2 -a -x splice:hq --secondary=yes -Y --MD -t 16 /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/01_isoquant_transcriptome/Mus_musculus.GRCm39.dna.chr19_k15_idx /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/mouse_raw_reads.subset.chr19.fastq
-[M::main] Real time: 16.646 sec; CPU: 108.160 sec; Peak RSS: 1.166 GB
-[M::main::1.044*1.00] loaded/built the index for 1 target sequence(s)
-[M::mm_mapopt_update::1.296*1.00] mid_occ = 132
-[M::mm_idx_stat] kmer size: 15; skip: 5; is_hpc: 0; #seq: 1
-[M::mm_idx_stat::1.463*1.00] distinct minimizers: 15038487 (87.60% are singletons); average occurrences: 1.324; average spacing: 3.085; total length: 61420004
-[M::worker_pipeline::39.742*7.44] mapped 16320 sequences
-[M::main] Version: 2.30-r1287
-[M::main] CMD: /home/pabloati/miniforge3/envs/isoquant/bin/minimap2 -a -x splice:hq --secondary=yes -Y --MD -t 16 /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/01_isoquant_transcriptome/Mus_musculus.GRCm39.dna.chr19_k15_idx /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/mouse_raw_reads.subset2.chr19.fastq
-[M::main] Real time: 39.752 sec; CPU: 295.737 sec; Peak RSS: 3.342 GB
+[M::main] Real time: 44.051 sec; CPU: 295.627 sec; Peak RSS: 3.342 GB

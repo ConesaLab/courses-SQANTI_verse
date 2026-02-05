@@ -1,58 +1,55 @@
-Command line: /home/pabloati/miniforge3/envs/isoquant/bin/isoquant.py --fastq data/isoquant/mouse_raw_reads.subset2.chr19.fastq --reference data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta -d pacbio --output results/01_isoquant_transcriptome --prefix second_subset
-2026-02-05 12:03:33,966 - INFO - Running IsoQuant version 3.10.0
-2026-02-05 12:03:33,966 - WARNING - Output folder already contains a previous run, some files may be overwritten. Use --resume to resume a failed run. Use --force to avoid this message.
-2026-02-05 12:03:33,966 - WARNING - Press Ctrl+C to interrupt the run now.
-2026-02-05 12:03:42,977 - INFO - Overwriting the previous run
-2026-02-05 12:03:43,983 - INFO -  === IsoQuant pipeline started === 
-2026-02-05 12:03:43,984 - INFO - Python version: 3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) 
+Command line: /home/pabloati/miniforge3/envs/isoquant/bin/isoquant.py --fastq data/isoquant/mouse_raw_reads.subset.chr19.fastq --reference data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta -d pacbio --output results/01_isoquant_transcriptome --prefix mouse
+2026-02-05 12:45:45,668 - INFO - Running IsoQuant version 3.10.0
+2026-02-05 12:45:45,669 - INFO -  === IsoQuant pipeline started === 
+2026-02-05 12:45:45,669 - INFO - Python version: 3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) 
 [GCC 13.3.0]
-2026-02-05 12:03:43,984 - INFO - gffutils version: 0.13
-2026-02-05 12:03:43,984 - INFO - pysam version: 0.22.1
-2026-02-05 12:03:43,984 - INFO - pyfaidx version: 0.9.0.3
-2026-02-05 12:03:43,984 - INFO - Reading reference genome from /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta
-2026-02-05 12:03:43,985 - INFO - Index file found. Using /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/01_isoquant_transcriptome/Mus_musculus.GRCm39.dna.chr19_k15_idx
-2026-02-05 12:03:43,985 - INFO - Aligning /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/mouse_raw_reads.subset2.chr19.fastq to the reference, alignments will be saved to /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/01_isoquant_transcriptome/second_subset/aux/second_subset_mouse_raw_reads.subset2.chr19_f4a987_d5cc31.bam
-2026-02-05 12:03:43,991 - INFO - Running minimap2 version 2.30-r1287 (takes a while)
-2026-02-05 12:04:23,800 - INFO - Sorting alignments
-2026-02-05 12:04:24,420 - INFO - Indexing alignments
-2026-02-05 12:04:24,586 - INFO - Loading reference genome from /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta
-2026-02-05 12:04:24,586 - INFO - Processing 1 experiment
-2026-02-05 12:04:24,586 - INFO - Secondary alignments will not be used
-2026-02-05 12:04:24,586 - INFO - Processing experiment second_subset
-2026-02-05 12:04:24,586 - INFO - Experiment has 1 BAM file: results/01_isoquant_transcriptome/second_subset/aux/second_subset_mouse_raw_reads.subset2.chr19_f4a987_d5cc31.bam
-2026-02-05 12:04:24,587 - INFO - Total number of chromosomes to be processed 1: 19 
-2026-02-05 12:04:24,587 - INFO - Collecting read alignments
-2026-02-05 12:04:24,654 - INFO - Processing chromosome 19
-2026-02-05 12:04:28,522 - INFO - Finished processing chromosome 19
-2026-02-05 12:04:28,538 - INFO - Counting multimapped reads
-2026-02-05 12:04:28,538 - INFO - Counting reads from 19
-2026-02-05 12:04:28,539 - INFO - Resolving multimappers
-2026-02-05 12:04:28,539 - INFO - Multimappers resolved
-2026-02-05 12:04:28,539 - INFO - Alignments collected, overall alignment statistics:
-2026-02-05 12:04:28,539 - INFO - primary: 16320
-2026-02-05 12:04:28,540 - INFO - secondary: 794
-2026-02-05 12:04:28,540 - INFO - supplementary: 24
-2026-02-05 12:04:28,540 - INFO - unaligned: 0
-2026-02-05 12:04:28,540 - INFO - Finishing read assignment, total assignments 16319, polyA percentage 0.0
-2026-02-05 12:04:28,541 - INFO - Read assignments files saved to results/01_isoquant_transcriptome/second_subset/aux/second_subset.save*. 
-2026-02-05 12:04:28,541 - INFO - To keep these intermediate files for debug purposes use --keep_tmp flag
-2026-02-05 12:04:28,541 - INFO - Total assignments used for analysis: 16319, polyA tail detected in 6 (0.0%)
-2026-02-05 12:04:28,541 - WARNING - PolyA percentage is suspiciously low. IsoQuant expects non-polya-trimmed reads. If you aim to construct transcript models, consider using --polya_trimmed and --polya_requirement options.
-2026-02-05 12:04:28,541 - INFO - Processing assigned reads second_subset
-2026-02-05 12:04:28,541 - INFO - Transcript models construction is turned on
-2026-02-05 12:04:28,543 - INFO - Transcript construction options:
-2026-02-05 12:04:28,543 - INFO -   Novel monoexonic transcripts will be reported: yes
-2026-02-05 12:04:28,543 - INFO -   PolyA tails are required for multi-exon transcripts to be reported: no
-2026-02-05 12:04:28,543 - INFO -   PolyA tails are required for 2-exon transcripts to be reported: no
-2026-02-05 12:04:28,543 - INFO -   PolyA tails are required for known monoexon transcripts to be reported: yes
-2026-02-05 12:04:28,543 - INFO -   PolyA tails are required for novel monoexon transcripts to be reported: yes
-2026-02-05 12:04:28,543 - INFO -   Splice site reporting level: only_canonical
-2026-02-05 12:04:28,616 - INFO - Processing chromosome 19
-2026-02-05 12:04:30,661 - INFO - Finished processing chromosome 19
-2026-02-05 12:04:30,799 - INFO - Transcript model statistics
-2026-02-05 12:04:30,800 - INFO - novel_not_in_catalog: 468
-2026-02-05 12:04:30,886 - INFO - Transcript model file results/01_isoquant_transcriptome/second_subset/second_subset.transcript_models.gtf
-2026-02-05 12:04:30,886 - INFO - Counts for generated transcript models are saves to: results/01_isoquant_transcriptome/second_subset/second_subset.discovered_transcript_counts.tsv
-2026-02-05 12:04:30,889 - INFO - Processed experiment second_subset
-2026-02-05 12:04:30,889 - INFO - Processed 1 experiment
-2026-02-05 12:04:30,890 - INFO -  === IsoQuant pipeline finished === 
+2026-02-05 12:45:45,669 - INFO - gffutils version: 0.13
+2026-02-05 12:45:45,669 - INFO - pysam version: 0.22.1
+2026-02-05 12:45:45,669 - INFO - pyfaidx version: 0.9.0.3
+2026-02-05 12:45:45,669 - INFO - Reading reference genome from /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta
+2026-02-05 12:45:45,669 - INFO - Indexing reference
+2026-02-05 12:45:49,328 - INFO - Aligning /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/mouse_raw_reads.subset.chr19.fastq to the reference, alignments will be saved to /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/01_isoquant_transcriptome/mouse/aux/mouse_mouse_raw_reads.subset.chr19_307184_2ed558.bam
+2026-02-05 12:45:49,335 - INFO - Running minimap2 version 2.30-r1287 (takes a while)
+2026-02-05 12:46:33,457 - INFO - Sorting alignments
+2026-02-05 12:46:34,050 - INFO - Indexing alignments
+2026-02-05 12:46:34,197 - INFO - Loading reference genome from /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta
+2026-02-05 12:46:34,198 - INFO - Processing 1 experiment
+2026-02-05 12:46:34,198 - INFO - Secondary alignments will not be used
+2026-02-05 12:46:34,198 - INFO - Processing experiment mouse
+2026-02-05 12:46:34,198 - INFO - Experiment has 1 BAM file: results/01_isoquant_transcriptome/mouse/aux/mouse_mouse_raw_reads.subset.chr19_307184_2ed558.bam
+2026-02-05 12:46:34,198 - INFO - Total number of chromosomes to be processed 1: 19 
+2026-02-05 12:46:34,199 - INFO - Collecting read alignments
+2026-02-05 12:46:34,267 - INFO - Processing chromosome 19
+2026-02-05 12:46:39,906 - INFO - Finished processing chromosome 19
+2026-02-05 12:46:39,917 - INFO - Counting multimapped reads
+2026-02-05 12:46:39,918 - INFO - Counting reads from 19
+2026-02-05 12:46:39,918 - INFO - Resolving multimappers
+2026-02-05 12:46:39,918 - INFO - Multimappers resolved
+2026-02-05 12:46:39,918 - INFO - Alignments collected, overall alignment statistics:
+2026-02-05 12:46:39,919 - INFO - primary: 16320
+2026-02-05 12:46:39,919 - INFO - secondary: 794
+2026-02-05 12:46:39,919 - INFO - supplementary: 24
+2026-02-05 12:46:39,919 - INFO - unaligned: 0
+2026-02-05 12:46:39,919 - INFO - Finishing read assignment, total assignments 16319, polyA percentage 0.0
+2026-02-05 12:46:39,919 - INFO - Read assignments files saved to results/01_isoquant_transcriptome/mouse/aux/mouse.save*. 
+2026-02-05 12:46:39,919 - INFO - To keep these intermediate files for debug purposes use --keep_tmp flag
+2026-02-05 12:46:39,919 - INFO - Total assignments used for analysis: 16319, polyA tail detected in 6 (0.0%)
+2026-02-05 12:46:39,919 - WARNING - PolyA percentage is suspiciously low. IsoQuant expects non-polya-trimmed reads. If you aim to construct transcript models, consider using --polya_trimmed and --polya_requirement options.
+2026-02-05 12:46:39,919 - INFO - Processing assigned reads mouse
+2026-02-05 12:46:39,919 - INFO - Transcript models construction is turned on
+2026-02-05 12:46:39,920 - INFO - Transcript construction options:
+2026-02-05 12:46:39,920 - INFO -   Novel monoexonic transcripts will be reported: yes
+2026-02-05 12:46:39,920 - INFO -   PolyA tails are required for multi-exon transcripts to be reported: no
+2026-02-05 12:46:39,920 - INFO -   PolyA tails are required for 2-exon transcripts to be reported: no
+2026-02-05 12:46:39,920 - INFO -   PolyA tails are required for known monoexon transcripts to be reported: yes
+2026-02-05 12:46:39,920 - INFO -   PolyA tails are required for novel monoexon transcripts to be reported: yes
+2026-02-05 12:46:39,920 - INFO -   Splice site reporting level: only_canonical
+2026-02-05 12:46:39,989 - INFO - Processing chromosome 19
+2026-02-05 12:46:42,527 - INFO - Finished processing chromosome 19
+2026-02-05 12:46:42,698 - INFO - Transcript model statistics
+2026-02-05 12:46:42,699 - INFO - novel_not_in_catalog: 468
+2026-02-05 12:46:42,796 - INFO - Transcript model file results/01_isoquant_transcriptome/mouse/mouse.transcript_models.gtf
+2026-02-05 12:46:42,796 - INFO - Counts for generated transcript models are saves to: results/01_isoquant_transcriptome/mouse/mouse.discovered_transcript_counts.tsv
+2026-02-05 12:46:42,803 - INFO - Processed experiment mouse
+2026-02-05 12:46:42,803 - INFO - Processed 1 experiment
+2026-02-05 12:46:42,803 - INFO -  === IsoQuant pipeline finished === 
