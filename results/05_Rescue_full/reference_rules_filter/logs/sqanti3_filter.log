@@ -1,0 +1,15 @@
+[WARNING:2026-02-06 14:10:53,937] Output directory results/05_Rescue_full/reference_rules_filter already exists. Overwriting!
+[INFO:2026-02-06 14:10:53,937] Write arguments to /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/05_Rescue_full/reference_rules_filter/reference_params.txt...
+[INFO:2026-02-06 14:10:53,937] Running SQANTI3 filtering...
+[INFO:2026-02-06 14:10:53,937] --------------------------------------------------
+[INFO:2026-02-06 14:10:53,937]        Reading SQANTI3 classification file        
+[INFO:2026-02-06 14:10:53,937] --------------------------------------------------
+[INFO:2026-02-06 14:10:53,985] --------------------------------------------------
+[INFO:2026-02-06 14:10:53,985]                 Reading JSON rules                
+[INFO:2026-02-06 14:10:53,985] --------------------------------------------------
+[INFO:2026-02-06 14:10:53,986] --------------------------------------------------
+[INFO:2026-02-06 14:10:53,986]         Applying rules to filter isoforms         
+[INFO:2026-02-06 14:10:53,986] --------------------------------------------------
+[INFO:2026-02-06 14:10:55,864] --------------------------------------------------
+[INFO:2026-02-06 14:10:55,864]                  Writing results                  
+[INFO:2026-02-06 14:10:55,864] --------------------------------------------------

@@ -181,58 +181,86 @@ complete.df %>%
 
 ## Rescue_questionaire
 
-automatic_rescued <- read_tsv("results/complete_rescue/course_automatic_rescued_list.tsv", 
-col_names="transcript")
+rescue.df <- read_tsv("results/05_Rescue_full/mouse_rescue_table.tsv")
 
 # Question 1
-nrow(automatic_rescued)
+rescue.df %>% 
+    filter(rescue_mode == "automatic") %>%
+    nrow()
 
 # Question 2
+rescue.df %>% 
+    filter(rescue_mode == "automatic" ) %>%
+    pull(assigned_transcript)  %>% unique()-> auto_reintroduced
+
 complete.df %>% 
-    filter(associated_transcript %in% automatic_rescued$transcript) %>%
+    filter(associated_transcript %in% auto_reintroduced) %>%
     nrow()
 
 # Question 3
 
 complete.df %>% 
-    filter(filter_result == "Artifact" & ! associated_transcript %in% automatic_rescued$transcript) %>%
-    filter(!str_detect(associated_gene,"novel")) %>%
+    filter(filter_result == "Artifact" & ! associated_transcript %in% auto_reintroduced) %>%
+    filter(!stringr::str_detect(associated_gene,"novel")) %>%
     pull(associated_gene) %>% 
     unique() %>% length()
 
 complete.df %>% 
-    filter(filter_result == "Artifact" & ! associated_transcript %in% automatic_rescued$transcript) %>%
+    filter(filter_result == "Artifact" & ! associated_transcript %in% auto_reintroduced) %>%
     pull(associated_transcript) %>% 
     unique() %>% length()
 
 complete.df %>% 
-    filter(filter_result == "Artifact" & ! associated_transcript %in% automatic_rescued$transcript) %>%
+    filter(filter_result == "Artifact" & ! associated_transcript %in% auto_reintroduced) %>%
     filter(associated_transcript == "novel")
 
 
 #Question 4
-candidate.df <- read_tsv("results/complete_rescue/course_rescue_candidates.tsv")
-target.df <- read_tsv("results/complete_rescue/course_rescue_targets.tsv")
+candidate.df <- read_tsv("results/05_Rescue_full/mouse_rescue_candidates.tsv")
+target.df <- read_tsv("results/05_Rescue_full/mouse_rescue_targets.tsv")
 
 nrow(candidate.df)
 nrow(target.df)
 
 # Question 5
 # Can also be done with "grep "PB" -c course_rescue_targets.tsv"
-str_detect()
+target.df %>% filter(stringr::str_detect(isoform,"transcript")) %>%
+    nrow()
 
 # Question 6
-mapping_hits.df <- read_tsv("results/complete_rescue/course_rescue_mapping_hits.tsv",col_names = c("candidate","target","cigar"))
+mapping_hits.df <- read_tsv("results/05_Rescue_full/mouse_rescue_mapping_hits.tsv")
 
-mapping_hits.df %>% group_by(candidate) %>%
+mapping_hits.df %>% group_by(rescue_candidate) %>%
  summarise(n=n()) %>% 
  mutate(avg = mean(n),
         max = max(n))
 
 
 # Question 7
-final_inclusion.df <- read_tsv("results/complete_rescue/course_rescue_inclusion-list.tsv",col_names="transcript")
+new_classification.df <- read_tsv("results/05_Rescue_full/mouse_rescued_classification.txt")
+nrow(new_classification.df)
 
-final_inclusion.df %>% 
-    filter(!transcript %in% automatic_rescued$transcript) %>% 
+rescue.df %>% select(rescue_mode) %>%
+    table()
+
+# Question 8
+rescue.df %>% filter(rescue_mode == "rules_mapping" & origin == "lr_defined") %>%
     nrow()
+
+# Question 9
+requantification.df <- read_tsv("results/05_Rescue_full/mouse_reassigned_counts_extended.tsv")
+
+requantification.df %>% filter(new_count == 0) %>% 
+    pull(old_count) %>% sum()
+requantification.df %>% pull(new_count) %>% sum()
+
+# Question 10
+requantification.df %>% 
+    filter(old_count > 0 & new_count == 0) %>%
+    nrow()
+
+# Question 11
+requantification.df %>% 
+    filter(old_count == 0 & new_count > 0) %>%
+    nrow()
+

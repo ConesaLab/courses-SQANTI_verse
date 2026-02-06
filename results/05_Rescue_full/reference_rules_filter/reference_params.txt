@@ -1,0 +1,15 @@
+Version	6.0.0
+Mode	rules
+ClassificationFile	data/isoquant/reference_classification.txt
+Isoforms	NA
+GTF	NA
+SAM	NA
+FAA	NA
+isoAnnotGFF3	NA
+OutputPrefix	reference
+OutputDirectory	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/05_Rescue_full/reference_rules_filter
+FilterMonoexonic	False
+SkipReport	True
+CPUs	4
+LogLevel	INFO
+JSON	data/filter_rules.json

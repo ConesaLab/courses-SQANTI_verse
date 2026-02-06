@@ -1,0 +1,17 @@
+Version	6.0.0
+FilterClassification	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/04_Filter_orthogonal/mouse_RulesFilter_classification.txt
+ReferenceGTF	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/Mus_musculus.GRCm39.115.chr19.gtf
+ReferenceFasta	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta
+CorrectedIsoformsFasta	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/mouse_corrected.fasta
+FilteredIsoformsGTF	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/04_Filter_orthogonal/mouse.filtered.gtf
+ReferenceClassification	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/reference_classification.txt
+Counts	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/01_isoquant_transcriptome/mouse.discovered_transcript_counts.clean.tsv
+RescueMonoexonic	all
+Mode	full
+Requant	True
+Strategy	rules
+OutputPrefix	mouse
+OutputDirectory	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/05_Rescue_full
+CPUs	4
+LogLevel	INFO
+JSON	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/filter_rules.json

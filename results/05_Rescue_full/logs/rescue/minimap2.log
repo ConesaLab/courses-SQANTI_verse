@@ -1,0 +1,12 @@
+INFO:
+[M::mm_idx_gen::0.012*1.12] collected minimizers
+[M::mm_idx_gen::0.015*1.52] sorted minimizers
+[M::main::0.015*1.52] loaded/built the index for 207 target sequence(s)
+[M::mm_mapopt_update::0.016*1.50] mid_occ = 50
+[M::mm_idx_stat] kmer size: 19; skip: 19; is_hpc: 0; #seq: 207
+[M::mm_idx_stat::0.016*1.48] distinct minimizers: 16536 (51.34% are singletons); average occurrences: 2.807; average spacing: 10.121; total length: 469788
+[M::worker_pipeline::0.044*2.39] mapped 30 sequences
+[M::main] Version: 2.28-r1209
+[M::main] CMD: minimap2 --secondary=yes -ax map-hifi results/05_Rescue_full/mouse_rescue_targets.fasta results/05_Rescue_full/mouse_rescue_candidates.fasta
+[M::main] Real time: 0.045 sec; CPU: 0.106 sec; Peak RSS: 0.009 GB
+

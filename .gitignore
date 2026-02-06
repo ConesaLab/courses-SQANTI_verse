@@ -7,3 +7,7 @@ results/03_QC_with_orthogonal/STAR_index/*
 
 # Big data files
 data/isoquant/short_reads.chr19.r*.fq
+
+# Reference QC files
+results/00_QC_reference
+scripts/00_QC_reference.sh
