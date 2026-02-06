@@ -6,7 +6,7 @@ library(dplyr)
 # Load the datasets
 basic.df <- read_tsv("results/02_QC_module/mouse_classification.txt")
 
-complete.df <- read_tsv("results/complete_sqanti3/course_classification.txt")
+complete.df <- read_tsv("results/03_QC_with_orthogonal/mouse_classification.txt")
 
 # Question 1
 nrow(basic.df)
@@ -110,6 +110,11 @@ complete.df %>%
 # Question 17
 
 complete.df %>%
+    filter(structural_category == "incomplete-splice_match") %>%
+    select(subcategory) %>%
+    table()
+
+complete.df %>%
     filter(structural_category == "incomplete-splice_match" &
           within_CAGE_peak & polyA_motif_found) %>%
     select(subcategory) %>%
@@ -132,7 +137,7 @@ complete.df %>%
     labs(x = "TSS ratio",
          y= "Density",
          fill = "Within a \nCAGE peak")
-ggsave("results/complete_sqanti3/ratio_TSS_density.png") 
+ggsave("results/03_QC_with_orthogonal/ratio_TSS_density.png") 
 
 
 ## Filter worksheet

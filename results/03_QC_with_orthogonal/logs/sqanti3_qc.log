@@ -1,40 +1,41 @@
-[INFO:2026-02-06 10:01:17,717] Write arguments to /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/mouse.qc_params.txt
-[INFO:2026-02-06 10:01:17,717] Initialising QC pipeline.
-[INFO:2026-02-06 10:01:17,717] Parsing provided files
-[INFO:2026-02-06 10:01:17,717] Reading genome fasta data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta
-[INFO:2026-02-06 10:01:18,036] **** Correcting sequences
-[INFO:2026-02-06 10:01:18,036] Correcting fasta
-[INFO:2026-02-06 10:01:18,036] Skipping aligning of sequences because GTF file was provided.
-[INFO:2026-02-06 10:01:18,041] Indels will be not calculated since you ran SQANTI3 without alignment step (SQANTI3 with gtf format as transcriptome input).
-[INFO:2026-02-06 10:01:18,147] **** Predicting ORF sequences...
-[INFO:2026-02-06 10:01:18,147] Running TD2 ORF search on /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/mouse_corrected.fasta...
-[INFO:2026-02-06 10:01:18,475] Running TD2 ORF prediction on /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/mouse_corrected.fasta...
-[INFO:2026-02-06 10:01:26,456] **** Parsing Reference Transcriptome....
-[INFO:2026-02-06 10:01:27,089] **** Parsing Isoforms.
-[INFO:2026-02-06 10:01:27,096] **** Running STAR for calculating Short-Read Coverage.
-[INFO:2026-02-06 10:01:27,096] ** Running indexing.
-[INFO:2026-02-06 10:02:42,723] Indexing done.
-[INFO:2026-02-06 10:02:42,723] ** Running mapping.
-[INFO:2026-02-06 10:02:42,723] Mapping for short_reads: in progress.
-[INFO:2026-02-06 10:03:12,788] Mapping for short_reads: done.
-[INFO:2026-02-06 10:03:12,788] Input pattern: results/03_QC_with_orthogonal/STAR_mapping/.
+[WARNING:2026-02-06 12:01:08,308] Output directory results/03_QC_with_orthogonal already exists. Overwriting!
+[INFO:2026-02-06 12:01:08,308] Write arguments to /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/mouse.qc_params.txt
+[INFO:2026-02-06 12:01:08,309] Initialising QC pipeline.
+[INFO:2026-02-06 12:01:08,309] Parsing provided files
+[INFO:2026-02-06 12:01:08,309] Reading genome fasta data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta
+[INFO:2026-02-06 12:01:08,631] **** Correcting sequences
+[INFO:2026-02-06 12:01:08,631] Error corrected FASTA /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/mouse_corrected.fasta already exists. Using it...
+[INFO:2026-02-06 12:01:08,632] **** Predicting ORF sequences...
+[INFO:2026-02-06 12:01:08,632] ORF file /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/mouse_corrected.faa already exists. Using it.
+[INFO:2026-02-06 12:01:08,636] **** Parsing Reference Transcriptome....
+[INFO:2026-02-06 12:01:08,636] results/03_QC_with_orthogonal/refAnnotation_mouse.genePred already exists. Using it.
+[INFO:2026-02-06 12:01:08,829] /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/mouse_corrected.genePred already exists. Using it.
+[INFO:2026-02-06 12:01:08,829] **** Parsing Isoforms.
+[INFO:2026-02-06 12:01:08,836] **** Running STAR for calculating Short-Read Coverage.
+[INFO:2026-02-06 12:01:08,836] Index identified.
+[INFO:2026-02-06 12:01:08,836] ** Running mapping.
+[INFO:2026-02-06 12:01:08,836] Mapping for short_reads: already completed.
+[INFO:2026-02-06 12:01:08,836] Input pattern: results/03_QC_with_orthogonal/STAR_mapping/.
 The following files found and to be read as junctions:
 results/03_QC_with_orthogonal/STAR_mapping/short_readsSJ.out.tab
-[INFO:2026-02-06 10:03:12,802] 4526 junctions read. 1 junctions added to both strands because no strand information from STAR.
-[INFO:2026-02-06 10:03:12,802] **** Running calculation of TSS ratio
-[INFO:2026-02-06 10:03:12,836] BAM files identified: ['results/03_QC_with_orthogonal/STAR_mapping/short_readsAligned.sortedByCoord.out.bam']
-[INFO:2026-02-06 10:03:13,754] **** Performing Classification of Isoforms
-[INFO:2026-02-06 10:03:15,438] Number of classified isoforms: 468
-[INFO:2026-02-06 10:03:15,438] After classify fsm: 468
-[INFO:2026-02-06 10:03:15,438] Full-length read abundance files not provided.
-[INFO:2026-02-06 10:03:15,438] RT-switching computation
-[INFO:2026-02-06 10:03:15,489] After RTS classification: 468
-[INFO:2026-02-06 10:03:15,489] **** Adding TSS ratio data.
-[INFO:2026-02-06 10:03:15,490] **** Running Kallisto to calculate isoform expressions. 
-[INFO:2026-02-06 10:03:15,490] Running kallisto index results/03_QC_with_orthogonal/kallisto_output/kallisto_corrected_fasta.idx using as reference /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/mouse_corrected.fasta
-[INFO:2026-02-06 10:03:17,563] ** Running Kallisto quantification for short_reads.chr19.subset.r1 sample
-[INFO:2026-02-06 10:03:18,364] Detected Kallisto expression format. Using 'target_id' and 'tpm' field.
-[INFO:2026-02-06 10:03:18,383] Writing output files
-[INFO:2026-02-06 10:03:18,499] **** Generating SQANTI3 report.
-[INFO:2026-02-06 10:03:32,346] Removing temporary files.
-[INFO:2026-02-06 10:03:32,346] SQANTI3 complete in 134.63 sec.
+[INFO:2026-02-06 12:01:08,849] 4526 junctions read. 1 junctions added to both strands because no strand information from STAR.
+[INFO:2026-02-06 12:01:08,849] **** Running calculation of TSS ratio
+[INFO:2026-02-06 12:01:08,883] BAM files identified: ['results/03_QC_with_orthogonal/STAR_mapping/short_readsAligned.sortedByCoord.out.bam']
+[INFO:2026-02-06 12:01:09,791] **** Reading CAGE Peak data.
+[INFO:2026-02-06 12:01:10,271] **** Reading PolyA motif list.
+[INFO:2026-02-06 12:01:10,271] **** Performing Classification of Isoforms
+[INFO:2026-02-06 12:01:11,879] Number of classified isoforms: 468
+[INFO:2026-02-06 12:01:11,880] After classify fsm: 468
+[INFO:2026-02-06 12:01:11,880] **** Reading Full-length read abundance files.
+[INFO:2026-02-06 12:01:11,885] Single-sample FL count format detected.
+[WARNING:2026-02-06 12:01:11,886] 1 isoforms not found in FL count file. Assigned counts as 0.
+[INFO:2026-02-06 12:01:11,886] RT-switching computation
+[INFO:2026-02-06 12:01:11,937] After RTS classification: 468
+[INFO:2026-02-06 12:01:11,937] **** Adding TSS ratio data.
+[INFO:2026-02-06 12:01:11,938] **** Running Kallisto to calculate isoform expressions. 
+[INFO:2026-02-06 12:01:11,938] Kallisto quantification output results/03_QC_with_orthogonal/kallisto_output/short_reads.chr19.subset.r1/abundance.tsv found. Using it.
+[INFO:2026-02-06 12:01:11,938] Detected Kallisto expression format. Using 'target_id' and 'tpm' field.
+[INFO:2026-02-06 12:01:11,960] Writing output files
+[INFO:2026-02-06 12:01:12,074] **** Generating SQANTI3 report.
+[INFO:2026-02-06 12:01:35,176] Removing temporary files.
+[INFO:2026-02-06 12:01:35,176] SQANTI3 complete in 26.87 sec.

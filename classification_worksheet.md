@@ -93,28 +93,26 @@ Now, lets compare the classification file that used all of the orthogonal data, 
     - min_cov --> Minimum coverage of a splice junction
     - within_CAGE_peak
     - polyA_motif_found
+    - FL --> Number of full-length reads supporting the isoform
     </details><br>
 
 15. **From the FSM isoforms, how many have both support from a CAGE peak and a polyA motif? And the ISM?**  
     <details><summary>Answer</summary>
-    - FSM: 336 isoforms
-    - ISM: 107 isoforms
+    - FSM: 216 isoforms
+    - ISM: 6 isoforms
     </details><br>
 
 16. **What is the average minimum coverage of a junction for each structural category?**
     <details><summary>Answer</summary>
 
-    | Structural Category        | coverage mean | coverage sd |
+    | Structural Category        | cov_mean | cov_sd |
     |---------------------------|----------|--------|
-    | antisense                 | 0.000    | 0.000  |
-    | full-splice_match         | 9.880    | 42.700 |
-    | fusion                    | 0.289    | 0.867  |
-    | genic                     | 0.000    | 0.000  |
-    | genic_intron              | 0.000    | 0.000  |
-    | incomplete-splice_match   | 20.100   | 53.500 |
-    | intergenic                | 0.000    | 0.000  |
-    | novel_in_catalog          | 14.600   | 66.200 |
-    | novel_not_in_catalog      | 0.512    | 2.750  |
+    | antisense                 | 0        | 0      |
+    | full-splice_match         | 61.0     | 436.   |
+    | fusion                    | 1.5      | 0.707  |
+    | incomplete-splice_match   | 12.2     | 13.2   |
+    | novel_in_catalog          | 21.2     | 123.   |
+    | novel_not_in_catalog      | 1        | 2.13   |
 
     </details><br>
 
@@ -125,11 +123,14 @@ Now, lets compare the classification file that used all of the orthogonal data, 
 17. **From the ISM isoforms that have support from a CAGE peak and a polyA motif, what are their subcategories? How would you explain this?.**  
     <details><summary>Answer</summary>
 
-    - 3prime_fragment: 33  
-    - 5prime_fragment: 34  
-    - internal_fragment: 1  
-    - intron_retention: 31  
-    - mono-exon: 8
+    - 3prime_fragment: 3
+    - 5prime_fragment: 2  
+    - internal_fragment: 0
+    - intron_retention: 1  
+    - mono-exon: 0
+
+The fact that we see 3' fragments and 5' fragments with support in both their TSS and TTS suggests that these might be isoforms with alternative starts and end of transcription from what we can see in the reference annotation. However, the other ISMs that are not validated by the orthogonal data, might be more likely to be degradation products or artifacts.
+
 </details><br>
 
 18. **There is a hypothesis made in the SQANTI3 paper that states that the TSS ratio is higher on isoforms supported by a CAGE peak. Would you say that assumption is true based on the results you obtained?** Briefly explain why it would make sense or not. 

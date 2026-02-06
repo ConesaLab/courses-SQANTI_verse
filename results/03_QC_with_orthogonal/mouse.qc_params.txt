@@ -4,11 +4,11 @@ Annotation	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/
 Genome	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta
 MinRefLength	0
 Aligner	minimap2
-FLCount	NA
+FLCount	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/01_isoquant_transcriptome/mouse.discovered_transcript_counts.clean.tsv
 Expression	NA
 Junction	NA
-CAGEPeak	NA
-PolyAMotif	NA
+CAGEPeak	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/orthogonal/mouse.refTSS_v3.1.GRCm39.bed
+PolyAMotif	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/data/orthogonal/mouse_and_human.polyA_motif.txt
 PolyAPeak	NA
 IsFusion	False
 PhyloP	NA
