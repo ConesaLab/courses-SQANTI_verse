@@ -148,8 +148,8 @@ ggsave("results/03_QC_with_orthogonal/ratio_TSS_density.png")
 
 ## Filter worksheet
 
-basic.df <- read_tsv("results/basic_filter/course_RulesFilter_result_classification.txt")
-complete.df <- read_tsv("results/complete_filter/course_RulesFilter_result_classification.txt")
+basic.df <- read_tsv("results/04_Filter_basic/mouse_RulesFilter_classification.txt")
+complete.df <- read_tsv("results/04_Filter_orthogonal/mouse_RulesFilter_classification.txt")
 
 # Questions 4-5
 
@@ -177,13 +177,7 @@ complete.df %>%
 complete.df %>% 
     filter(filter_result == "Isoform" & !isoform %in% pass_basic &
             structural_category == "incomplete-splice_match") %>%
-    select(isoform, structural_category, length, subcategory,FSM_class,ratio_exp)
-
-
-complete.df %>% 
-    filter(filter_result == "Isoform" & !isoform %in% pass_basic &
-            structural_category == "novel_in_catalog") %>%
-    select(isoform, all_canonical, min_cov,diff_to_gene_TTS, polyA_motif_found)
+    select(isoform, structural_category, length, subcategory,FSM_class,ratio_exp,within_CAGE_peak,polyA_motif_found)
 
 ## Rescue_questionaire
 
