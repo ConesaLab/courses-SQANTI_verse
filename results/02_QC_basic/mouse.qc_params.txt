@@ -19,7 +19,7 @@ FASTAused	False
 Expression	NA
 GMAPindex	NA
 OutputPrefix	mouse
-OutputDirectory	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/02_QC_module
+OutputDirectory	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/02_QC_basic
 Coverage	NA
 CanonicalSites	ATAC,GCAG,GTAG
 PostTTSWindow	20

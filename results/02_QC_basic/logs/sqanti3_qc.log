@@ -1,0 +1,26 @@
+[WARNING:2026-02-06 12:20:48,791] Output directory results/02_QC_basic already exists. Overwriting!
+[INFO:2026-02-06 12:20:48,791] Write arguments to /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/02_QC_basic/mouse.qc_params.txt
+[INFO:2026-02-06 12:20:48,791] Initialising QC pipeline.
+[INFO:2026-02-06 12:20:48,791] Parsing provided files
+[INFO:2026-02-06 12:20:48,792] Reading genome fasta data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta
+[INFO:2026-02-06 12:20:49,110] **** Correcting sequences
+[INFO:2026-02-06 12:20:49,110] Error corrected FASTA /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/02_QC_basic/mouse_corrected.fasta already exists. Using it...
+[INFO:2026-02-06 12:20:49,110] **** Predicting ORF sequences...
+[INFO:2026-02-06 12:20:49,110] ORF file /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/02_QC_basic/mouse_corrected.faa already exists. Using it.
+[INFO:2026-02-06 12:20:49,114] **** Parsing Reference Transcriptome....
+[INFO:2026-02-06 12:20:49,114] results/02_QC_basic/refAnnotation_mouse.genePred already exists. Using it.
+[INFO:2026-02-06 12:20:49,306] /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/02_QC_basic/mouse_corrected.genePred already exists. Using it.
+[INFO:2026-02-06 12:20:49,306] **** Parsing Isoforms.
+[INFO:2026-02-06 12:20:49,312] No short-reads or coverage provided. Skipping short-read coverage calculation.
+[INFO:2026-02-06 12:20:49,312] TSS ratio will not be calculated since SR information was not provided
+[INFO:2026-02-06 12:20:49,313] **** Performing Classification of Isoforms
+[INFO:2026-02-06 12:20:50,899] Number of classified isoforms: 468
+[INFO:2026-02-06 12:20:50,900] After classify fsm: 468
+[INFO:2026-02-06 12:20:50,900] Full-length read abundance files not provided.
+[INFO:2026-02-06 12:20:50,900] RT-switching computation
+[INFO:2026-02-06 12:20:50,950] After RTS classification: 468
+[INFO:2026-02-06 12:20:50,950] Isoforms expression files not provided.
+[INFO:2026-02-06 12:20:50,964] Writing output files
+[INFO:2026-02-06 12:20:51,076] **** Generating SQANTI3 report.
+[INFO:2026-02-06 12:21:03,686] Removing temporary files.
+[INFO:2026-02-06 12:21:03,686] SQANTI3 complete in 14.89 sec.

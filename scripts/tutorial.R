@@ -4,7 +4,7 @@ library(dplyr)
 ## Classification worksheet
 
 # Load the datasets
-basic.df <- read_tsv("results/02_QC_module/mouse_classification.txt")
+basic.df <- read_tsv("results/02_QC_basic/mouse_classification.txt")
 
 complete.df <- read_tsv("results/03_QC_with_orthogonal/mouse_classification.txt")
 
@@ -132,11 +132,17 @@ complete.df %>%
     filter(!is.na(ratio_TSS)) %>%
     ggplot(aes(x=ratio_TSS,fill=within_CAGE_peak)) +
     geom_density(alpha=0.5) +
-    scale_x_log10()  +
+    scale_x_log10(expand = c(0, 0))  +
+    scale_y_continuous(expand = c(0, 0)) +
     theme_bw() +
+    theme(axis.text = element_text(size=16),
+          axis.title = element_text(size=18),
+          legend.text = element_text(size=16),
+          legend.title = element_text(size=18)) +
     labs(x = "TSS ratio",
          y= "Density",
          fill = "Within a \nCAGE peak")
+
 ggsave("results/03_QC_with_orthogonal/ratio_TSS_density.png") 
 
 
