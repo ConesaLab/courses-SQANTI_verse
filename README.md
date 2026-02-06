@@ -103,7 +103,7 @@ mamba env create -f tools/sqanti3/SQANTI3.conda.env.yml
 
 ### Data downloading
 
-All the data needed for the tutorial can be found in the data directory of this repository. It contains the long-read defined transcriptome, the reference genome, annotation and the orthogonal data used in the tutorial. For the sake of simplicity and time, only the isoforms that are part of the chromosome 22 of humans will be used, which are more than enough to go through all the SQANTI3 functionalities. If you wish to learn more about the data origin, you can check it out in the SQANTI3 paper. 
+All the data needed for the tutorial can be found in the data directory of this repository. It contains the long-read defined transcriptome, the reference genome, annotation and the orthogonal data used in the tutorial. For the sake of simplicity and time, only the isoforms that are part of the chromosome 19 of mouse will be used, which are more than enough to go through all the SQANTI3 functionalities. If you wish to learn more about the data origin, you can check it out in the SQANTI3 paper. The full dataset is publicly available in the ENA under the accession number [PRJEB94912](https://www.ebi.ac.uk/ena/browser/view/PRJEB94912).
 
 # 1. Transcriptome Reconstruction
 
@@ -112,10 +112,9 @@ The first step on a transcriptomics experiment is to reconstruct the transcripto
 In this tutorial, we will use [IsoQuant](https://github.com/ablab/IsoQuant), since it suports multiple sequencing platforms (PacBio and ONT) and has a good balance between novelty and accuracy. The command to run IsoQuant is as follows:
 
 ```bash
-./isoquant.py --reference tests/toy_data/MAPT.Mouse.reference.fasta \
---genedb tests/toy_data/MAPT.Mouse.genedb.gtf \
---fastq tests/toy_data/MAPT.Mouse.ONT.simulated.fastq \
---data_type nanopore -o toy_data_out
+isoquant.py --fastq data/isoquant/mouse_raw_reads.subset.chr19.fastq \
+            --reference data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta \
+            -d pacbio --output results/01_isoquant_transcriptome --prefix mouse
 ```
 
 

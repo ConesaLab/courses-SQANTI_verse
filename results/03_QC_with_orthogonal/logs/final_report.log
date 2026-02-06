@@ -1,0 +1,225 @@
+INFO:
+1/210                                              
+2/210 [setup]                                      
+3/210                                              
+4/210 [unnamed-chunk-1]                            
+5/210                                              
+6/210 [unnamed-chunk-2]                            
+7/210                                              
+8/210 [unnamed-chunk-3]                            
+9/210                                              
+10/210 [p0]                                         
+11/210                                              
+12/210 [p7]                                         
+13/210                                              
+14/210 [p.classByLen.a]                             
+15/210                                              
+16/210 [p.classByLen.b]                             
+17/210                                              
+18/210 [p.length.all]                               
+19/210                                              
+20/210 [p.length.cat]                               
+21/210                                              
+22/210 [p.length.exon]                              
+23/210                                              
+24/210 [unnamed-chunk-4]                            
+25/210                                              
+26/210 [unnamed-chunk-5]                            
+27/210                                              
+28/210 [p6]                                         
+29/210                                              
+30/210 [unnamed-chunk-6]                            
+31/210                                              
+32/210 [p10]                                        
+33/210                                              
+34/210 [p11]                                        
+35/210                                              
+36/210 [p1]                                         
+37/210                                              
+38/210 [p1.s.list]                                  
+39/210                                              
+40/210 [p4]                                         
+41/210                                              
+42/210 [p4.s1_p4.s2_p4.s3]                          
+43/210                                              
+44/210 [p5]                                         
+45/210                                              
+46/210 [p5.s1_p5.s2_p5.s3]                          
+47/210                                              
+48/210 [unnamed-chunk-7]                            
+49/210                                              
+50/210 [unnamed-chunk-8]                            
+51/210                                              
+52/210 [unnamed-chunk-9]                            
+53/210                                              
+54/210 [unnamed-chunk-10]                           
+55/210                                              
+56/210 [unnamed-chunk-11]                           
+57/210                                              
+58/210 [unnamed-chunk-12]                           
+59/210                                              
+60/210 [unnamed-chunk-13]                           
+61/210                                              
+62/210 [unnamed-chunk-14]                           
+63/210                                              
+64/210 [unnamed-chunk-15]                           
+65/210                                              
+66/210 [unnamed-chunk-16]                           
+67/210                                              
+68/210 [p23.a_p23.b_p29.a_p29.b]                    
+69/210                                              
+70/210 [p23.a_p23.b]                                
+71/210                                              
+72/210 [p29.a_p29.b]                                
+73/210                                              
+74/210 [unnamed-chunk-17]                           
+75/210                                              
+76/210 [p21.a_p21.b_p21.dist3.ISM.a_p21.dist3.ISM.b]
+77/210 [p21.a_p21.b]                                
+78/210                                              
+79/210 [p21.a]                                      
+80/210                                              
+81/210 [p21.b]                                      
+82/210                                              
+83/210 [p21.dist3.ISM.a_p21.dist3.ISM.b]            
+84/210                                              
+85/210 [p21.dist3.ISM.a]                            
+86/210 [p21.dist3.ISM.b]                            
+87/210                                              
+88/210 [p22.a_p22.b_p22.dist3.ISM.a_p22.dist3.ISM.b]
+89/210                                              
+90/210 [p22.a_p22.b]                                
+91/210                                              
+92/210 [p22.a]                                      
+93/210                                              
+94/210 [p22.b]                                      
+95/210                                              
+96/210 [p22.dist3.ISM.a_p22.dist3.ISM.b]            
+97/210                                              
+98/210 [p22.dist3.ISM.a]                            
+99/210 [p22.dist3.ISM.b]                            
+100/210                                              
+101/210 [unnamed-chunk-18]                           
+102/210                                              
+103/210 [unnamed-chunk-19]                           
+104/210                                              
+105/210 [unnamed-chunk-20]                           
+106/210                                              
+107/210 [p21.ISM.list]                               
+108/210                                              
+109/210 [unnamed-chunk-21]                           
+110/210                                              
+111/210 [p22.FSM.list]                               
+112/210                                              
+113/210 [p22.ISM.list]                               
+114/210                                              
+115/210 [unnamed-chunk-22]                           
+116/210                                              
+117/210 [unnamed-chunk-23]                           
+118/210                                              
+119/210 [unnamed-chunk-24]                           
+120/210                                              
+121/210 [unnamed-chunk-25]                           
+122/210                                              
+123/210 [unnamed-chunk-26]                           
+124/210                                              
+125/210 [unnamed-chunk-27]                           
+126/210                                              
+127/210 [unnamed-chunk-28]                           
+128/210                                              
+129/210 [unnamed-chunk-29]                           
+130/210                                              
+131/210 [unnamed-chunk-30]                           
+132/210                                              
+133/210 [unnamed-chunk-31]                           
+134/210                                              
+135/210 [unnamed-chunk-32]                           
+136/210                                              
+137/210 [unnamed-chunk-33]                           
+138/210                                              
+139/210 [unnamed-chunk-34]                           
+140/210                                              
+141/210 [unnamed-chunk-35]                           
+142/210                                              
+143/210 [unnamed-chunk-36]                           
+144/210                                              
+145/210 [unnamed-chunk-37]                           
+146/210                                              
+147/210 [unnamed-chunk-38]                           
+148/210                                              
+149/210 [unnamed-chunk-39]                           
+150/210                                              
+151/210 [unnamed-chunk-40]                           
+152/210                                              
+153/210 [unnamed-chunk-41]                           
+154/210                                              
+155/210 [unnamed-chunk-42]                           
+156/210                                              
+157/210 [unnamed-chunk-43]                           
+158/210                                              
+159/210 [unnamed-chunk-44]                           
+160/210                                              
+161/210 [unnamed-chunk-45]                           
+162/210                                              
+163/210 [unnamed-chunk-46]                           
+164/210                                              
+165/210 [unnamed-chunk-47]                           
+166/210                                              
+167/210 [unnamed-chunk-48]                           
+168/210                                              
+169/210 [unnamed-chunk-49]                           
+170/210                                              
+171/210 [p30]                                        
+172/210                                              
+173/210 [p31]                                        
+174/210                                              
+175/210 [p32]                                        
+176/210                                              
+177/210 [saturation]                                 
+178/210                                              
+179/210 [unnamed-chunk-50]                           
+180/210                                              
+181/210 [unnamed-chunk-51]                           
+182/210                                              
+183/210 [unnamed-chunk-52]                           
+184/210                                              
+185/210 [unnamed-chunk-53]                           
+186/210                                              
+187/210 [unnamed-chunk-54]                           
+188/210                                              
+189/210 [unnamed-chunk-55]                           
+190/210                                              
+191/210 [unnamed-chunk-56]                           
+192/210                                              
+193/210 [unnamed-chunk-57]                           
+194/210                                              
+195/210 [unnamed-chunk-58]                           
+196/210                                              
+197/210 [unnamed-chunk-59]                           
+198/210                                              
+199/210 [unnamed-chunk-60]                           
+200/210                                              
+201/210 [unnamed-chunk-61]                           
+202/210                                              
+203/210 [unnamed-chunk-62]                           
+204/210                                              
+205/210 [unnamed-chunk-63]                           
+206/210                                              
+207/210 [unnamed-chunk-64]                           
+208/210                                              
+209/210 [unnamed-chunk-65]                           
+210/210                                              
+/home/pabloati/miniforge3/envs/sqanti3/bin/pandoc +RTS -K512m -RTS /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/SQANTI3_report.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/mouse_SQANTI3_report.html --lua-filter /home/pabloati/miniforge3/envs/sqanti3/lib/R/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /home/pabloati/miniforge3/envs/sqanti3/lib/R/library/rmarkdown/rmarkdown/lua/latex-div.lua --lua-filter /home/pabloati/miniforge3/envs/sqanti3/lib/R/library/rmarkdown/rmarkdown/lua/table-classes.lua --embed-resources --standalone --variable bs3=TRUE --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /home/pabloati/miniforge3/envs/sqanti3/lib/R/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable theme=bootstrap --css style.css --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /tmp/RtmpQgZ2UJ/rmarkdown-strac0d7624d15d.html 
+
+INFO:
+Warning message:
+Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead. 
+
+
+processing file: SQANTI3_report.Rmd
+output file: /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/SQANTI3_report.knit.md
+
+
+Output created: results/03_QC_with_orthogonal/mouse_SQANTI3_report.html
+

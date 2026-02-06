@@ -1,0 +1,13 @@
+{
+	"n_targets": 468,
+	"n_bootstraps": 100,
+	"n_processed": 144416,
+	"n_pseudoaligned": 114337,
+	"n_unique": 82224,
+	"p_pseudoaligned": 79.2,
+	"p_unique": 56.9,
+	"kallisto_version": "0.48.0",
+	"index_version": 10,
+	"start_time": "Fri Feb  6 10:03:17 2026",
+	"call": "kallisto quant -i results/03_QC_with_orthogonal/kallisto_output/kallisto_corrected_fasta.idx -o results/03_QC_with_orthogonal/kallisto_output/short_reads.chr19.subset.r1 -b 100 -t 8 data/isoquant/short_reads.chr19.subset.r1.fq data/isoquant/short_reads.chr19.subset.r2.fq"
+}

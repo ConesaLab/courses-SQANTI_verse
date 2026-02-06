@@ -1,2 +1,1 @@
-data/short_reads/UHR_Rep1_chr22.R1.fastq.gz data/short_reads/UHR_Rep1_chr22.R2.fastq.gz
-data/short_reads/UHR_Rep2_chr22.R1.fastq.gz data/short_reads/UHR_Rep2_chr22.R2.fastq.gz
+data/isoquant/short_reads.chr19.subset.r1.fq data/isoquant/short_reads.chr19.subset.r2.fq

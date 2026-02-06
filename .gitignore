@@ -3,3 +3,7 @@ tools
 
 # Reference genomes
 results/01_isoquant_transcriptome/Mus_musculus.GRCm39.dna.chr19_k15_idx
+results/03_QC_with_orthogonal/STAR_index/*
+
+# Big data files
+data/isoquant/short_reads.chr19.r*.fq

@@ -1,0 +1,268 @@
+STAR version=2.7.11b
+STAR compilation time,server,dir=2024-11-25T09:14:51+0000 :/opt/conda/conda-bld/star_1732525954305/work/source
+##### Command Line:
+/home/pabloati/miniforge3/envs/sqanti3/bin/STAR-avx2 --runThreadN 8 --genomeDir results/03_QC_with_orthogonal/STAR_index/ --readFilesIn data/isoquant/short_reads.chr19.subset.r1.fq data/isoquant/short_reads.chr19.subset.r2.fq --outFileNamePrefix results/03_QC_with_orthogonal/STAR_mapping/short_reads --alignSJoverhangMin 8 --alignSJDBoverhangMin 1 --outFilterType BySJout --outSAMunmapped Within --outFilterMultimapNmax 20 --outFilterMismatchNoverLmax 0.04 --outFilterMismatchNmax 999 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 1000000 --sjdbScore 1 --genomeLoad NoSharedMemory --outSAMtype BAM SortedByCoordinate --twopassMode Basic
+##### Initial USER parameters from Command Line:
+outFileNamePrefix                 results/03_QC_with_orthogonal/STAR_mapping/short_reads
+###### All USER parameters from Command Line:
+runThreadN                    8     ~RE-DEFINED
+genomeDir                     results/03_QC_with_orthogonal/STAR_index/     ~RE-DEFINED
+readFilesIn                   data/isoquant/short_reads.chr19.subset.r1.fq   data/isoquant/short_reads.chr19.subset.r2.fq        ~RE-DEFINED
+outFileNamePrefix             results/03_QC_with_orthogonal/STAR_mapping/short_reads     ~RE-DEFINED
+alignSJoverhangMin            8     ~RE-DEFINED
+alignSJDBoverhangMin          1     ~RE-DEFINED
+outFilterType                 BySJout     ~RE-DEFINED
+outSAMunmapped                Within        ~RE-DEFINED
+outFilterMultimapNmax         20     ~RE-DEFINED
+outFilterMismatchNoverLmax    0.04     ~RE-DEFINED
+outFilterMismatchNmax         999     ~RE-DEFINED
+alignIntronMin                20     ~RE-DEFINED
+alignIntronMax                1000000     ~RE-DEFINED
+alignMatesGapMax              1000000     ~RE-DEFINED
+sjdbScore                     1     ~RE-DEFINED
+genomeLoad                    NoSharedMemory     ~RE-DEFINED
+outSAMtype                    BAM   SortedByCoordinate        ~RE-DEFINED
+twopassMode                   Basic     ~RE-DEFINED
+##### Finished reading parameters from all sources
+
+##### Final user re-defined parameters-----------------:
+runThreadN                        8
+genomeDir                         results/03_QC_with_orthogonal/STAR_index/
+genomeLoad                        NoSharedMemory
+readFilesIn                       data/isoquant/short_reads.chr19.subset.r1.fq   data/isoquant/short_reads.chr19.subset.r2.fq   
+outFileNamePrefix                 results/03_QC_with_orthogonal/STAR_mapping/short_reads
+outSAMtype                        BAM   SortedByCoordinate   
+outSAMunmapped                    Within   
+outFilterType                     BySJout
+outFilterMultimapNmax             20
+outFilterMismatchNmax             999
+outFilterMismatchNoverLmax        0.04
+alignIntronMin                    20
+alignIntronMax                    1000000
+alignMatesGapMax                  1000000
+alignSJoverhangMin                8
+alignSJDBoverhangMin              1
+sjdbScore                         1
+twopassMode                       Basic
+
+-------------------------------
+##### Final effective command line:
+/home/pabloati/miniforge3/envs/sqanti3/bin/STAR-avx2   --runThreadN 8   --genomeDir results/03_QC_with_orthogonal/STAR_index/   --genomeLoad NoSharedMemory   --readFilesIn data/isoquant/short_reads.chr19.subset.r1.fq   data/isoquant/short_reads.chr19.subset.r2.fq      --outFileNamePrefix results/03_QC_with_orthogonal/STAR_mapping/short_reads   --outSAMtype BAM   SortedByCoordinate      --outSAMunmapped Within      --outFilterType BySJout   --outFilterMultimapNmax 20   --outFilterMismatchNmax 999   --outFilterMismatchNoverLmax 0.04   --alignIntronMin 20   --alignIntronMax 1000000   --alignMatesGapMax 1000000   --alignSJoverhangMin 8   --alignSJDBoverhangMin 1   --sjdbScore 1   --twopassMode Basic
+----------------------------------------
+
+Number of fastq files for each mate = 1
+ParametersSolo: --soloCellFilterType CellRanger2.2 filtering parameters:  3000 0.99 10
+WARNING: --limitBAMsortRAM=0, will use genome size as RAM limit for BAM sorting
+Finished loading and checking parameters
+Reading genome generation parameters:
+### /home/pabloati/miniforge3/envs/sqanti3/bin/STAR-avx2   --runMode genomeGenerate      --runThreadN 8   --genomeDir results/03_QC_with_orthogonal/STAR_index/   --genomeFastaFiles data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta      --outTmpDir results/03_QC_with_orthogonal/STAR_index//_STARtmp/
+### GstrandBit=32
+versionGenome                 2.7.4a     ~RE-DEFINED
+genomeType                    Full     ~RE-DEFINED
+genomeFastaFiles              data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta        ~RE-DEFINED
+genomeSAindexNbases           14     ~RE-DEFINED
+genomeChrBinNbits             18     ~RE-DEFINED
+genomeSAsparseD               1     ~RE-DEFINED
+genomeTransformType           None     ~RE-DEFINED
+genomeTransformVCF            -     ~RE-DEFINED
+sjdbOverhang                  0     ~RE-DEFINED
+sjdbFileChrStartEnd           -        ~RE-DEFINED
+sjdbGTFfile                   -     ~RE-DEFINED
+sjdbGTFchrPrefix              -     ~RE-DEFINED
+sjdbGTFfeatureExon            exon     ~RE-DEFINED
+sjdbGTFtagExonParentTranscripttranscript_id     ~RE-DEFINED
+sjdbGTFtagExonParentGene      gene_id     ~RE-DEFINED
+sjdbInsertSave                Basic     ~RE-DEFINED
+genomeFileSizes               61603840   480315036        ~RE-DEFINED
+Genome version is compatible with current STAR
+Number of real (reference) chromosomes= 1
+1	19	61420004	0
+Started loading the genome: Fri Feb  6 10:02:42 2026
+
+Genome: size given as a parameter = 61603840
+SA: size given as a parameter = 480315036
+SAindex: size given as a parameter = 1
+Read from SAindex: pGe.gSAindexNbases=14  nSAi=357913940
+nGenome=61603840;  nSAbyte=480315036
+GstrandBit=32   SA number of indices=116440008
+Shared memory is not used for genomes. Allocated a private copy of the genome.
+Genome file size: 61603840 bytes; state: good=1 eof=0 fail=0 bad=0
+Loading Genome ... done! state: good=1 eof=0 fail=0 bad=0; loaded 61603840 bytes
+SA file size: 480315036 bytes; state: good=1 eof=0 fail=0 bad=0
+Loading SA ... done! state: good=1 eof=0 fail=0 bad=0; loaded 480315036 bytes
+Loading SAindex ... done: 1565873619 bytes
+Finished loading the genome: Fri Feb  6 10:02:43 2026
+
+To accommodate alignIntronMax=1000000 redefined winBinNbits=18
+To accommodate alignIntronMax=1000000 and alignMatesGapMax=1000000, redefined winFlankNbins=4 and winAnchorDistNbins=8
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread0 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread0 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread1 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread1 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread2 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread2 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread3 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread3 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread4 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread4 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread5 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread5 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread6 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread6 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread7 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread7 ... ok
+Created thread # 1
+Created thread # 2
+Created thread # 3
+Created thread # 4
+Created thread # 5
+Created thread # 6
+Created thread # 7
+Thread #3 end of input stream, nextChar=-1
+Completed: thread #6
+Completed: thread #5
+Completed: thread #0
+Completed: thread #7
+Completed: thread #3
+Completed: thread #1
+Joined thread # 1
+Completed: thread #2
+Joined thread # 2
+Joined thread # 3
+Completed: thread #4
+Joined thread # 4
+Joined thread # 5
+Joined thread # 6
+Joined thread # 7
+Feb 06 10:02:48   Loaded database junctions from the 1st pass file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARpass1//SJ.out.tab: 4528 total junctions
+
+Feb 06 10:02:48   Finished preparing junctions
+Feb 06 10:02:48 ..... inserting junctions into the genome indices
+Feb 06 10:02:52   Finished SA search: number of new junctions=4528, old junctions=0
+Feb 06 10:02:53   Finished sorting SA indicesL nInd=1811200
+Genome size with junctions=62513968  61603840   910128
+GstrandBit1=32   GstrandBit=32
+Feb 06 10:02:54   Finished inserting junction indices
+Feb 06 10:03:00   Finished SAi
+Feb 06 10:03:00 ..... finished inserting junctions into genome
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread0 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread0 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread1 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread1 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread2 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread2 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread3 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread3 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread4 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread4 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread5 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread5 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread6 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread6 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate1.thread7 ... ok
+Opening the file: results/03_QC_with_orthogonal/STAR_mapping/short_reads_STARtmp//FilterBySJoutFiles.mate2.thread7 ... ok
+Created thread # 1
+Created thread # 2
+Created thread # 3
+Created thread # 4
+Created thread # 5
+Created thread # 6
+Created thread # 7
+Thread #4 end of input stream, nextChar=-1
+Completed: thread #5
+Completed: thread #0
+Completed: thread #7
+Completed: thread #6
+Completed: thread #4
+Completed: thread #2
+Completed: thread #3
+Completed: thread #1
+Joined thread # 1
+Joined thread # 2
+Joined thread # 3
+Joined thread # 4
+Joined thread # 5
+Joined thread # 6
+Joined thread # 7
+Completed stage 1 mapping of outFilterBySJout mapping
+Detected 1 novel junctions that passed filtering, will proceed to filter reads that contained unannotated junctions
+Created thread # 1
+Created thread # 2
+Created thread # 3
+Created thread # 4
+Created thread # 5
+Completed: thread #5
+Created thread # 6
+Completed: thread #6
+Created thread # 7
+Completed: thread #0
+Completed: thread #7
+BAM sorting: 40022 mapped reads
+BAM sorting bins genomic start loci:
+1	0	4037115
+2	0	4038681
+3	0	4085579
+4	0	4112625
+5	0	4115927
+6	0	4245039
+7	0	4967112
+8	0	5530688
+9	0	6108317
+10	0	6586969
+11	0	6590526
+12	0	6884116
+13	0	6884294
+14	0	6884959
+15	0	6889215
+16	0	7192706
+17	0	7515523
+18	0	8321926
+19	0	8685065
+20	0	8899198
+21	0	9960100
+22	0	9960254
+23	0	9961562
+24	0	9961672
+25	0	9962016
+26	0	9962242
+27	0	10576552
+28	0	12625392
+29	0	12688367
+30	0	12696238
+31	0	12696898
+32	0	17303982
+33	0	18558586
+34	0	23597264
+35	0	24853762
+36	0	27376361
+37	0	30076480
+38	0	32443695
+39	0	34486434
+40	0	37272767
+41	0	41203187
+42	0	42049794
+43	0	44036123
+44	0	44541173
+45	0	45738758
+46	0	47071907
+47	0	54034594
+48	0	59310892
+Completed: thread #4
+Completed: thread #1
+Joined thread # 1
+Completed: thread #2
+Joined thread # 2
+Completed: thread #3
+Joined thread # 3
+Joined thread # 4
+Joined thread # 5
+Joined thread # 6
+Joined thread # 7
+Feb 06 10:03:10 ..... finished mapping
+RAM after mapping:
+VmPeak:	 6556124 kB; VmSize:	 6483684 kB; VmHWM:	 4531796 kB; VmRSS:	 4503464 kB; 
+RAM after freeing genome index memory:
+VmPeak:	 6556124 kB; VmSize:	 2609612 kB; VmHWM:	 4531796 kB; VmRSS:	 1967824 kB; 
+Feb 06 10:03:10 ..... started sorting BAM
+Max memory needed for sorting = 2508327
+ALL DONE!
