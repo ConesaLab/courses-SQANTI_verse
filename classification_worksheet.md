@@ -140,5 +140,5 @@ The fact that we see 3' fragments and 5' fragments with support in both their TS
 <details><summary>Answer</summary>
 As we can see in the plot, there is a higher TSS ratio for the isoforms supported by a CAGE peak, which is consistent with the hypothesis. This is because CAGE peaks are indicative of real transcription start sites (and not artifacts of degradation), and isoforms with higher TSS ratios are more likely to be associated with such peaks.
 
-<image src="results/complete_sqanti3/ratio_TSS_density.png" alt="TSS ratio plot" width="600"/>
+<image src="results/03_QC_with_orthogonal/ratio_TSS_density.png" alt="TSS ratio plot" width="600"/>
 </details><br>
