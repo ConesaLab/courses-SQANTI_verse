@@ -2,8 +2,8 @@
 
 sqanti3_rescue.py \
     --filter_class results/04_Filter_orthogonal/mouse_RulesFilter_classification.txt \
-    --refGTF data/isoquant/Mus_musculus.GRCm39.115.chr19.gtf \
-    --refFasta data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta \
+    --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
+    --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
     --refClassif data/isoquant/reference_classification.txt \
     --mode full --strategy rules --requant \
     --json_filter data/filter_rules.json \
