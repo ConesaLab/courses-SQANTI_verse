@@ -101,22 +101,34 @@ mamba env create -f tools/sqanti3/SQANTI3.conda.env.yml
 
 :warning: **Important note**: Due to the installation of some packages (TransDecoder2 mainly), the installation time of the conda environment can take a while. Please be patient while the environment is being created (usually 5-10 minutes).
 
+In order to run IsoQuant, you will need to also create a conda environment for it, and install the tool there. To do so, just run the following command:
+
+```bash
+mamba create -n isoquant -c bioconda isoquant
+```
+
+
 ### Data downloading
 
 All the data needed for the tutorial can be found in the data directory of this repository. It contains the long-read defined transcriptome, the reference genome, annotation and the orthogonal data used in the tutorial. For the sake of simplicity and time, only the isoforms that are part of the chromosome 19 of mouse will be used, which are more than enough to go through all the SQANTI3 functionalities. If you wish to learn more about the data origin, you can check it out in the SQANTI3 paper. The full dataset is publicly available in the ENA under the accession number [PRJEB94912](https://www.ebi.ac.uk/ena/browser/view/PRJEB94912).
 
 # 1. Transcriptome Reconstruction
 
-The first step on a transcriptomics experiment is to reconstruct the transcriptome from the raw reads. This step is not part of SQANTI3, but it is a necessary step before running SQANTI3 QC. There are multiple tools that can be used for this purpose, such as IsoSeq3, FLAIR, IsoQuant, Bamboo or TALON. Each one of them performs different and has a different approach towards the reconstruction. EWhen faces with thsi step, you must ask yourselve what are you lloking for in a transcirptome (novelty vs accuracy for example) and choose the tool that best fits your needs. If you want more information about the different tools available, you can check the results from the [LRGASP challenge](https://lrgasp.github.io/). 
+The first step on a transcriptomics experiment is to reconstruct the transcriptome from the raw reads. This step is not part of SQANTI3, but it is a necessary step before running SQANTI3 QC. There are multiple tools that can be used for this purpose, such as IsoSeq3, FLAIR, IsoQuant, Bamboo or TALON. Each one of them performs different and has a different approach towards the reconstruction. When faced with this step, you must ask yourself what are you looking for in a transcriptome (novelty vs accuracy for example) and choose the tool that best fits your needs. If you want more information about the different tools available, you can check the results from the [LRGASP challenge](https://lrgasp.github.io/). 
 
 In this tutorial, we will use [IsoQuant](https://github.com/ablab/IsoQuant), since it suports multiple sequencing platforms (PacBio and ONT) and has a good balance between novelty and accuracy. The command to run IsoQuant is as follows:
 
 ```bash
 isoquant.py --fastq data/isoquant/mouse_raw_reads.subset.chr19.fastq \
             --reference data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta \
-            -d pacbio --output results/01_isoquant_transcriptome --prefix mouse
+            -d pacbio --output results/01_isoquant_transcriptome --prefix mouse --threads 8
 ```
 
+⚠️ Perhaps your computer is not able to run this command, due to RAM memory shortage. If that is the case, you can play around with the number of threads, reducing them for less RAM usage at the expense of longer computing time. However, if you are not able to run this step, you can find the output of IsoQuant in the hidden results folder. That will be under '.results/01_isoquant_transcriptome
+
+Briefly, IsoQuant works by aligning the reads against the genome and then clustering the reads based on their splicing patterns. In the case of supplying a reference annotation, it will use the known transcripts to refine small misalignments and possible omitted micro-exons. Then, it will create a graph, where the vertices are the exons and the edges the junctions. This graph will be simplified, based on the read support of each path.  Finally, in order to reconstruct the transcripts, the different paths through each start and end node is considered as a different transcript, and they are kept based on the read support.  
+
+![IsoQuant workflow](data/IsoQuant.png)
 
 # 1. SQANTI3 QC
 
@@ -136,17 +148,17 @@ Firstly, to get familiar with SQANTI3 QC, we will run it with the most basic par
 <details>
 <summary><strong> ⚠️ Special considerations</strong></summary><br>
 
-SQANTI3 was developed to work with PacBio long-reads transcriptomes. Thus, when parsing transcriptomes it will parse PacBio like transcripts and gene IDs. If your data does not come from a PacBio experiment, you will need to add the `--ignore` flag to allow the usage of transcript IDs that do not follow the PacBio format (PB.X.Y)
+If you wish to include the CDS prediction in the run, you will have to include the option `--include_ORF`, since TD2 can take a while to run.
 
 ---
 </details><br>
 
 ```bash
 sqanti3_qc.py \
-    --isoforms data/raw_transcriptome.gtf \
-    --refGTF data/chr22_hg38.gtf \
-    --refFasta data/chr22_hg38.fasta \
-    --dir results/basic_sqanti3 --output course 
+    --isoforms results/01_isoquant_transcriptome/mouse.transcript_models.clean.gtf \
+    --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
+    --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
+    --include_ORF --dir results/02_QC_basic --output mouse
 ```
 
 In this run, SQANTI3 will be carried out in its most basic functions. First, it will parse all inputs and load them. Then, it will predict the Open Reading Frames within the contigs, to determine if the isoforms are coding or not. It will also look at the Retrotranscriptase Switching and the percentage of A content after the TTS. Finally, it will produce the classification of the isoforms in the SQANTI3 categories. Now, lets, dive into the output files.
@@ -154,23 +166,23 @@ In this run, SQANTI3 will be carried out in its most basic functions. First, it 
 <details>
 <summary><strong> 📤 Output files</strong></summary><br>
 
-The output files are stored in the directory `results/basic_sqanti3/course`. In this directory, you will find a few files and directories. The most important ones are:
+The output files are stored in the directory `results/02_QC_basic`. In this directory, you will find a few files and directories. The most important ones are:
 
-- `course_corrected.gtf`: The corrected GTF file. This file contains the parsed input isoforms, eliminating malformed lines from the GTF and correcting possible errors from the isoforms if they were given as a fasta files.
+- `mouse_corrected.gtf`: The corrected GTF file. This file contains the parsed input isoforms, eliminating malformed lines from the GTF and correcting possible errors from the isoforms if they were given as a fasta files.
 
-- `course_corrected.fasta`: The corrected fasta file. This file contains the parsed input isoforms, eliminating malformed lines from the GTF and correcting possible errors from the isoforms if they were given as a fasta files. The sequence for the isoforms is directly taken from the reference genome (thus eliminating possible SNPs). These files will be the ones used by other SQANTI3 modules, rather than the original input files. 
+- `mouse_corrected.fasta`: The corrected fasta file. This file contains the parsed input isoforms, eliminating malformed lines from the GTF and correcting possible errors from the isoforms if they were given as a fasta files. The sequence for the isoforms is directly taken from the reference genome (thus eliminating possible SNPs). These files will be the ones used by other SQANTI3 modules, rather than the original input files. 
 
-- `course_corrected.genePred`: The corrected transcriptome in genePred format, since some steps of SQANTI3 require this format for compatibility with the orthogonal data.
+- `mouse_corrected.genePred`: The corrected transcriptome in genePred format, since some steps of SQANTI3 require this format for compatibility with the orthogonal data.
 
-- `course_corrected.cds.gff3`: This file is a version of the corrected gtf that includes the predicted CDS regions. This file will be created if the option `--skipORF` is not included.
+- `mouse_corrected.cds.gff3`: This file is a version of the corrected gtf that includes the predicted CDS regions. This file will be created only if the option `--include_ORF` is included.
 
-- `course_classification.txt`: The classification file. This file contains the classification of the isoforms in the SQANTI3 categories. This file is the most important output of SQANTI3 QC, as it contains the information about the quality of the transcriptome and the classification of the isoforms.
+- `mouse_classification.txt`: The classification file. This file contains the classification of the isoforms in the SQANTI3 categories. This file is the most important output of SQANTI3 QC, as it contains the information about the quality of the transcriptome and the classification of the isoforms.
 
-- `course_junctions.txt`: A tab-separated file with information at the junction level for all transcriptomes included in the classification file. Each row represents a specific junction and includes details such as genomic coordinates, whether it is a canonical junction (e.g., GT-AG, GC-AG, AT-AC) or non-canonical, and whether it is known (present in the reference annotation) or novel.
+- `mouse_junctions.txt`: A tab-separated file with information at the junction level for all transcriptomes included in the classification file. Each row represents a specific junction and includes details such as genomic coordinates, whether it is a canonical junction (e.g., GT-AG, GC-AG, AT-AC) or non-canonical, and whether it is known (present in the reference annotation) or novel.
 
-- `course_SQANTI3_report.html`: The SQANTI3 report. This file contains a summary of the results and the classification of the isoforms. It is an HTML file that can be opened in any web browser. The report contains a summary of the results, including the number of isoforms, the number of genes, the number of junctions, and the classification of the isoforms. It also contains plots and figures that help to visualize the results.
+- `mouse_SQANTI3_report.html`: The SQANTI3 report. This file contains a summary of the results and the classification of the isoforms. It is an HTML file that can be opened in any web browser. The report contains a summary of the results, including the number of isoforms, the number of genes, the number of junctions, and the classification of the isoforms. It also contains plots and figures that help to visualize the results.
 
-- `course.qc_params.txt`: The QC parameters file. This file contains the parameters used in the run, including the input files, the reference genome and annotation, and the options used in the run. This file is useful to keep track of the parameters used in the run and to reproduce the results.
+- `mouse.qc_params.txt`: The QC parameters file. This file contains the parameters used in the run, including the input files, the reference genome and annotation, and the options used in the run. This file is useful to keep track of the parameters used in the run and to reproduce the results.
 
 ---
 </details><br>
@@ -222,13 +234,14 @@ The other two main types of orthogonal data that SQANTI3 QC can use are CAGE pea
 
 ```bash
 sqanti3_qc.py \
-    --isoforms data/raw_transcriptome.gtf \
-    --refGTF data/chr22_hg38.gtf \
-    --refFasta data/chr22_hg38.fasta \
+    --isoforms results/01_isoquant_transcriptome/mouse.transcript_models.clean.gtf \
+    --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
+    --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
     --short_reads data/short_reads.fofn \
-    --CAGE_peak data/ref_TSS_annotation/human.refTSS_v3.1.hg38.bed \
-    --polyA_motif_list data/polyA_motifs/mouse_and_human.polyA_motif.txt \
-    --dir results/complete_sqanti3 --output course
+    --CAGE_peak data/orthogonal/mouse.refTSS_v3.1.GRCm39.bed \
+    --polyA_motif data/orthogonal/mouse_and_human.polyA_motif.txt \
+    --fl_count results/01_isoquant_transcriptome/mouse.discovered_transcript_counts.clean.tsv \
+    --include_ORF --dir results/03_QC_with_orthogonal --output mouse
 ```
 
 When it comes to the output files, they won't change much form a SQANTI3 run without the extra information. The main difference will be within the report, where some of the columns that were NAs before, now will be filled with the information from the short-reads, CAGE peaks and polyA motifs.
@@ -237,7 +250,7 @@ When it comes to the output files, they won't change much form a SQANTI3 run wit
 
 In the next sections, we will explore the other modules of SQANTI3, which are designed to curate and filter the transcriptome based on the results from SQANTI3 QC.
 
- ![alt text](https://github.com/ConesaLab/courses-SQANTI_verse/blob/main/data/ConesaColors_happy.jpg "Conesa Color")
+ ![alt text](data/ConesaColors_happy.jpg "Conesa Color")
 
 # 2. SQANTI3 filter
 
@@ -438,7 +451,7 @@ This pipeline is a bit more complex. It follows four main steps to rescue the is
  
 The output in this case will be the same as before, but most likely, more transcripts will be rescued. To finish with the SQANTI3 tutorial, lets go and complete the last worksheet [rescue_worksheet.md](rescue_worksheet.md). The questions are designed to help you understand the output of SQANTI3 rescue and why some isoforms were rescued and others not.
 
-![alt_text](https://github.com/ConesaLab/courses-SQANTI_verse/blob/main/data/ConesaColors_mad.jpg "ConesaMad")
+![alt_text](data/ConesaColors_mad.jpg "ConesaMad")
 
 # 5. SQANTI3 wrapper
 

@@ -1,7 +1,7 @@
 {
     "full-splice_match":[
         {
-            "diff_to_gene_TSS": [-50,50],
+            "diff_to_TSS": [-50,50],
             "RTS_stage": false,
             "perc_A_downstream_TTS":[0,59]
         },
@@ -35,14 +35,14 @@
     "novel_in_catalog":[
         {
             "all_canonical": "canonical",
-            "diff_to_gene_TSS":[-50,50],
-            "diff_to_gene_TTS": [-50,50],
+            "diff_to_TSS":[-50,50],
+            "diff_to_TTS": [-50,50],
             "perc_A_downstream_TTS":[0,59]            
         },
         {
             "min_cov": 10,
-            "diff_to_gene_TSS":[-50,50],
-            "diff_to_gene_TTS": [-50,50],
+            "diff_to_TSS":[-50,50],
+            "diff_to_TTS": [-50,50],
             "perc_A_downstream_TTS":[0,59]
         },
         {
