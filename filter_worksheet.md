@@ -42,11 +42,11 @@ This worksheet is designed to guide you through the analysis of SQANTI3 Quality 
 
 4. **How many isoforms are artifacts in the basic dataset?**  
     <details><summary>Answer</summary>
-    115 isoforms are considered artifacts in the basic dataset. 
+    205 isoforms are considered artifacts in the basic dataset. 
     </details><br>
 5. **How many isoforms are artifacts in the complete dataset?**
     <details><summary>Answer</summary>
-    98 isoforms are considered artifacts in the complete dataset. 
+    147 isoforms are considered artifacts in the complete dataset. 
     </details><br>
 
 6. **What is the distribution of the structural categories for the isoforms that passed the filter in the complete dataset but not in the basic dataset?**
@@ -54,8 +54,9 @@ This worksheet is designed to guide you through the analysis of SQANTI3 Quality 
 
     | Structural Category       | count |
     |---------------------------|--------|
-    | full-splice_match         | 14     |
+    | full-splice_match         | 53     |
     | incomplete-splice_match   | 3      |
+    | novel_in_catalog          | 2      |
 
     </details><br>
 
@@ -63,7 +64,7 @@ This worksheet is designed to guide you through the analysis of SQANTI3 Quality 
 
     <details><summary>Answer</summary>
     
-    - FSM: The transcript 311 is 113 nucleotides downstream the reference TSS, but when using the complete dataset, it is within a CAGE peak.
+    - FSM: The transcript 26 is 92 nucleotides downstream the reference TSS, but when using the complete dataset, it is within a CAGE peak.
     - ISM: The tree isoforms that pass here, despite not being complete, are supported by a CAGE peak and have a polyA motif, which is why they pass the filter in the complete dataset.
     
     </details><br>
@@ -71,5 +72,5 @@ This worksheet is designed to guide you through the analysis of SQANTI3 Quality 
 8. **Can you explain any biological reason why we might want to include one of those isoforms even thought they failed the basic filtering?**
 
     <details><summary>Answer</summary>
-    In the case of the FSM transcript 311, it can be that even though it is not within the expected TSS of the reference, the fact that is  supported by a CAGE peak might indicate that it is an alternative TSS.
+    In the case of the FSM transcript 26, it can be that even though it is not within the expected TSS of the reference, the fact that is  supported by a CAGE peak might indicate that it is an alternative TSS.
     </details>

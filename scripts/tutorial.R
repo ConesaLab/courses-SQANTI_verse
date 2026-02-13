@@ -172,12 +172,14 @@ complete.df %>%
 complete.df %>% 
     filter(filter_result == "Isoform" & !isoform %in% pass_basic &
             structural_category == "full-splice_match") %>%
-    select(isoform, structural_category, diff_to_gene_TSS,within_CAGE_peak)
+    select(isoform, structural_category, diff_to_TSS,within_CAGE_peak)
 
 complete.df %>% 
     filter(filter_result == "Isoform" & !isoform %in% pass_basic &
             structural_category == "incomplete-splice_match") %>%
     select(isoform, structural_category, length, subcategory,FSM_class,ratio_exp,within_CAGE_peak,polyA_motif_found)
+
+
 
 ## Rescue_questionaire
 
@@ -233,7 +235,8 @@ mapping_hits.df <- read_tsv("results/05_Rescue_full/mouse_rescue_mapping_hits.ts
 mapping_hits.df %>% group_by(rescue_candidate) %>%
  summarise(n=n()) %>% 
  mutate(avg = mean(n),
-        max = max(n))
+        max = max(n)) %>%
+    select(avg,max) %>% distinct()
 
 
 # Question 7

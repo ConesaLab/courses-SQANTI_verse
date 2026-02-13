@@ -107,7 +107,6 @@ In order to run IsoQuant, you will need to also create a conda environment for i
 mamba create -n isoquant -c bioconda isoquant
 ```
 
-
 ### Data downloading
 
 All the data needed for the tutorial can be found in the data directory of this repository. It contains the long-read defined transcriptome, the reference genome, annotation and the orthogonal data used in the tutorial. For the sake of simplicity and time, only the isoforms that are part of the chromosome 19 of mouse will be used, which are more than enough to go through all the SQANTI3 functionalities. If you wish to learn more about the data origin, you can check it out in the SQANTI3 paper. The full dataset is publicly available in the ENA under the accession number [PRJEB94912](https://www.ebi.ac.uk/ena/browser/view/PRJEB94912).
@@ -129,6 +128,14 @@ isoquant.py --fastq data/isoquant/mouse_raw_reads.subset.chr19.fastq \
 Briefly, IsoQuant works by aligning the reads against the genome and then clustering the reads based on their splicing patterns. In the case of supplying a reference annotation, it will use the known transcripts to refine small misalignments and possible omitted micro-exons. Then, it will create a graph, where the vertices are the exons and the edges the junctions. This graph will be simplified, based on the read support of each path.  Finally, in order to reconstruct the transcripts, the different paths through each start and end node is considered as a different transcript, and they are kept based on the read support.  
 
 ![IsoQuant workflow](data/IsoQuant.png)
+
+After running IsoQuant, you will have a reconstructed transcriptome in gtf format, which will be the input for SQANTI3 QC. As well, you will have a fasta file with the sequences of the isoforms and a tsv file with the counts of the isoforms. However, the final step is to clean the transcript names:
+
+```bash
+python scripts/clean_transcript_ids.py -g results/01_isoquant_transcriptome/mouse/mouse.transcript_models.gtf \
+    -a results/01_isoquant_transcriptome/mouse/mouse.discovered_transcript_counts.tsv \
+    -o results/01_isoquant_transcriptome
+```
 
 # 1. SQANTI3 QC
 
@@ -309,7 +316,8 @@ The conditions included must have the same name as the columns in the classifica
 
 * **FSM**: Keep if the isoform:
   * Has a `perc_A_downstream_TTS` lower than 60% (not likely intrapriming) **AND**
-  * Has no RT Switching
+  * Has no RT Switching **AND**
+  * It is within 50bp of the reference TSS **OR** the TSS is supported by CAGE peaks. 
 
 * **ISM**: Keep if:
   * Has no RT Switching **AND**
