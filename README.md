@@ -49,18 +49,20 @@ Throughout this course, you will gain hands-on experience with SQANTI3's three m
 * **Filter**: Understand how to apply filtering criteria to refine your transcriptome data.
 * **Rescue**: Explore methods to recover valid isoforms that may have been inadvertently excluded.
 
+* **Bonus**: You will also learn how to visualize your results in the UCSC Genome Browser with [SQANTI_browser](https://github.com/ConesaLab/SQANTI-browser), enabling you to explore the genomic context of your isoforms.
+
 By the end of the course, you will be equipped to effectively utilize SQANTI3 for comprehensive transcriptome analysis, integrating various data types to achieve accurate and reliable results.
 
-⚠️ This course has been done using the latest release of SQANTI3 (v5.4).
+⚠️ This course has been done using the latest release of SQANTI3 (v6.0).
 
 # 0. Pre-requisites
 
 Before starting the tutorial, it is key to have a clean and organized working environment. The initial step, even before processing any data is to prepare the working environment. In bioinformatics, an organized workspace is vital, so when you come after some time to your project, you can find and understand what you were doing, rather than spend hours searching through weirdly named directories. It is important to always create three directories:
 
 
-- scripts: all the scripts will be stored here, with meaningful names
-- data: Raw data will go in here and, if you want and need, databases
-- results: Create a sub directory for every different process you do. If you run a process multiple times with different parameters, include them in the directory name, so you will differentiate them in the future.
+- *scripts*: all the scripts will be stored here, with meaningful names
+- *data*: Raw data will go in here and, if you want and need, databases
+- *results*: Create a sub directory for every different process you do. If you run a process multiple times with different parameters, include them in the directory name, so you will differentiate them in the future.
 
 ```bash
 mkdir scripts
@@ -89,6 +91,8 @@ export PATH=$PATH:/path/to/SQANTI3_v6.0
 ```
 
 Then, save the file and SQANTI3 will be in your path for the next terminal you open. As well, you can make this changes instantaneous by running `source ~/.bashrc` or `source ~/.bash_profile` in the terminal.
+
+Additionally, you could create a symbolic link to the SQANTI3 scripts in a directory that is already in your PATH, such as `/usr/local/bin`:
 
 ---
 </details><br>
