@@ -81,6 +81,6 @@ For both parts of the exercise we will use the main rescue table `mouse_rescue_t
 11. **How many new entries are there in the requantification table?**
 
     <details><summary>Answer</summary>
-     There are 113 new entries in the requantification table. 111 belong to the reference transcripts reintroduced. However, the two new entries are the transcript divergence. One encapsulates the general transcript  divergence, with the counts of all the artifacts that did not have an associated transcirpt, and the other is the transcript divergence for the gene ENSMUSG00000003559, which had one artifact associated.
+     There are 113 new entries in the requantification table. 111 belong to the reference transcripts reintroduced. However, the two new entries are the transcript divergence. One encapsulates the general transcript  divergence, with the counts of all the artifacts that did not have an associated transcript, and the other is the transcript divergence for the gene ENSMUSG00000003559, which had one artifact associated.
     </details><br>
 

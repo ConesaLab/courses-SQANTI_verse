@@ -39,6 +39,10 @@ The QC module categorizes isoforms into well-defined structural categories, faci
 7. **Genic Genomic**: Isoforms located within a gene locus but not reconstructing any known or novel splicing pattern.
 8. **Intergenic**: Isoforms aligning to genomic regions outside of any annotated gene.
 
+<div align="center" style="background-color:white;">
+  <img src="data/SQANTI_structural_categories.png" alt="SQANTI3 Structural Categories">
+</div>
+
 </details>
 
 ## Course Objectives
@@ -113,13 +117,13 @@ mamba create -n isoquant -c bioconda isoquant
 
 ### Data downloading
 
-All the data needed for the tutorial can be found in the data directory of this repository. It contains the long-read defined transcriptome, the reference genome, annotation and the orthogonal data used in the tutorial. For the sake of simplicity and time, only the isoforms that are part of the chromosome 19 of mouse will be used, which are more than enough to go through all the SQANTI3 functionalities. If you wish to learn more about the data origin, you can check it out in the SQANTI3 paper. The full dataset is publicly available in the ENA under the accession number [PRJEB94912](https://www.ebi.ac.uk/ena/browser/view/PRJEB94912).
+All the data needed for the tutorial can be found in the data directory of this repository. It contains the long-read defined transcriptome, the reference genome, annotation and the orthogonal data used in the tutorial. For the sake of simplicity and time, only the isoforms that are part of the chromosome 19 of mouse will be used, which are more than enough to go through all the SQANTI3 functionalities. If you wish to learn more about the data origin, you can check it out in the [Join&Call paper](https://pubmed.ncbi.nlm.nih.gov/41427336/). The full dataset is publicly available in the ENA under the accession number [PRJEB94912](https://www.ebi.ac.uk/ena/browser/view/PRJEB94912).
 
 # 1. Transcriptome Reconstruction
 
 The first step on a transcriptomics experiment is to reconstruct the transcriptome from the raw reads. This step is not part of SQANTI3, but it is a necessary step before running SQANTI3 QC. There are multiple tools that can be used for this purpose, such as IsoSeq3, FLAIR, IsoQuant, Bamboo or TALON. Each one of them performs different and has a different approach towards the reconstruction. When faced with this step, you must ask yourself what are you looking for in a transcriptome (novelty vs accuracy for example) and choose the tool that best fits your needs. If you want more information about the different tools available, you can check the results from the [LRGASP challenge](https://lrgasp.github.io/). 
 
-In this tutorial, we will use [IsoQuant](https://github.com/ablab/IsoQuant), since it suports multiple sequencing platforms (PacBio and ONT) and has a good balance between novelty and accuracy. The command to run IsoQuant is as follows:
+In this tutorial, we will use [IsoQuant](https://github.com/ablab/IsoQuant), since it supports multiple sequencing platforms (PacBio and ONT) and has a good balance between novelty and accuracy. The command to run IsoQuant is as follows:
 
 ```bash
 isoquant.py --fastq data/isoquant/mouse_raw_reads.subset.chr19.fastq \
@@ -141,15 +145,17 @@ python scripts/clean_transcript_ids.py -g results/01_isoquant_transcriptome/mous
     -o results/01_isoquant_transcriptome
 ```
 
+This is done because IsoQuant includes the chromosome name and isoform type into the isoform identifier. Since we are only working with chromosome 19 and with no reference annotation (all the isoforms are considered NNCs by IsoQuant), we can clean up the identifiers to make easier the post-analysis
+
 # 1. SQANTI3 QC
 
 The first step of the suite, and where the *SQANTI verse* begins in the Quality Control (QC) module. This module is designed to assess the quality of a transcriptome, and integrate multiple kinds of orthogonal data that might help to understand and determine what are the true isoforms. As an end result, SQANTI3 QC will take as input the target transcriptome and the reference genome and annotation. The user can optionally add other data sources, such as short-reads RNA-seq data or CAGE peaks, to include more parameters that will be used in downstream analysis. The QC module will parse all of this information and produce a report and a classification on the given isoforms based on the structural categories defined in the SQANTI3 paper.
 
-As well, SQANTI3 QC is able to determine CDS regions, using [TransDecoder2](https://github.com/Markusjsommer/TD2) as predictor for these parts of the transcriptome, or even receive the isoforms in fasta format. SQANTI will map them against the reference genome and produce a gtf file to run with. 
+As well, SQANTI3 QC is able to determine CDS regions, using [TransDecoder2](https://github.com/Markusjsommer/TD2) as predictor for these parts of the transcriptome, or even receive the isoforms in fasta format, which SQANTI will map against the reference genome and produce a gtf file to run with. 
 
 ## 1.1. Basic run
 
-Firstly, to get familiar with SQANTI3 QC, we will run it with the most basic parameters. The only required parameters are the input transcriptome, the reference genome and the reference annotation. The rest of the parameters are optional, but they will be explained in the next sections. The way the inputs have to be given is as follows:
+Firstly, to get familiar with SQANTI3 QC, we will run it with the most basic parameters. The only required parameters are the input transcriptome, the reference genome and the reference annotation. The rest of the inputs are optional. Most of them will be explained in the next sections. The way the inputs have to be given is as follows:
 
 1. `--isoforms`: The input transcriptome. This can be a fasta file or a gtf/gff3 file. If you are using a fasta file, the `--fasta` flag has to be included. This will allow SQANTI3 to parse the input file correctly and map the reads against the genome to produce the gtf.
 
@@ -159,7 +165,7 @@ Firstly, to get familiar with SQANTI3 QC, we will run it with the most basic par
 <details>
 <summary><strong> ⚠️ Special considerations</strong></summary><br>
 
-If you wish to include the CDS prediction in the run, you will have to include the option `--include_ORF`, since TD2 can take a while to run.
+If you wish to include the CDS prediction in the run, you will have to include the option `--include_ORF`, since TD2 can take a while to run (specially on low end PCs).
 
 ---
 </details><br>
