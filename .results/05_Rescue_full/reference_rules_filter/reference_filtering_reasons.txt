@@ -1,0 +1,340 @@
+isoform	structural_category	filter_reason
+ENSMUST00000025921	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000035822	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000039016	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000041163	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000044976	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000047645	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000047666	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000059672	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000062389	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000067795	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000073581	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000075856	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000081236	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000082466	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000082712	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000082931	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000083007	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000083209	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000083270	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000087473	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000095978	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 95.0 > 59
+ENSMUST00000096119	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000099558	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000099569	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000104916	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000111526	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000111646	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000111653	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000111654	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000111657	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000111737	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000112552	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000113383	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000113461	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000113502	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000113674	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000123758	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000124012	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000124483	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000125232	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000125411	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000126188	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000126908	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000127198	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000127233	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000128272	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000128949	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000128987	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000131032	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000131882	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000132851	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000133222	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000134518	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000134568	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000135018	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000135586	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000135827	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000136286	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000136465	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000136756	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000137368	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000137465	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000138317	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000138917	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000140014	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000141771	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000142135	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000143264	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000144135	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000144422	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000145160	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000147049	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000147907	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000148105	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000149629	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000151079	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000152242	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000152259	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000152786	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000154339	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000154376	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000154467	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000155405	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000156316	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000156814	full-splice_match	perc_A_downstream_TTS: 100.0 > 59
+ENSMUST00000157587	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000157641	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000157933	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000158343	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000158477	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000159210	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000159243	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000159770	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000160221	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000160247	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000161119	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000161157	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000161330	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000162193	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000162238	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000162446	full-splice_match	perc_A_downstream_TTS: 95.0 > 59
+ENSMUST00000162785	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000163078	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000163785	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000163929	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000165143	full-splice_match	perc_A_downstream_TTS: 95.0 > 59
+ENSMUST00000165965	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000166788	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000168357	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000170286	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000170577	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000171721	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000173161	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000174137	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000175682	full-splice_match	perc_A_downstream_TTS: 95.0 > 59
+ENSMUST00000176080	full-splice_match	within_CAGE_peak: False < True; diff_to_gene_TSS: 402 > 50
+ENSMUST00000176093	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000176422	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000176483	full-splice_match	perc_A_downstream_TTS: 95.0 > 59
+ENSMUST00000176495	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000176867	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000177048	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000177116	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000178353	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000178727	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000178868	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000181393	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 100.0 > 59
+ENSMUST00000181469	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000181539	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000182589	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000182636	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000183008	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000183131	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000183332	full-splice_match	diff_to_gene_TSS: 707 > 50; within_CAGE_peak: False < True
+ENSMUST00000185355	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000185446	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000185851	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000187379	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000187859	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000188756	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000189018	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000189439	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000189779	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000191475	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000193515	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000199928	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000200561	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000207175	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000207392	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 95.0 > 59
+ENSMUST00000207418	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000207681	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000207791	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000207812	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000207944	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000208186	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000208984	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000209137	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000209304	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000209457	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000209469	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000212157	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000213141	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000213954	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000214887	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000223659	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000223807	full-splice_match	perc_A_downstream_TTS: 100.0 > 59
+ENSMUST00000223919	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000224053	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000224094	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000224117	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 100.0 > 59
+ENSMUST00000224227	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000224291	full-splice_match	perc_A_downstream_TTS: 100.0 > 59
+ENSMUST00000224396	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000224434	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000224439	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000224474	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 100.0 > 59
+ENSMUST00000224518	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000224599	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000224646	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000224667	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000224716	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000224805	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000225148	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000225153	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000225185	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 95.0 > 59
+ENSMUST00000225210	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000225222	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000225351	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000225392	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000225411	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000225446	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 95.0 > 59
+ENSMUST00000225662	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000225705	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 95.0 > 59
+ENSMUST00000225764	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000225838	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000225917	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000226028	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000226084	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000235130	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000235159	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000235162	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000235178	full-splice_match	perc_A_downstream_TTS: 100.0 > 59
+ENSMUST00000235189	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000235191	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000235203	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000235225	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000235235	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000235260	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000235296	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000235323	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000235326	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000235332	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000235344	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000235352	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000235406	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000235505	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000235509	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000235514	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000235593	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000235601	full-splice_match	perc_A_downstream_TTS: 100.0 > 59
+ENSMUST00000235631	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000235666	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000235706	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000235712	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000235722	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000235772	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000235777	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000235828	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000235833	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000235884	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000235936	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000235968	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000235978	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000236009	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000236027	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000236056	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000236063	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000236065	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236122	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000236136	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000236156	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000236172	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236176	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236180	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236194	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000236206	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236208	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236257	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000236258	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000236287	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000236294	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000236323	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236338	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000236339	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000236343	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000236352	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000236355	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000236365	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236398	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000236413	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000236464	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000236486	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000236499	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000236513	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000236526	full-splice_match	within_CAGE_peak: False < True; diff_to_gene_TSS: -743 < -50
+ENSMUST00000236541	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236622	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000236635	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000236682	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000236695	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236705	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000236730	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000236749	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000236773	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236775	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000236787	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000236900	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000236978	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000236990	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000237115	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+ENSMUST00000237132	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000237136	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000237177	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000237208	full-splice_match	perc_A_downstream_TTS: 70.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000237210	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000237212	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000237215	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000237221	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000237231	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000237237	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000237274	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000237330	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000237376	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000237397	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000237421	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000237467	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000237486	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000237507	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000237513	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+ENSMUST00000237545	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000237618	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000237638	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000237695	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000237752	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000237755	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000237841	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000237874	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000237922	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000237937	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000237976	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000238041	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000238043	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+ENSMUST00000238079	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000238085	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; within_CAGE_peak: False < True
+ENSMUST00000238125	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000238171	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+ENSMUST00000238831	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+ENSMUST00000240873	full-splice_match	within_CAGE_peak: False < True; diff_to_gene_TSS: 940 > 50
+ENSMUST00000242887	full-splice_match	within_CAGE_peak: False < True; diff_to_gene_TSS: 748 > 50
+ENSMUST00000243302	full-splice_match	diff_to_gene_TSS: 316 > 50; within_CAGE_peak: False < True
+ENSMUST00000249642	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000249644	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000249647	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000249653	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000260286	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00000264976	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000280097	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000301164	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000301333	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000303159	full-splice_match	within_CAGE_peak: False < True; diff_to_gene_TSS: 550 > 50
+ENSMUST00000304499	full-splice_match	diff_to_gene_TSS: -440 < -50; within_CAGE_peak: False < True
+ENSMUST00000304858	full-splice_match	within_CAGE_peak: False < True; diff_to_gene_TSS: -2521 < -50
+ENSMUST00000311888	full-splice_match	diff_to_gene_TSS: 836 > 50; within_CAGE_peak: False < True
+ENSMUST00000341909	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000358221	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00000361011	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+ENSMUST00020181759	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 65.0 > 59
+ENSMUST00020182713	full-splice_match	perc_A_downstream_TTS: 75.0 > 59; within_CAGE_peak: False < True
+ENSMUST00020182871	full-splice_match	within_CAGE_peak: False < True; perc_A_downstream_TTS: 60.0 > 59

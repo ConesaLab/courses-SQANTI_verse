@@ -1,0 +1,10 @@
+INFO:
+
+[build] loading fasta file /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/03_QC_with_orthogonal/mouse_corrected.fasta
+[build] k-mer length: 31
+[build] counting k-mers ... done.
+[build] building target de Bruijn graph ...  done 
+[build] creating equivalence classes ...  done
+[build] target de Bruijn graph has 1441 contigs and contains 947997 k-mers 
+
+

@@ -1,0 +1,15 @@
+Version	6.0.0
+Mode	rules
+ClassificationFile	results/03_QC_with_orthogonal/mouse_classification.txt
+Isoforms	NA
+GTF	results/03_QC_with_orthogonal/mouse_corrected.gtf
+SAM	NA
+FAA	NA
+isoAnnotGFF3	NA
+OutputPrefix	mouse
+OutputDirectory	/media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/04_Filter_orthogonal
+FilterMonoexonic	False
+SkipReport	False
+CPUs	4
+LogLevel	INFO
+JSON	data/filter_rules.json

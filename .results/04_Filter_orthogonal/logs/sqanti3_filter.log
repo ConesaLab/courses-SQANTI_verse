@@ -1,0 +1,16 @@
+[WARNING:2026-02-06 13:01:00,491] Output directory results/04_Filter_orthogonal already exists. Overwriting!
+[INFO:2026-02-06 13:01:00,491] Write arguments to /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/04_Filter_orthogonal/mouse_params.txt...
+[INFO:2026-02-06 13:01:00,492] Running SQANTI3 filtering...
+[INFO:2026-02-06 13:01:00,492] --------------------------------------------------
+[INFO:2026-02-06 13:01:00,492]        Reading SQANTI3 classification file        
+[INFO:2026-02-06 13:01:00,492] --------------------------------------------------
+[INFO:2026-02-06 13:01:00,498] --------------------------------------------------
+[INFO:2026-02-06 13:01:00,498]                 Reading JSON rules                
+[INFO:2026-02-06 13:01:00,498] --------------------------------------------------
+[INFO:2026-02-06 13:01:00,500] --------------------------------------------------
+[INFO:2026-02-06 13:01:00,500]         Applying rules to filter isoforms         
+[INFO:2026-02-06 13:01:00,500] --------------------------------------------------
+[INFO:2026-02-06 13:01:00,689] --------------------------------------------------
+[INFO:2026-02-06 13:01:00,690]                  Writing results                  
+[INFO:2026-02-06 13:01:00,690] --------------------------------------------------
+[INFO:2026-02-06 13:01:03,114] Output written to: results/04_Filter_orthogonal/mouse.filtered.gtf

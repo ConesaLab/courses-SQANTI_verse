@@ -1,0 +1,21 @@
+INFO:
+null device 
+          1 
+
+INFO:
+
+-------------------------------------------------
+
+ 	 SQANTI3 Rules filter report
+
+--------------------------------------------------
+Loading required package: magrittr
+
+Reading Rules result classification table...
+Loading required package: ggplot2
+
+Generating common filter plots...
+
+
+Writing report plots to PDF file...
+

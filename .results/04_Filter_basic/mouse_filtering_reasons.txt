@@ -1,0 +1,116 @@
+isoform	structural_category	filter_reason
+transcript41	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+transcript87	full-splice_match	diff_to_gene_TSS: 54 > 50
+transcript94	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+transcript97	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+transcript187	full-splice_match	diff_to_gene_TSS: 487 > 50
+transcript202	full-splice_match	diff_to_gene_TSS: 66 > 50
+transcript204	full-splice_match	diff_to_gene_TSS: 121 > 50
+transcript210	incomplete-splice_match	length: 801 < 2001; FSM_class: A
+transcript212	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+transcript221	full-splice_match	perc_A_downstream_TTS: 90.0 > 59
+transcript228	novel_in_catalog	diff_to_gene_TTS: -974 < -50; diff_to_gene_TSS: -57 < -50
+transcript236	incomplete-splice_match	subcategory: intron_retention; FSM_class: C
+transcript297	full-splice_match	diff_to_gene_TSS: 111 > 50
+transcript311	full-splice_match	diff_to_gene_TSS: -113 < -50
+transcript326	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+transcript331	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+transcript353	novel_in_catalog	diff_to_gene_TSS: 157 > 50; perc_A_downstream_TTS: 65.0 > 59
+transcript357	full-splice_match	diff_to_gene_TSS: 658 > 50
+transcript383	full-splice_match	diff_to_gene_TSS: 312 > 50
+transcript396	full-splice_match	diff_to_gene_TSS: -52 < -50
+transcript408	full-splice_match	diff_to_gene_TSS: 54 > 50
+transcript413	full-splice_match	diff_to_gene_TSS: 68 > 50
+transcript429	full-splice_match	perc_A_downstream_TTS: 90.0 > 59; diff_to_gene_TSS: -73 < -50
+transcript473	novel_in_catalog	diff_to_gene_TTS: 253 > 50
+transcript475	novel_in_catalog	diff_to_gene_TTS: 247 > 50
+transcript524	full-splice_match	diff_to_gene_TSS: 89 > 50
+transcript561	full-splice_match	diff_to_gene_TSS: 79 > 50
+transcript574	novel_not_in_catalog	all_canonical: non_canonical
+transcript582	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+transcript589	full-splice_match	diff_to_gene_TSS: 485 > 50; perc_A_downstream_TTS: 75.0 > 59
+transcript602	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+transcript615	incomplete-splice_match	perc_A_downstream_TTS: 70.0 > 59; FSM_class: C
+transcript642	novel_in_catalog	diff_to_gene_TTS: 79 > 50
+transcript650	full-splice_match	diff_to_gene_TSS: 147 > 50
+transcript664	full-splice_match	diff_to_gene_TSS: 125 > 50
+transcript668	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+transcript670	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+transcript673	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+transcript732	full-splice_match	diff_to_gene_TSS: 91 > 50
+transcript808	full-splice_match	diff_to_gene_TSS: 80 > 50
+transcript817	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+transcript821	antisense	coding: non_coding
+transcript835	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+transcript839	full-splice_match	diff_to_gene_TSS: 90 > 50
+transcript855	novel_in_catalog	diff_to_gene_TTS: -264 < -50
+transcript858	full-splice_match	perc_A_downstream_TTS: 65.0 > 59
+transcript866	full-splice_match	diff_to_gene_TSS: -155 < -50
+transcript868	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+transcript880	full-splice_match	perc_A_downstream_TTS: 85.0 > 59; diff_to_gene_TSS: 310 > 50
+transcript882	novel_in_catalog	diff_to_gene_TTS: -397 < -50; perc_A_downstream_TTS: 75.0 > 59
+transcript884	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+transcript898	full-splice_match	diff_to_gene_TSS: 58 > 50
+transcript912	full-splice_match	diff_to_gene_TSS: -53 < -50
+transcript935	novel_in_catalog	diff_to_gene_TSS: 164 > 50
+transcript947	full-splice_match	diff_to_gene_TSS: 58 > 50
+transcript960	novel_in_catalog	diff_to_gene_TTS: 978 > 50
+transcript962	novel_not_in_catalog	perc_A_downstream_TTS: 75.0 > 59; all_canonical: non_canonical
+transcript968	full-splice_match	perc_A_downstream_TTS: 75.0 > 59
+transcript972	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+transcript974	novel_in_catalog	diff_to_gene_TTS: 218 > 50
+transcript976	full-splice_match	diff_to_gene_TSS: 167 > 50; perc_A_downstream_TTS: 80.0 > 59
+transcript990	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+transcript994	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+transcript1000	full-splice_match	diff_to_gene_TSS: 66 > 50
+transcript1014	novel_in_catalog	diff_to_gene_TTS: 434 > 50
+transcript1016	novel_in_catalog	perc_A_downstream_TTS: 70.0 > 59
+transcript1029	novel_in_catalog	diff_to_gene_TSS: 88 > 50
+transcript1041	full-splice_match	diff_to_gene_TSS: 59 > 50
+transcript1046	novel_in_catalog	diff_to_gene_TSS: 153 > 50
+transcript1068	full-splice_match	diff_to_gene_TSS: -64 < -50
+transcript1087	full-splice_match	diff_to_gene_TSS: -254 < -50
+transcript1107	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+transcript1113	novel_not_in_catalog	perc_A_downstream_TTS: 80.0 > 59
+transcript1124	full-splice_match	diff_to_gene_TSS: 413 > 50; perc_A_downstream_TTS: 80.0 > 59
+transcript1149	full-splice_match	diff_to_gene_TSS: -134 < -50
+transcript1155	novel_not_in_catalog	all_canonical: non_canonical
+transcript1160	novel_in_catalog	perc_A_downstream_TTS: 80.0 > 59; diff_to_gene_TSS: 117 > 50
+transcript1165	novel_not_in_catalog	perc_A_downstream_TTS: 80.0 > 59
+transcript1177	full-splice_match	diff_to_gene_TSS: 108 > 50
+transcript1250	full-splice_match	perc_A_downstream_TTS: 85.0 > 59
+transcript1256	full-splice_match	diff_to_gene_TSS: 59 > 50
+transcript1283	antisense	coding: non_coding
+transcript1301	full-splice_match	diff_to_gene_TSS: -59 < -50
+transcript1330	incomplete-splice_match	length: 927 < 2001; FSM_class: C
+transcript1358	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+transcript1366	full-splice_match	diff_to_gene_TSS: 57 > 50
+transcript1381	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+transcript1383	full-splice_match	diff_to_gene_TSS: 111 > 50
+transcript1396	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+transcript1400	novel_in_catalog	diff_to_gene_TTS: -63 < -50
+transcript1417	full-splice_match	diff_to_gene_TSS: 96 > 50
+transcript1440	incomplete-splice_match	length: 918 < 2001; FSM_class: A
+transcript1457	incomplete-splice_match	length: 1828 < 2001; FSM_class: C
+transcript1468	novel_not_in_catalog	all_canonical: non_canonical
+transcript1477	novel_not_in_catalog	all_canonical: non_canonical
+transcript1490	incomplete-splice_match	perc_A_downstream_TTS: 85.0 > 59; length: 1661 < 2001; FSM_class: C
+transcript1504	full-splice_match	perc_A_downstream_TTS: 70.0 > 59
+transcript1506	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+transcript1520	full-splice_match	diff_to_gene_TSS: -56 < -50
+transcript1536	full-splice_match	diff_to_gene_TSS: 104 > 50
+transcript1545	full-splice_match	diff_to_gene_TSS: 63 > 50
+transcript1558	novel_in_catalog	diff_to_gene_TSS: -54 < -50
+transcript1564	novel_not_in_catalog	coding: non_coding
+transcript1589	full-splice_match	perc_A_downstream_TTS: 100.0 > 59
+transcript1594	full-splice_match	perc_A_downstream_TTS: 60.0 > 59
+transcript1598	novel_in_catalog	diff_to_gene_TTS: 950 > 50
+transcript1600	full-splice_match	diff_to_gene_TSS: -282 < -50
+transcript1618	full-splice_match	diff_to_gene_TSS: 208 > 50
+transcript1623	full-splice_match	perc_A_downstream_TTS: 80.0 > 59
+transcript1625	novel_not_in_catalog	coding: non_coding
+transcript1640	full-splice_match	perc_A_downstream_TTS: 80.0 > 59; diff_to_gene_TSS: -327 < -50
+transcript1648	full-splice_match	diff_to_gene_TSS: 196 > 50
+transcript1667	full-splice_match	diff_to_gene_TSS: -439 < -50
+transcript1686	full-splice_match	diff_to_gene_TSS: 157 > 50
+transcript1691	antisense	coding: non_coding

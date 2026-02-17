@@ -1,0 +1,16 @@
+[WARNING:2026-02-06 13:00:57,392] Output directory results/04_Filter_basic already exists. Overwriting!
+[INFO:2026-02-06 13:00:57,392] Write arguments to /media/pabloati/HDD1/pablo/sqanti/courses-SQANTI_verse/results/04_Filter_basic/mouse_params.txt...
+[INFO:2026-02-06 13:00:57,392] Running SQANTI3 filtering...
+[INFO:2026-02-06 13:00:57,392] --------------------------------------------------
+[INFO:2026-02-06 13:00:57,392]        Reading SQANTI3 classification file        
+[INFO:2026-02-06 13:00:57,392] --------------------------------------------------
+[INFO:2026-02-06 13:00:57,399] --------------------------------------------------
+[INFO:2026-02-06 13:00:57,399]                 Reading JSON rules                
+[INFO:2026-02-06 13:00:57,399] --------------------------------------------------
+[INFO:2026-02-06 13:00:57,400] --------------------------------------------------
+[INFO:2026-02-06 13:00:57,400]         Applying rules to filter isoforms         
+[INFO:2026-02-06 13:00:57,400] --------------------------------------------------
+[INFO:2026-02-06 13:00:57,599] --------------------------------------------------
+[INFO:2026-02-06 13:00:57,599]                  Writing results                  
+[INFO:2026-02-06 13:00:57,599] --------------------------------------------------
+[INFO:2026-02-06 13:01:00,017] Output written to: results/04_Filter_basic/mouse.filtered.gtf
