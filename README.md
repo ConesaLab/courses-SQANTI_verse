@@ -237,7 +237,7 @@ By identifying and characterizing canonical and non-canonical junctions, as well
 ---
 </details><br>
 
-For now, we will focus on the main output from SQANTI, the classification file (you can get more information about the other output on the tab above). This file contains 48 columns with information about the isoforms and the results from the run. Two important columns are the `structural_category`, which indicates the structural category that each isoform belongs to, and `associated_gene`, which indicates the reference gene that a certain isoform is associated with (if any). 
+For now, we will focus on the main output from SQANTI, the classification file (you can get more information about the other output on the tab above). This file contains 52 columns with information about the isoforms and the results from the run. Two important columns are the `structural_category`, which indicates the structural category that each isoform belongs to, and `associated_gene`, which indicates the reference gene that a certain isoform is associated with (if any). 
 
 ❓**Trivia:** Take a look at SQANTI3 report (open it in Google Chrome or Firefox). How many isoforms are classified as FSM? How many are NNC?
 
@@ -245,7 +245,7 @@ For now, we will focus on the main output from SQANTI, the classification file (
 
 ## 1.2 Run with additional inputs
 
-The most common extra information that you will use in combination with lr RNA-seq is short reads RNA data. While long-reads are fabulous for determining the structure of an isoform, since they are able to capture full transcripts without the need of an assembly, they tend to be quite noisy and with high error rates, especially if they come from 'old' chemistries. That is why, combining them with short reads is such a good idea. There reads will map to the transcriptome and can be used for multiple purposes, such as identifying isoform expression, fixing indels or giving support to junctions. 
+The most common extra information that you will use in combination with lr RNA-seq is short reads RNA data. While long-reads are fabulous for determining the structure of an isoform, since they are able to capture full transcripts without the need of an assembly, they tend to be quite noisy and with high error rates, especially if they come from 'old' chemistries. That is why, combining them with short reads is such a good idea. Short reads can be mapped to either the genome or the transcriptome using STAR (splice aware aligner) and have multiple uses, such as identifying isoform expression, fixing indels or giving support to junctions.
 
 The other two main types of orthogonal data that SQANTI3 QC can use are CAGE peaks and polyA sites. CAGE peaks are used to identify the transcription start sites (TSS) of the isoforms, while polyA sites are used to identify the transcription termination sites (TTS) of the isoforms. These two types of data can be used to improve the classification of the isoforms, and to distinguish between true isoforms and artifacts caused by degradation of the RNA, for instance.
 
@@ -327,10 +327,10 @@ The conditions included must have the same name as the columns in the classifica
 * **FSM**: Keep if the isoform:
   * Has a `perc_A_downstream_TTS` lower than 60% (not likely intrapriming) **AND**
   * Has no RT Switching **AND**
-  * It is within 50bp of the reference TSS **OR** the TSS is supported by CAGE peaks. 
+  * It is within 50bp of the reference TSS (`diff_to_TSS`) **OR** the TSS is supported by CAGE peaks (`within_CAGE_peak`). 
 
 * **ISM**: Keep if:
-  * Has no RT Switching **AND**
+  * Is between 2000 and 15000 bp **AND**
   * It belongs to subcategories "3prime_fragment" or "5prime_fragment".
 
 * **NIC**: Keep if:
@@ -339,7 +339,7 @@ The conditions included must have the same name as the columns in the classifica
 
 * **NNC**: Keep if:
   * The junctions are all canonical **AND**
-  * Distance to the closest TSS (`diff_to_gene_TSS`) and TTS (`diff_to_gene_TTS`) is within ±50 bp.
+  * Distance to the closest TSS (`diff_to_TSS`) and TTS (`diff_to_TTS`) is within ±50 bp.
 
 * **Rest of the categories**: Keep if:
   * The transcript is coding  **AND**
@@ -356,7 +356,13 @@ The conditions included must have the same name as the columns in the classifica
   "full-splice_match": [
     {
       "perc_A_downstream_TTS": [0, 59],
-      "RTS_stage": false
+      "RTS_stage": false,
+      "diff_to_TSS": [-50, 50],
+    }
+    {
+      "perc_A_downstream_TTS": [0, 59],
+      "RTS_stage": false,
+      "within_CAGE_peak": true
     }
   ],
   "incomplete-splice_match": [
@@ -376,8 +382,8 @@ The conditions included must have the same name as the columns in the classifica
   "novel_not_in_catalog": [
     {
       "all_canonical": "canonical",
-      "diff_to_gene_TSS": [-50, 50],
-      "diff_to_gene_TTS": [-50, 50]
+      "diff_to_TSS": [-50, 50],
+      "diff_to_TTS": [-50, 50]
     }
   ],
   "rest": [
@@ -405,7 +411,7 @@ sqanti3_filter.py rules \
 
 You will have to run this command twice, once for each classification file. Remember to also change the output directory, so one run won't overwrite the other. Once both runs are finished, move to the questionnaire [filter_worksheet.md](filter_worksheet.md) and try to answer the questions. You can use any programming language or tool to answer the questions. The questions are designed to help you understand the output of SQANTI3 filter and the classification file.
 
-🥳 You successfully completed your first runs of SQANTI3 filter. Congrats! You are now one step closer to become an SQANTI3 expert!
+🥳 You successfully completed your first run of SQANTI3 filter. Congrats! You are now one step closer to become an SQANTI3 expert!
 
 # 3. SQANTI3 rescue
 
@@ -425,13 +431,13 @@ In order to run SQANTI3 rescue in full mode, you need to have run SQANTI3 QC on 
 <summary> Code to run SQANTI3 QC on the reference </summary>
 ```bash
 sqanti_qc.py \
-    --isoforms data/chr22_hg38.gtf \
-    --refGTF data/chr22_hg38.gtf \
-    --refFasta data/chr22_hg38.gtf \
+    --isoforms data/reference/Mus_musculus.GRCm39.115.chr19.gtf\
+    --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \ 
+    --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \ 
     --short_reads data/short_reads.fofn \
-    --CAGE_peak data/ref_TSS_annotation/human.refTSS_v3.1.hg39.bed \
-    --polyA_motif_list data/polyA_motifs/mouse_and human.polyA_motif.txt \
-    --dir reference_sqanti3 --output reference
+    --CAGE_peak data/orthogonal/mouse.refTSS_v3.1.GRCm39.bed \
+    --polyA_motif data/orthogonal/mouse_and_human.polyA_motif.txt \
+    --include_ORF --dir results/00_QC_reference --output reference
 ```
 </details><br>
 
@@ -442,23 +448,23 @@ The command is as follows:
 ```bash
 sqanti3_rescue.py rules \
     --filter_class results/complete_filter/course_RulesFilter_result_classification.txt \
-    --refGTF data/reference/gencode.v38.basic_chr22.gtf \
-    --refFasta data/reference/GRCh38.p13_chr22.fasta \
-    --refClassif data/reference/gencode.v38.basic_chr22_classification.txt \
-    --mode full \
+    --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
+    --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
+    --refClassif data/reference/Mus_musculus.GRCm39.115.chr19_classification.txt \
+    --mode full --strategy rules\
     --json_filter data/filter_rules.json \
     --rescue_isoform results/complete_sqanti3/course_corrected.fasta \
     --rescue_gtf results/complete_filter/course.filtered.gtf \
     --dir results/complete_rescue --output course
 ```
 
-⚠️ In `--rescue_gtf` you have to specify the filtered gtf file, not the corrected one, otherwise the artifact isoforms will be kept after rescue. However, in `rescue_isoforms` you **do** need to use the non-filtered fasta file with all the isoforms. That way, the mapping step can be done correctly.
+⚠️ In `--rescue_gtf` you have to specify the filtered gtf file, not the corrected one, otherwise the artifact isoforms will be kept after rescue. However, in `--rescue_isoforms` you **do** need to use the non-filtered fasta file with all the isoforms. That way, the mapping step can be done correctly.
 
 This pipeline is a bit more complex. It follows four main steps to rescue the isoforms:
 
 1. **Candidate and target selection:** Candidate isoforms are the ISM, NIC and NNC isoforms that were considered as artifacts in the filtering step. The rescue targets are all the reference or long read-defined transcripts that are associated with the candidate isoforms. 
 
-2. **Maping of the candidates to the targets:** Minimap2 is used to map the candidates to the targets and find the best matches between each target and the same gene candidates. 
+2. **Mapping of the candidates to the targets:** Minimap2 is used to map the candidates to the targets and find the best matches between each target and the same gene candidates. 
 
 3. **Filtering of the reference isoforms:** Using the same strategy as with the long-read transcriptome, the reference isoforms are run through the SQANTI3 filter module. This step is done to validate the reference transcripts using the orthogonal data.
 
@@ -497,7 +503,7 @@ If the user desires to set some predefined parameters at this step, it can be do
 sqanti3 qc -c <config_file> -a isoforms=<path_to_isoforms> dir=run_2
 ```
 
-In the configuration file, each module options are preceeded by the `enabled` tag. Setting it to true or false will activate or deactivate each module respectively when running the wrapper in `all` mode. 
+In the configuration file, each module options are preceded by the `enabled` tag. Setting it to true or false will activate or deactivate each module respectively when running the wrapper in `all` mode. 
 
 Finally, there are two new options: 
 
