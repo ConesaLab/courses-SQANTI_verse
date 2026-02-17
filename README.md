@@ -429,11 +429,12 @@ In order to run SQANTI3 rescue in full mode, you need to have run SQANTI3 QC on 
 
 <details> 
 <summary> Code to run SQANTI3 QC on the reference </summary>
+
 ```bash
-sqanti_qc.py \
-    --isoforms data/reference/Mus_musculus.GRCm39.115.chr19.gtf\
-    --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \ 
-    --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \ 
+sqanti3_qc.py \
+    --isoforms data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
+    --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
+    --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
     --short_reads data/short_reads.fofn \
     --CAGE_peak data/orthogonal/mouse.refTSS_v3.1.GRCm39.bed \
     --polyA_motif data/orthogonal/mouse_and_human.polyA_motif.txt \

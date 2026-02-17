@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # This script is used to run the QC module of SQANTI3 on a given set of transcripts.
-source activate sqanti3
 
 sqanti3_qc.py \
     --isoforms results/01_isoquant_transcriptome/mouse.transcript_models.clean.gtf \
