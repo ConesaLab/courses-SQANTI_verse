@@ -77,7 +77,7 @@ mkdir data
 SQANTI3 can be directly downloaded from GitHub using the following command:
 
 ```bash
-wget https://github.com/ConesaLab/SQANTI3/releases/download/v6.0/SQANTI3_v6.0.zip
+wget https://github.com/ConesaLab/SQANTI3/releases/download/v6.0-beta/SQANTI3_v6.0.zip
 mkdir -p tools/sqanti3
 unzip SQANTI3_v6.0.zip -d tools/sqanti3
 ```
