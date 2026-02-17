@@ -103,7 +103,7 @@ Additionally, you could create a symbolic link to the SQANTI3 scripts in a direc
 The final step to have a functional sqanti3 installation is to install the dependencies. SQANTI3 has a few dependencies that need to be installed before running the program, but that is all handled by anaconda or mamba, depending on which one you prefer (mamba is highly recommended for better environment solving and consistency). In case you do not have mamba installed, you can do it following [this link](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html).
 
 ```bash
-mamba env create -f tools/sqanti3/SQANTI3.conda.env.yml
+mamba env create -f tools/sqanti3/SQANTI3.conda_env.yml
 ```
 
 :warning: **Important note**: Due to the installation of some packages (TransDecoder2 mainly), the installation time of the conda environment can take a while. Please be patient while the environment is being created (usually 5-10 minutes).
