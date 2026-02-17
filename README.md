@@ -63,7 +63,6 @@ By the end of the course, you will be equipped to effectively utilize SQANTI3 fo
 
 Before starting the tutorial, it is key to have a clean and organized working environment. The initial step, even before processing any data is to prepare the working environment. In bioinformatics, an organized workspace is vital, so when you come after some time to your project, you can find and understand what you were doing, rather than spend hours searching through weirdly named directories. It is important to always create three directories:
 
-
 - *scripts*: all the scripts will be stored here, with meaningful names
 - *data*: Raw data will go in here and, if you want and need, databases
 - *results*: Create a sub directory for every different process you do. If you run a process multiple times with different parameters, include them in the directory name, so you will differentiate them in the future.
@@ -101,7 +100,7 @@ Additionally, you could create a symbolic link to the SQANTI3 scripts in a direc
 ---
 </details><br>
 
-The final step to have a functional sqanti3 installation is to install the dependencies. SQANTI3 has a few dependencies that need to be installed before running the program, but that is all handled by anaconda or mamba, depending on which one you prefer (mamba is highly recommended for better environment solving and consistency).
+The final step to have a functional sqanti3 installation is to install the dependencies. SQANTI3 has a few dependencies that need to be installed before running the program, but that is all handled by anaconda or mamba, depending on which one you prefer (mamba is highly recommended for better environment solving and consistency). In case you do not have mamba installed, you can do it following [this link](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html).
 
 ```bash
 mamba env create -f tools/sqanti3/SQANTI3.conda.env.yml
