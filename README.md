@@ -74,15 +74,18 @@ mkdir data
 
 ### Software installation
 
-SQANTI3 can be directly downloaded from GitHub using the following command:
+SQANTI3 can be directly downloaded from bioconda using the following command:
 
 ```bash
-wget https://github.com/ConesaLab/SQANTI3/releases/download/v6.0-beta/SQANTI3_v6.0.zip
-mkdir -p tools/sqanti3
-unzip SQANTI3_v6.0.zip -d tools/sqanti3
+conda install -c bioconda sqanti3
 ```
 
-Once it is downloaded and unzipped, you can either add it to your PATH or call the programs using the full path. 
+Once it is downloaded and unzipped, you just need to activate the conda environment and you can directly call all of SQANTI3 executables
+
+```bash
+conda activate sqanti3
+sqant3_qc.py -v
+```
 
 <details>
 <summary><strong> 📃  Adding SQANTI3 to your PATH</strong></summary><br>
