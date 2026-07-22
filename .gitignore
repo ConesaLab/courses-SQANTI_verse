@@ -16,3 +16,7 @@ scripts/00_QC_reference.sh
 
 # Special files
 .vscode/
+
+# Documentation
+docs/
+
