@@ -125,9 +125,9 @@ The first step on a transcriptomics experiment is to reconstruct the transcripto
 In this tutorial, we will use [IsoQuant](https://github.com/ablab/IsoQuant), since it supports multiple sequencing platforms (PacBio and ONT) and has a good balance between novelty and accuracy. The command to run IsoQuant is as follows:
 
 ```bash
-isoquant.py --fastq data/isoquant/mouse_raw_reads.subset.chr19.fastq \
-            --reference data/isoquant/Mus_musculus.GRCm39.dna.chr19.fasta \
-            -d pacbio --output results/01_isoquant_transcriptome --prefix mouse --threads 8
+isoquant --fastq data/isoquant/mouse_raw_reads.subset.chr19.fastq \
+            --reference data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
+            --threads 8 -d pacbio --output results/01_isoquant_transcriptome --prefix mouse
 ```
 
 ⚠️ Perhaps your computer is not able to run this command, due to RAM memory shortage. If that is the case, you can play around with the number of threads, reducing them for less RAM usage at the expense of longer computing time. However, if you are not able to run this step, you can find the output of IsoQuant in the hidden results folder. That will be under '.results/01_isoquant_transcriptome
@@ -253,11 +253,12 @@ sqanti3_qc.py \
     --isoforms results/01_isoquant_transcriptome/mouse.transcript_models.clean.gtf \
     --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
     --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
-    --short_reads data/short_reads.fofn \
+    --SR_bam data/orthogonal/short_reads_chr19_Aligned.sortedByCoord.out.bam \
+    --coverage data/orthogonal/short_reads_chr19_SJ.out.tab \
     --CAGE_peak data/orthogonal/mouse.refTSS_v3.1.GRCm39.bed \
     --polyA_motif data/orthogonal/mouse_and_human.polyA_motif.txt \
     --fl_count results/01_isoquant_transcriptome/mouse.discovered_transcript_counts.clean.tsv \
-    --include_ORF --dir results/03_QC_with_orthogonal --output mouse
+    --include_ORF --dir results/03_QC_with_orthogonal --output mouse --report both
 ```
 
 When it comes to the output files, they won't change much form a SQANTI3 run without the extra information. The main difference will be within the report, where some of the columns that were NAs before, now will be filled with the information from the short-reads, CAGE peaks and polyA motifs.
@@ -275,6 +276,8 @@ The **SQANTI3 filter** module provides two primary technical approaches for cura
 For the sake of this tutorial, we will focus on the rules-based filter, which allows for more flexibility and customization from the user. The first step here is to understand how the filter works.
 
 ## 2.1 Rules 
+
+💡 **Note:** To speed up processing during the practical session, short-read alignment is omitted and reads have been pre-mapped using STAR. Pre-computed BAM alignment (`short_reads_chr19_Aligned.sortedByCoord.out.bam`) and splice junction (`short_reads_chr19_SJ.out.tab`) files are already provided under `data/orthogonal/`.
 
 The rules filter is based on a set of rules (surprise!) that are defined in a JSON file. SQANTI3 filter comes by default with its own set of rules, which do a really basic filtering of the isoforms. The way the rules work is the following:
 
@@ -401,11 +404,21 @@ The conditions included must have the same name as the columns in the classifica
 Now, that you know the basics of the rules filter, lets dive into running it. The rules module comes with two different subparsers, one for the rules strategy and another for the machine learning strategy. Most of the inputs given are common, and in our case, the only special input will be the JSON file with the actual rules. For the sake of this tutorial, we will use one rule file for the two classifications we did, the one without the orthogonal data and the one with it. 
 
 ```bash
+rules_file="data/filter_rules.json"
+
+# BASIC SQANTI3
 sqanti3_filter.py rules \
-    --sqanti3_class <path_to_sqanti3_dir>/course_classification.tsv \
-    --filter_gtf <path_to_sqanti3_dir>/course_corrected.gtf \
-    --json_filter data/rules.json \
-    --dir results/rules_filter --output course 
+    --sqanti_class "results/02_QC_basic/mouse_classification.txt" \
+    --filter_gtf results/02_QC_basic/mouse_corrected.gtf \
+    --json_filter $rules_file \
+    --dir results/04_Filter_basic --output mouse 
+
+# COMPLETE SQANTI3
+sqanti3_filter.py rules \
+    --sqanti_class "results/03_QC_with_orthogonal/mouse_classification.txt" \
+    --filter_gtf results/03_QC_with_orthogonal/mouse_corrected.gtf \
+    --json_filter $rules_file \
+    --dir results/04_Filter_orthogonal --output mouse
 ```
 
 You will have to run this command twice, once for each classification file. Remember to also change the output directory, so one run won't overwrite the other. Once both runs are finished, move to the questionnaire [filter_worksheet.md](filter_worksheet.md) and try to answer the questions. You can use any programming language or tool to answer the questions. The questions are designed to help you understand the output of SQANTI3 filter and the classification file.
@@ -446,16 +459,17 @@ In this tutorial we will run the full rescue using the results from filtering th
 The command is as follows:
 
 ```bash
-sqanti3_rescue.py rules \
-    --filter_class results/complete_filter/course_RulesFilter_result_classification.txt \
+sqanti3_rescue.py \
+    --filter_class results/04_Filter_orthogonal/mouse_RulesFilter_classification.txt \
     --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
     --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
-    --refClassif data/reference/Mus_musculus.GRCm39.115.chr19_classification.txt \
-    --mode full --strategy rules\
+    --refClassif data/isoquant/reference_classification.txt \
+    --mode full --strategy rules --requant \
     --json_filter data/filter_rules.json \
-    --rescue_isoform results/complete_sqanti3/course_corrected.fasta \
-    --rescue_gtf results/complete_filter/course.filtered.gtf \
-    --dir results/complete_rescue --output course
+    --corrected_isoforms_fasta results/03_QC_with_orthogonal/mouse_corrected.fasta \
+    --filtered_isoforms_gtf results/04_Filter_orthogonal/mouse.filtered.gtf \
+    --counts results/01_isoquant_transcriptome/mouse.discovered_transcript_counts.clean.tsv \
+    --dir results/05_Rescue_full --output mouse
 ```
 
 ⚠️ In `--rescue_gtf` you have to specify the filtered gtf file, not the corrected one, otherwise the artifact isoforms will be kept after rescue. However, in `--rescue_isoforms` you **do** need to use the non-filtered fasta file with all the isoforms. That way, the mapping step can be done correctly.
@@ -477,13 +491,33 @@ The output in this case will be the same as before, but most likely, more transc
 
 ![alt_text](data/ConesaColors_mad.jpg "ConesaMad")
 
+# 4. Advanced Transcriptome Reconstruction & Benchmarking
+
+In addition to *de novo* IsoQuant reconstruction, the course explores reference-guided reconstruction with IsoQuant and long-read reconstruction with **FLAIR**.
+
+### 4.1. IsoQuant with Reference Annotation
+Running IsoQuant with a reference GTF annotation (`--genedb`) refines splice junctions and recovers low-abundance annotated isoforms:
+```bash
+bash scripts/07_generate_transcriptome_with_reference.sh
+bash scripts/08_QC_with_reference.sh
+```
+
+### 4.2. FLAIR Transcriptome & SQANTI QC
+FLAIR uses `flair align` (Minimap2) and `flair transcriptome` to correct and collapse long reads guided by reference annotations and short-read splice junctions (`data/orthogonal/short_reads_chr19_SJ.out.tab`):
+```bash
+bash scripts/09_generate_flair_transcriptome.sh
+bash scripts/10_SQANTI_QC_flair_orthogonal.sh
+```
+
+
+
 # 5. SQANTI3 wrapper
 
 As of release v5.4, a new wrapper script and configuration file for SQANTI3 have been added. This wrapper is designed to simplify the process of running SQANTI3 and its associated modules. The wrapper script allows users to run all of SQANTI3 modules (qc, filter and rescue), specifying the input files, output directories, and all the parameters in a single configuration file, making it easier to manage and run multiple analyses.
 
 There are 5 possible ways to run the wrapper:
 
-1. `init`**creates the configuration file**
+1. `init` **creates the configuration file**
 2. `all` **runs all the selected modules of SQANTI**
 3. `qc` **runs the SQANTI3 QC module**
 4. `filter` **runs the SQANTI3 filter module**
@@ -515,3 +549,25 @@ Finally, there are two new options:
 # BONUS
 
 Lets see who wins the [SQANTI3 challenge](https://www.studyfetch.com/share/feature/arcade_game/u9gtw3xvvc13u44xi0aalz54xil7d4pw)!
+
+
+# 📚 Course Worksheets, Master Pipeline & Guides
+
+### 🏃 Master Pipeline Script
+To execute the entire analysis pipeline from start to finish sequentially with automated Conda environment switching (`sqanti3`, `isoquant`, `flair`):
+```bash
+./scripts/run_all_course.sh
+```
+
+### 📝 Course Worksheets
+1. **[classification_worksheet.md](classification_worksheet.md)**: Explore SQANTI3 Quality Control module output (`classification.txt`).
+2. **[filter_worksheet.md](filter_worksheet.md)**: Evaluate SQANTI3 filtering rules with and without orthogonal data.
+3. **[rescue_worksheet.md](rescue_worksheet.md)**: Inspect isoforms recovered by SQANTI3 Automatic & Full ML Rescue.
+4. **[reconstruction_worksheet.md](reconstruction_worksheet.md)**: Benchmark and compare transcript reconstruction across IsoQuant (*de novo* vs reference-guided) and FLAIR.
+
+### 📖 Documentation & Instructor Memos (`docs/`)
+- **[docs/course_summary_memo.md](docs/course_summary_memo.md)**: Course summary memo, pipeline step table, and cheat sheet.
+- **[docs/workshop_advanced_strategy.md](docs/workshop_advanced_strategy.md)**: 90-minute practical workshop agenda and strategy for bioinformaticians.
+- **[docs/part3_reconstruction_benchmark_guide.md](docs/part3_reconstruction_benchmark_guide.md)**: Detailed algorithmic benchmark guide (IsoQuant vs FLAIR).
+
+

@@ -11,4 +11,4 @@ sqanti3_qc.py \
     --CAGE_peak data/orthogonal/mouse.refTSS_v3.1.GRCm39.bed \
     --polyA_motif data/orthogonal/mouse_and_human.polyA_motif.txt \
     --fl_count results/01_isoquant_transcriptome/mouse.discovered_transcript_counts.clean.tsv \
-    --include_ORF --dir results/03_QC_with_orthogonal_v2 --output mouse --report both
+    --include_ORF --dir results/03_QC_with_orthogonal --output mouse --report both
