@@ -497,15 +497,25 @@ python scripts/clean_transcript_ids.py -g results/01_isoquant_transcriptome/mous
     -o results/01_isoquant_transcriptome
 ```
 
-Once the transcriptome is reconstructed, we run SQANTI3 QC on the reference-guided IsoQuant transcriptome:
+Once the transcriptome is reconstructed, we can run SQANTI3 QC on the reference-guided IsoQuant transcriptome. We will do it using the same orthogonal data as before, to ensure a fair comparison with the *de novo* IsoQuant transcriptome.
+
+<details>
+<summary> Try to do it yourself! 😉 </summary>
 
 ```bash
 sqanti3_qc.py \
     --isoforms results/01_isoquant_transcriptome/mouse_with_ref/mouse_with_ref.transcript_models.gtf \
     --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
     --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
+    --SR_bam data/orthogonal/short_reads_chr19_Aligned.sortedByCoord.out.bam \
+    --coverage data/orthogonal/short_reads_chr19_SJ.out.tab \
+    --CAGE_peak data/orthogonal/mouse.refTSS_v3.1.GRCm39.bed \
+    --polyA_motif data/orthogonal/mouse_and_human.polyA_motif.txt \
+    --fl_count results/09_flair_transcriptome/mouse.isoform.counts.clean.tsv \
     --include_ORF --dir results/08_QC_with_reference --output mouse --report both
 ```
+</details><br>
+
 
 ### 💡 **IsoQuant: With vs Without Reference Annotation**
 
