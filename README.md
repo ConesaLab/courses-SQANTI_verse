@@ -74,36 +74,10 @@ mkdir data
 
 ### Software installation
 
-SQANTI3 can be directly downloaded from GitHub using the following command:
+SQANTI3 can be directly installed via conda:
 
 ```bash
-wget https://github.com/ConesaLab/SQANTI3/releases/download/v6.0/SQANTI3_v6.0.zip
-mkdir -p tools/sqanti3
-unzip SQANTI3_v6.0.zip -d tools/sqanti3
-```
-
-Once it is downloaded and unzipped, you can either add it to your PATH or call the programs using the full path. 
-
-<details>
-<summary><strong> 📃  Adding SQANTI3 to your PATH</strong></summary><br>
-
-In the terminal, you have to find the file `.bashrc` or `.bash_profile` in your home directory. Use your favorite text editor to open it and add the following line
-
-```bash
-export PATH=$PATH:/path/to/SQANTI3_v6.0
-```
-
-Then, save the file and SQANTI3 will be in your path for the next terminal you open. As well, you can make this changes instantaneous by running `source ~/.bashrc` or `source ~/.bash_profile` in the terminal.
-
-Additionally, you could create a symbolic link to the SQANTI3 scripts in a directory that is already in your PATH, such as `/usr/local/bin`:
-
----
-</details><br>
-
-The final step to have a functional sqanti3 installation is to install the dependencies. SQANTI3 has a few dependencies that need to be installed before running the program, but that is all handled by anaconda or mamba, depending on which one you prefer (mamba is highly recommended for better environment solving and consistency). In case you do not have mamba installed, you can do it following [this link](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html).
-
-```bash
-mamba env create -f tools/sqanti3/SQANTI3.conda.env.yml
+conda install -n sqanti3 -c bioconda sqanti3
 ```
 
 :warning: **Important note**: Due to the installation of some packages (TransDecoder2 mainly), the installation time of the conda environment can take a while. Please be patient while the environment is being created (usually 5-10 minutes).
@@ -112,6 +86,12 @@ In order to run IsoQuant, you will need to also create a conda environment for i
 
 ```bash
 mamba create -n isoquant -c bioconda isoquant
+```
+
+The same applies to FLAIR
+
+```bash
+mamba create -n flair -c bioconda -c conda-forge flair
 ```
 
 ### Data downloading
@@ -261,6 +241,8 @@ sqanti3_qc.py \
     --include_ORF --dir results/03_QC_with_orthogonal --output mouse --report both
 ```
 
+💡 **Note:** To speed up processing during the practical session, short-read alignment is omitted and reads have been pre-mapped using STAR. Pre-computed BAM alignment (`short_reads_chr19_Aligned.sortedByCoord.out.bam`) and splice junction (`short_reads_chr19_SJ.out.tab`) files are already provided under `data/orthogonal/`.
+
 When it comes to the output files, they won't change much form a SQANTI3 run without the extra information. The main difference will be within the report, where some of the columns that were NAs before, now will be filled with the information from the short-reads, CAGE peaks and polyA motifs.
 
 🥳 You have completed a full run of SQANTI3 QC, the first and central module of the SQANTI-verse. You have learned how to run it, what are the main output files and how to use additional information to improve the classification of the isoforms. Now, it is your time to show all you have learned about SQANTI3 QC. Try to complete the [qc worksheet](classification_worksheet.md) using your knowledge, the data you just generated and a little help from the SQANTI3 wiki and report 😉.
@@ -276,8 +258,6 @@ The **SQANTI3 filter** module provides two primary technical approaches for cura
 For the sake of this tutorial, we will focus on the rules-based filter, which allows for more flexibility and customization from the user. The first step here is to understand how the filter works.
 
 ## 2.1 Rules 
-
-💡 **Note:** To speed up processing during the practical session, short-read alignment is omitted and reads have been pre-mapped using STAR. Pre-computed BAM alignment (`short_reads_chr19_Aligned.sortedByCoord.out.bam`) and splice junction (`short_reads_chr19_SJ.out.tab`) files are already provided under `data/orthogonal/`.
 
 The rules filter is based on a set of rules (surprise!) that are defined in a JSON file. SQANTI3 filter comes by default with its own set of rules, which do a really basic filtering of the isoforms. The way the rules work is the following:
 
@@ -491,23 +471,118 @@ The output in this case will be the same as before, but most likely, more transc
 
 ![alt_text](data/ConesaColors_mad.jpg "ConesaMad")
 
-# 4. Advanced Transcriptome Reconstruction & Benchmarking
+# 4. Transcriptome Reconstruction Comparison & Benchmarking
 
-In addition to *de novo* IsoQuant reconstruction, the course explores reference-guided reconstruction with IsoQuant and long-read reconstruction with **FLAIR**.
+So far, we reconstructed the transcriptome using **IsoQuant** in *de novo* mode (without supplying a reference GTF annotation). However, as we saw during the theory lecture, each transcriptome reconstruction method has its own strengths and weaknesses, and it is important to keep them in mind before starting an analysis. In this section, we will explore two alternative reconstruction approaches: **IsoQuant** using the reference annotation (`--genedb`) to guide the reconstruction process, and **FLAIR** (Full-Length Alternative Isoform analysis of RNA), which operates completely differently.
 
-### 4.1. IsoQuant with Reference Annotation
-Running IsoQuant with a reference GTF annotation (`--genedb`) refines splice junctions and recovers low-abundance annotated isoforms:
+## 4.1. IsoQuant with Reference Annotation
+
+When a reference annotation GTF is supplied to IsoQuant via the `--genedb` argument, IsoQuant uses the known transcript structures to refine splice site alignments and recover low-abundance annotated isoforms.
+
+To run IsoQuant with reference guidance and clean up the transcript identifiers:
+
 ```bash
-bash scripts/07_generate_transcriptome_with_reference.sh
-bash scripts/08_QC_with_reference.sh
+#!/bin/bash
+set -e
+
+# Generating the transcriptome directly with IsoQuant (no reference annotation)
+isoquant --fastq data/isoquant/mouse_raw_reads.subset.chr19.fastq \
+         --reference data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
+         --genedb data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
+         --threads 8 -d pacbio --output results/01_isoquant_transcriptome --prefix mouse_with_ref
+
+# Cleaning up the transcript IDs and counts
+python scripts/clean_transcript_ids.py -g results/01_isoquant_transcriptome/mouse/mouse.transcript_models.gtf \
+    -a results/01_isoquant_transcriptome/mouse/mouse.discovered_transcript_counts.tsv \
+    -o results/01_isoquant_transcriptome
 ```
 
-### 4.2. FLAIR Transcriptome & SQANTI QC
-FLAIR uses `flair align` (Minimap2) and `flair transcriptome` to correct and collapse long reads guided by reference annotations and short-read splice junctions (`data/orthogonal/short_reads_chr19_SJ.out.tab`):
+Once the transcriptome is reconstructed, we run SQANTI3 QC on the reference-guided IsoQuant transcriptome:
+
 ```bash
-bash scripts/09_generate_flair_transcriptome.sh
-bash scripts/10_SQANTI_QC_flair_orthogonal.sh
+sqanti3_qc.py \
+    --isoforms results/01_isoquant_transcriptome/mouse_with_ref/mouse_with_ref.transcript_models.gtf \
+    --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
+    --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
+    --include_ORF --dir results/08_QC_with_reference --output mouse --report both
 ```
+
+### 💡 **IsoQuant: With vs Without Reference Annotation**
+
+Now that you have run IsoQuant both *de novo* (Section 1) and with reference guidance (`--genedb`), what differences should you expect in the resulting transcriptome?
+
+* **Higher Sensitivity & Isoform Yield:** Providing the reference GTF allows IsoQuant to use known gene models as a prior graph. IsoQuant can assign reads with minor alignment noise or micro-exons to annotated isoforms. As a result, the total number of detected isoforms increases from **468** (*de novo*) to **551** (reference-guided), and the number of **Full-Splice Match (FSM)** transcripts jumps significantly (from 348 to 446).
+* **Reference Loci Assignment:** In *de novo* mode, all genes are assigned new identifiers (`novel_gene_...`). With reference guidance, reads matching known genes inherit their official reference IDs (e.g., `ENSMUSG...`).
+* **The Trade-off:** While reference guidance maximizes sensitivity and restores known annotated transcripts, it introduces a subtle reference bias. Low-coverage reads that might represent a true novel isoform might instead be collapsed into a close reference model.
+
+---
+
+## 4.2. FLAIR Transcriptome Reconstruction
+
+[FLAIR](https://flair.readthedocs.io/) is another widely used tool specifically designed for long-read isoform analysis. FLAIR operates in two primary steps:
+1. `flair align`: Aligns raw long reads to the reference genome using Minimap2.
+2. `flair transcriptome`: Corrects misaligned splice sites and collapses reads into high-confidence isoform models using reference GTF annotations and short-read splice junctions (`--junction_tab`).
+
+To run FLAIR alignment and transcriptome reconstruction:
+
+```bash
+conda activate flair
+
+# Ensure output directory exists
+mkdir -p results/09_flair_transcriptome
+
+# Aligning reads to genome
+flair align --reads data/isoquant/mouse_raw_reads.subset.chr19.fastq \
+            --genome data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
+            --threads 8 \
+            --output results/09_flair_transcriptome/mouse.aligned
+
+# Generating transcriptome with reference annotation and short-read splice junctions
+flair transcriptome --genomealignedbam results/09_flair_transcriptome/mouse.aligned.bam \
+                    --genome data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
+                    --gtf data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
+                    --junction_tab data/orthogonal/short_reads_chr19_SJ.out.tab \
+                    --threads 8 \
+                    --output results/09_flair_transcriptome/mouse
+```
+
+Next, we run SQANTI3 QC on FLAIR's output integrating all orthogonal data sources:
+
+```bash
+#!/bin/bash
+set -e
+
+# Format FLAIR count table for SQANTI3 compatibility (adds header and matches transcript IDs)
+python3 scripts/clean_flair_counts.py \
+    results/09_flair_transcriptome/mouse.isoforms.gtf \
+    results/09_flair_transcriptome/mouse.isoform.counts.txt \
+    results/09_flair_transcriptome/mouse.isoform.counts.clean.tsv
+
+# This script runs the QC module of SQANTI3 on the FLAIR reconstructed transcriptome
+sqanti3_qc.py \
+    --isoforms results/09_flair_transcriptome/mouse.isoforms.gtf \
+    --refGTF data/reference/Mus_musculus.GRCm39.115.chr19.gtf \
+    --refFasta data/reference/Mus_musculus.GRCm39.dna.chr19.fasta \
+    --SR_bam data/orthogonal/short_reads_chr19_Aligned.sortedByCoord.out.bam \
+    --coverage data/orthogonal/short_reads_chr19_SJ.out.tab \
+    --CAGE_peak data/orthogonal/mouse.refTSS_v3.1.GRCm39.bed \
+    --polyA_motif data/orthogonal/mouse_and_human.polyA_motif.txt \
+    --fl_count results/09_flair_transcriptome/mouse.isoform.counts.clean.tsv \
+    --include_ORF --dir results/10_QC_flair --output mouse --report both
+```
+
+### 💡 **FLAIR vs IsoQuant: What to Expect in the Transcriptome**
+
+When comparing FLAIR to IsoQuant (both *de novo* and reference-guided), you will notice striking differences in how the two algorithms construct transcript models:
+
+* **Conservative Precision:** FLAIR is built with a heavy focus on precision. Because FLAIR corrects long-read splice sites against short-read junction tables (`--junction_tab`) and requires short-read confirmation for novel junctions, it filters out potential alignment noise aggressively. FLAIR outputs **432 total isoforms**, which is fewer than IsoQuant (551 with reference, 468 *de novo*).
+* **High-Confidence Novel Isoforms:** IsoQuant (*de novo*) reports 100 novel isoforms (57 NIC + 43 NNC). In contrast, FLAIR reports only 60 novel isoforms (35 NIC + 25 NNC). However, **100% of FLAIR's NNC isoforms have canonical splice sites**, as unsupported non-canonical junctions are corrected or discarded.
+* **Chimeric & Fusion Reads:** IsoQuant retains supplementary alignments, allowing SQANTI3 to detect multi-gene fusion transcripts (2 fusion isoforms). By default, FLAIR filters out supplementary alignments (`--filtertype removesup`), resulting in **0 fusion transcripts**.
+* **Summary Takeaway:** IsoQuant + Reference gives you **maximum sensitivity** for cataloging all potential transcripts, whereas FLAIR + Short Reads gives you **maximum precision** for discovering high-confidence novel isoforms validated by orthogonal data.
+
+🥳 Now you have reconstructed and evaluated transcriptomes using **IsoQuant (*de novo*)**, **IsoQuant (reference-guided)**, and **FLAIR**!
+
+To explore the differences in isoform counts, structural categories, and precision vs sensitivity trade-offs between these methods, try to complete the **[reconstruction worksheet](reconstruction_worksheet.md)**.
 
 
 
@@ -569,5 +644,4 @@ To execute the entire analysis pipeline from start to finish sequentially with a
 - **[docs/course_summary_memo.md](docs/course_summary_memo.md)**: Course summary memo, pipeline step table, and cheat sheet.
 - **[docs/workshop_advanced_strategy.md](docs/workshop_advanced_strategy.md)**: 90-minute practical workshop agenda and strategy for bioinformaticians.
 - **[docs/part3_reconstruction_benchmark_guide.md](docs/part3_reconstruction_benchmark_guide.md)**: Detailed algorithmic benchmark guide (IsoQuant vs FLAIR).
-
 
